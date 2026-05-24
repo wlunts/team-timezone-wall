@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="zh-CN"> 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Real‑time clock of Europe, current time in Europe, 实时显示37个欧洲国家的当地时间">
-    <meta name="keywords" content="Europe time丨欧洲时间">
-    <title>Europe time丨欧洲时间</title>
+    <title>欧洲时间 | 法国/德国/意大利等37国当前时间实时查询</title>
+    <meta name="description" content="实时显示法国、德国、意大利、英国、西班牙等37个欧洲国家的精准当地时间。自动识别夏令时，支持明/暗主题，全球团队协作的最佳时间工具。">
+    <meta name="keywords" content="欧洲时间,欧洲现在几点,法国时间,德国时间,英国时间,欧洲时区,夏令时,实时时间">
+    <meta name="baidu-site-verification" content="请替换为你的百度验证代码" />
+    
+    <!-- Google / Schema.org 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "欧洲时间实时查询",
+      "description": "实时显示法国、德国、意大利等37个欧洲国家的当前时间，自动识别夏令时",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "url": "https://euclock.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +37,7 @@
             min-height: 100vh;
             padding: 10px; 
             box-sizing: border-box;
-            background-color: #FFFFFF; /* Explicitly set body background to white */
+            background-color: #FFFFFF;
         }
         .clocksContainerWrapper {
             width: 100%;
@@ -46,7 +66,7 @@
         }
         .timezone-info { 
             font-size: 0.7rem; 
-            opacity: 0.7; /* This might be overridden by text-accent-content, which is fine */
+            opacity: 0.7;
             line-height: 1.2; 
         }
         .alert-custom-pos {
@@ -88,8 +108,6 @@
             margin-top: 0.5rem; 
         }
 
-        /* Removed .working-hours-active CSS as it's now handled by DaisyUI classes directly */
-
         @media (max-width: 767px) { 
              .clock-card-custom {
                 width: 100%; 
@@ -113,52 +131,31 @@
             }
          }
     </style>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Europe Time – Live World Clock",
-  "description": "Real‑time current local time for all European countries. Automatic DST support.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "All",
-  "url": "https://europetime.net/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://europetime.net/?city={city_name}",
-    "query-input": "required name=city_name"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
 </head>
 <body>
     <div class="top-right-controls">
         <div class="dropdown dropdown-end">
-            <button tabindex="0" role="button" class="btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="Add City">
+            <button tabindex="0" role="button" class="btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="添加城市">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 sm:w-6 sm:h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
             </button>
             <div tabindex="0" class="dropdown-content z-[1] menu p-4 shadow bg-base-100 rounded-box w-72 add-city-dropdown-content">
-                <h3 class="text-lg font-semibold mb-3">Add New Clock</h3>
+                <h3 class="text-lg font-semibold mb-3">添加新时钟</h3>
                 <div class="form-control">
-                    <label class="label py-0.5 sm:py-1" for="customCityName"><span class="label-text text-xs">City Name (Optional)</span></label>
-                    <input type="text" id="customCityName" placeholder="e.g., Paris" class="input input-xs sm:input-sm input-bordered input-primary w-full">
+                    <label class="label py-0.5 sm:py-1" for="customCityName"><span class="label-text text-xs">城市名称（可选）</span></label>
+                    <input type="text" id="customCityName" placeholder="例如：巴黎" class="input input-xs sm:input-sm input-bordered input-primary w-full">
                 </div>
                 <div class="form-control">
-                    <label class="label py-0.5 sm:py-1" for="timezoneSelect"><span class="label-text text-xs">Timezone</span></label>
+                    <label class="label py-0.5 sm:py-1" for="timezoneSelect"><span class="label-text text-xs">时区</span></label>
                     <select id="timezoneSelect" class="select select-xs sm:select-sm select-bordered select-primary w-full">
                         </select>
                 </div>
-                <button id="addTimezoneBtn" class="btn btn-secondary btn-xs sm:btn-sm w-full">Add Clock</button> 
+                <button id="addTimezoneBtn" class="btn btn-secondary btn-xs sm:btn-sm w-full">添加时钟</button> 
             </div>
         </div>
 
-        <label class="swap swap-rotate btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="Toggle Theme"> 
+        <label class="swap swap-rotate btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="切换主题"> 
             <input type="checkbox" id="themeToggleCheckbox" />
             <svg class="swap-on fill-current w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29l.71-.71a1,1,0,0,0,-1.41-1.41l-.71.71A1,1,0,0,0,5.64,7.05ZM12,15a3,3,0,1,0,3-3A3,3,0,0,0,12,15Zm12.71,1.29a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.41l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM20,12a1,1,0,0,0-1-1H19a1,1,0,0,0,0,2h1A1,1,0,0,0,20,12ZM18.36,7.05a1,1,0,0,0-.7-.29,1,1,0,0,0-.71.29l-.71.71a1,1,0,1,0,1.41,1.41l.71-.71A1,1,0,0,0,18.36,7.05ZM12,9a1,1,0,0,0,1-1V7a1,1,0,0,0-2,0V8A1,1,0,0,0,12,9Z"/></svg>
             <svg class="swap-off fill-current w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.56,15.7A8.12,8.12,0,0,1,12.14,19.73Z"/></svg>
@@ -173,12 +170,12 @@
     <div id="timeControlsContainer" class="w-full max-w-md mx-auto my-6 p-3 bg-base-200 rounded-box shadow-lg">
         <div class="form-control flex-grow">
             <label for="timeTravelSlider" class="label py-0.5">
-                <span class="label-text text-xs sm:text-sm">Time Travel: <span id="timeTravelValue" class="font-semibold">0 hours</span></span>
+                <span class="label-text text-xs sm:text-sm">时间旅行: <span id="timeTravelValue" class="font-semibold">0 小时</span></span>
             </label>
             <input type="range" id="timeTravelSlider" min="-24" max="24" value="0" step="0.5" class="range range-primary range-xs sm:range-sm"> 
         </div>
         <div class="text-center mt-3">
-            <button id="resetTimeBtn" class="btn btn-primary btn-xs sm:btn-sm">Set to Now</button>
+            <button id="resetTimeBtn" class="btn btn-primary btn-xs sm:btn-sm">重置到现在</button>
         </div>
     </div>
 
@@ -188,6 +185,21 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-4 h-4 sm:w-5 sm:h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <span id="messageText" class="text-xs sm:text-sm"></span>
         </div>
+    </div>
+    
+    <!-- 底部：欧洲时间主题内容区块（SEO 增强） -->
+    <div style="max-width:1200px; margin:20px auto 10px auto; padding:20px; background:#f5f5f5; border-radius:12px; text-align:center; font-size:14px; color:#333;">
+        <h2 style="font-size:18px; margin-bottom:10px;">关于欧洲时间</h2>
+        <p>欧洲横跨UTC+0、UTC+1、UTC+2、UTC+3四个时区。<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典</strong>等国家属于CET时区（UTC+1，夏令时切换为UTC+2），<strong>英国</strong>属于WET时区（UTC+0），<strong>罗马尼亚、芬兰</strong>属于EET时区（UTC+2）。所有欧洲国家均实行夏令时（每年3月最后一个周日至10月最后一个周日）。</p>
+        <p style="margin-top:10px;">📌 实时更新 | 自动识别夏令时 | 支持明/暗主题切换</p>
+        <p style="margin-top:10px;"><a href="/info/cet-time.html">什么是CET时区？欧洲中部时间详解 →</a></p>
+    </div>
+
+    <!-- 内部锚点导航区域 -->
+    <div style="margin-top:30px; margin-bottom:20px; text-align:center; font-size:12px;">
+        <a href="#what-is-cet">什么是CET时区？</a> | 
+        <a href="#dst-europe">欧洲夏令时规则</a> | 
+        <a href="#timezone-list">完整欧洲时区列表</a>
     </div>
 
     <script>
@@ -234,15 +246,15 @@
         const WORK_HOUR_START = 8; 
         const WORK_HOUR_END = 18; 
 
-
-let displayedTimezones = [
-    { city: "My Local Time", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
-    { city: "France, Germany, Poland", timezone: "Europe/Paris" },
-    { city: "Spain, Netherlands, Italy", timezone: "Europe/Madrid" },
-    { city: "Sweden, Hungary, Czech", timezone: "Europe/Stockholm" },
-    { city: "UK, Portugal, Ireland", timezone: "Europe/London" },
-    { city: "Romania, Greece, Bulgaria", timezone: "Europe/Bucharest" }
-];
+        // 默认显示的时区卡片（已翻译为中文）
+        let displayedTimezones = [
+            { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
+            { city: "法国、德国、波兰", timezone: "Europe/Paris" },
+            { city: "西班牙、荷兰、意大利", timezone: "Europe/Madrid" },
+            { city: "瑞典、匈牙利、捷克", timezone: "Europe/Stockholm" },
+            { city: "英国、葡萄牙、爱尔兰", timezone: "Europe/London" },
+            { city: "罗马尼亚、希腊、保加利亚", timezone: "Europe/Bucharest" }
+        ];
 
         const allTimezones = [
             "Africa/Abidjan", "Africa/Accra", "Africa/Algiers", "Africa/Cairo", "Africa/Casablanca", "Africa/Johannesburg", "Africa/Lagos", "Africa/Nairobi",
@@ -350,7 +362,7 @@ let displayedTimezones = [
                                 <h3 class="city-name">${tzData.city}</h3>
                                 <p class="timezone-info">${tzData.timezone.replace(/_/g, ' ')} <br class="sm:hidden">(${gmtOffset})</p> 
                             </div>
-                            ${!tzData.isLocal ? `<button class="btn btn-xs btn-circle btn-ghost text-error remove-btn" data-index="${index}" title="Remove clock">
+                            ${!tzData.isLocal ? `<button class="btn btn-xs btn-circle btn-ghost text-error remove-btn" data-index="${index}" title="删除时钟">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>` : ''}
                         </div>
@@ -407,20 +419,20 @@ let displayedTimezones = [
                 option.textContent = tz.replace(/_/g, ' ');
                 timezoneSelect.appendChild(option);
             });
-            const defaultTZ = "America/New_York";
+            const defaultTZ = "Europe/Paris";
             timezoneSelect.value = sortedTimezones.includes(defaultTZ) ? defaultTZ : (sortedTimezones[0] || '');
         }
 
         function addTimezoneHandler() { 
             const selectedTz = timezoneSelect.value;
             let cityName = customCityNameInput.value.trim();
-            if (!selectedTz) { showMessage("Please select a timezone.", 'error'); return; }
+            if (!selectedTz) { showMessage("请选择一个时区。", 'error'); return; }
             if (!cityName) cityName = selectedTz.substring(selectedTz.lastIndexOf('/') + 1).replace(/_/g, ' ');
             if (displayedTimezones.some(tz => tz.timezone === selectedTz)) {
-                showMessage(`${cityName} (${selectedTz.replace(/_/g, ' ')}) is already displayed.`, 'info'); return;
+                showMessage(`${cityName} (${selectedTz.replace(/_/g, ' ')}) 已经存在。`, 'info'); return;
             }
             try { new Date().toLocaleTimeString('en-US', { timeZone: selectedTz }); } 
-            catch (e) { showMessage(`Invalid timezone: ${selectedTz.replace(/_/g, ' ')}.`, 'error'); return; }
+            catch (e) { showMessage(`无效的时区: ${selectedTz.replace(/_/g, ' ')}。`, 'error'); return; }
 
             displayedTimezones.push({ city: cityName, timezone: selectedTz });
             customCityNameInput.value = ''; 
@@ -429,7 +441,7 @@ let displayedTimezones = [
             }
             saveTimezonesToLocalStorage();
             updateClocks();
-            showMessage(`${cityName} clock added.`, 'success');
+            showMessage(`${cityName} 时钟已添加。`, 'success');
         }
 
         function removeTimezone(index) {
@@ -437,22 +449,22 @@ let displayedTimezones = [
                 const removed = displayedTimezones.splice(index, 1);
                 saveTimezonesToLocalStorage();
                 updateClocks();
-                showMessage(`${removed[0].city} clock removed.`, 'info');
+                showMessage(`${removed[0].city} 时钟已删除。`, 'info');
             }
         }
 
         // --- Event Listeners ---
         timeTravelSlider.addEventListener('input', (e) => {
             timeOffsetHours = parseFloat(e.target.value);
-            timeTravelValueDisplay.textContent = `${timeOffsetHours} hours`;
+            timeTravelValueDisplay.textContent = `${timeOffsetHours} 小时`;
             updateClocks();
         });
         resetTimeBtn.addEventListener('click', () => {
             timeOffsetHours = 0;
             timeTravelSlider.value = 0;
-            timeTravelValueDisplay.textContent = `0 hours`;
+            timeTravelValueDisplay.textContent = `0 小时`;
             updateClocks();
-            showMessage("Time reset to current.", 'info');
+            showMessage("时间已重置为当前时间。", 'info');
         });
         addTimezoneBtn.addEventListener('click', addTimezoneHandler);
 
@@ -465,20 +477,15 @@ let displayedTimezones = [
         }
         document.addEventListener('DOMContentLoaded', init);
     </script>
-    <div style="margin-top:30px; text-align:center; font-size:12px;">
-    <a href="#what-is-cet">What is CET?</a> | 
-    <a href="#dst-europe">When does DST start/end in Europe?</a> | 
-    <a href="#timezone-list">Full Europe time zone list</a>
-</div>
     <noscript>
     <div style="padding:20px;background:#f5f5f5;margin:10px;border-radius:8px;">
-        <p>Your browser does not support JavaScript. Below are reference times for major European countries:</p>
+        <p>您的浏览器不支持 JavaScript。以下是主要欧洲国家的参考时间：</p>
         <ul>
-            <li>🇫🇷 France / 🇩🇪 Germany / 🇮🇹 Italy / 🇳🇱 Netherlands / 🇵🇱 Poland / 🇪🇸 Spain / 🇸🇪 Sweden — CET (UTC+1)</li>
-            <li>🇬🇧 United Kingdom — GMT (UTC+0)</li>
-            <li>🇷🇴 Romania — EET (UTC+2)</li>
+            <li>🇫🇷 法国 / 🇩🇪 德国 / 🇮🇹 意大利 / 🇳🇱 荷兰 / 🇵🇱 波兰 / 🇪🇸 西班牙 / 🇸🇪 瑞典 — CET (UTC+1)</li>
+            <li>🇬🇧 英国 — GMT (UTC+0)</li>
+            <li>🇷🇴 罗马尼亚 — EET (UTC+2)</li>
         </ul>
-        <p>Enable JavaScript to see real‑time updates.</p>
+        <p>请启用 JavaScript 以查看实时更新。</p>
     </div>
 </noscript>
 </body>
