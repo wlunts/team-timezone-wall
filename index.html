@@ -4,26 +4,24 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
     <title>欧洲时间 | 法国、德国、意大利等37欧洲国家当前时间实时查询</title>
-    <meta name="description" content="实时显示法国、德国、意大利、英国、西班牙等37个欧洲国家的精准当地时间。自动识别夏令时，支持明/暗主题，全球团队协作的最佳时间工具。">
-    <meta name="keywords" content="欧洲时间,欧洲现在几点,法国时间,德国时间,英国时间,欧洲时区,夏令时,实时时间,世界时钟">
+    <meta name="description" content="实时显示法国、德国、意大利、英国、西班牙等37个欧洲国家的精准当地时间。自动识别夏令时，支持明/暗主题切换，全球团队协作的最佳时间工具.">
+    <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,德国时间,英国时间,法国时间,实时时间">
     <meta name="baidu-site-verification" content="请替换为你的百度验证代码" />
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "欧洲时间实时查询",
-      "description": "实时显示法国、德国、意大利等37个欧洲国家的当前时间，自动识别夏令时。同时支持查询全球各国时间。",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
-      "url": "https://europetime.net",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "欧洲时间 - 实时时钟",
+  "url": "https://europetime.net",
+  "description": "实时显示欧洲37国的当前时间，自动识别夏令时",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://europetime.net/?city={city_name}",
+    "query-input": "required name=city_name"
+  }
+}
+</script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
@@ -394,7 +392,7 @@
             { name: "🇼🇸 萨摩亚", timezone: "Pacific/Apia" },
             { name: "🇹🇴 汤加", timezone: "Pacific/Tongatapu" }
         ];
-
+<h1>欧洲时间 - 法国、德国、意大利等37个欧洲国家实时时钟</h1>
         // 默认显示的时区卡片（聚焦欧洲）
         let displayedTimezones = [
             { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
@@ -403,7 +401,6 @@
             { city: "🇷🇴 罗马尼亚🇬🇷 希腊🇫🇮 芬兰🇧🇬 保加利亚🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" },
         ];
 
-        // 过滤并填充下拉选择框的函数
         function filterAndPopulateTimezoneSelect(searchTerm = '') {
             const filtered = allCountries.filter(country =>
                 country.name.toLowerCase().includes(searchTerm.toLowerCase())
