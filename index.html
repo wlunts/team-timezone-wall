@@ -23,17 +23,13 @@
 }
 </script>
     
-    <!-- 异步加载 Tailwind CSS -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.tailwindcss.com"></noscript>
-
-    <!-- 异步加载 DaisyUI -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css"></noscript>
-
-    <!-- 异步加载 Google Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <!-- 同步加载 Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <!-- 同步加载 DaisyUI -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css">
+    <!-- 同步加载 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
