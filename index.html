@@ -23,13 +23,9 @@
 }
 </script>
     
-    <!-- 同步加载 Tailwind CSS -->
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <!-- 同步加载 DaisyUI -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css">
-    <!-- 同步加载 Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -188,7 +184,7 @@
         <p style="margin-top:10px;">📌 实时更新 | 自动识别夏令时 | 支持明/暗主题切换 | 同时支持全球240+国家/地区时间查询</p>
     </div>
 
-    <script defer>
+    <script>
         // --- Theme Management ---
         const themeToggleCheckbox = document.getElementById('themeToggleCheckbox');
         const htmlElement = document.documentElement;
