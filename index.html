@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
-    <title>欧洲时间 | 法国、德国、意大利等37欧洲国家当前时间实时查询</title>
-    <meta name="description" content="实时显示法国、德国、意大利、英国、西班牙等37个欧洲国家的精准当地时间。自动识别夏令时，支持明/暗主题切换，全球团队协作的最佳时间工具.">
-    <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间">
+    <title>欧洲时间 | 法国、德国、英国等欧洲37国当前时间实时查询</title>
+    <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，支持时差转换模拟，跨境协同办公的专业欧洲时钟。">
+    <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间">
     <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "欧洲时间 - 实时时钟",
+      "name": "欧洲时间网",
       "url": "https://europetime.net",
-      "description": "实时显示欧洲37国的当前时间，自动识别夏令时",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://europetime.net/?city={city_name}",
-        "query-input": "required name=city_name"
-      }
+      "description": "实时显示欧洲37国的当前精准时间，全自动无感识别夏令时调整。"
     }
     </script>
     
@@ -37,15 +32,18 @@
             min-height: 100vh;
             padding: 15px;
             box-sizing: border-box;
-            background-color: #FFFFFF;
         }
-        h1 {
-            margin: 0;
+        /* 隐藏 H1 标签以保持界面简洁，同时为 SEO 保留关键词 */
+        .seo-h1 {
+            position: absolute;
+            width: 1px;
+            height: 1px;
             padding: 0;
-            font-size: 0.01px;
-            opacity: 0;
-            height: 0;
-            overflow: visible;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
         .clocksContainerWrapper {
             width: 100%;
@@ -54,7 +52,7 @@
         }
         .clock-card-custom {
             width: 280px;
-            min-height: 160px;
+            min-height: 180px;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
         }
         .clock-card-custom:hover {
@@ -66,13 +64,13 @@
             line-height: 1;
             font-family: monospace;
         }
-        .date {
-            font-size: 0.8rem;
-        }
+        .date { font-size: 0.8rem; }
         .city-name {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 500;
             line-height: 1.5;
+            white-space: normal;
+            word-break: break-word;
         }
         .timezone-info {
             font-size: 0.75rem;
@@ -105,27 +103,42 @@
             display: flex;
             gap: 0.5rem;
         }
-        .add-city-dropdown-content {
-            width: 290px;
-            padding: 1rem;
+        .add-city-dropdown-content { width: 290px; padding: 1rem; }
+        .about-section {
+            max-width: 1200px;
+            margin: 20px 10px 10px 10px;
+            padding: 25px;
+            background: hsl(var(--b2));
+            border-radius: 12px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .about-section h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .about-section p { margin-bottom: 8px; }
+        .about-section .footer-note {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+            font-weight: 500;
         }
         @media (max-width: 767px) {
-             .clock-card-custom {
-                width: 100%;
-                max-width: 320px;
-            }
+            .clock-card-custom { width: 100%; max-width: 320px; }
             .time { font-size: 2rem; }
-            .city-name { font-size: 0.85rem; }
+            .city-name { font-size: 0.8rem; }
+            .about-section { padding: 20px; margin: 15px 8px; }
         }
-         @media (max-width: 480px) {
-            .clocksContainerWrapper {
-                margin-top: 3rem;
-            }
-            #timeControlsContainer {
-                width: 100%;
-                padding: 1rem;
-            }
-         }
+        @media (max-width: 480px) {
+            .clocksContainerWrapper { margin-top: 1rem; }
+            #timeControlsContainer { width: 100%; padding: 1rem; }
+            .about-section { padding: 15px; }
+        }
     </style>
 </head>
 <body class="bg-base-100 text-base-content">
@@ -133,7 +146,7 @@
     <script>
         (function () {
             const lightTheme = 'cupcake';
-            const savedTheme = localStorage.getItem('transcelestialTheme') || lightTheme;
+            const savedTheme = localStorage.getItem('euroTimeTheme') || lightTheme;
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
@@ -165,7 +178,7 @@
         </label>
     </div>
 
-    <h1>欧洲时间 & 欧洲各国当前当地时间实时查询</h1>
+    <h1 class="seo-h1">欧洲时间 - 法国、德国、英国等欧洲37国当前时间实时查询</h1>
 
     <div class="clocksContainerWrapper">
         <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full px-2"></div>
@@ -190,14 +203,14 @@
         </div>
     </div>
     
-    <div style="max-width:1200px; margin:20px 10px 10px 10px; padding:25px; background: hsl(var(--b2)); border-radius:12px; text-align:left; font-size:14px; line-height: 1.6;">
-        <h2 style="font-size:18px; font-weight: 700; margin-bottom:10px; text-align:center;">关于欧洲时间与时区划分</h2>
-        <p style="margin-bottom: 8px;">欧洲大陆主要横跨四个标准时区：西欧时间（WET，UTC+0）、中欧时间（CET，UTC+1）、东欧时间（EET，UTC+2）以及远东欧洲时间（FET，UTC+3）。</p>
-        <p style="margin-bottom: 8px;">其中，<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利</strong>等绝大多数欧洲核心经济体均属于中欧时间（CET）范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
-        <p style="margin-bottom: 8px;"><strong>英国</strong>、爱尔兰和葡萄牙遵循西欧时区，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于东欧时区（EET）。</p>
-        <p style="margin-bottom: 8px;">⚠️ <strong>欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong>3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong>10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
-        <p style="margin-top:15px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; font-weight: 500;">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
-    </div>
+    <section class="about-section">
+        <h2>关于欧洲时间与时区划分</h2>
+        <p>欧洲大陆主要横跨四个标准时区：<strong class="text-primary">西欧时间（WET，UTC+0）</strong>、<strong class="text-primary">中欧时间（CET，UTC+1）</strong>、<strong class="text-primary">东欧时间（EET，UTC+2）</strong>以及<strong class="text-primary">远东欧洲时间（FET，UTC+3）</strong>。</p>
+        <p>其中，<strong class="text-primary">法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利</strong>等绝大多数欧洲核心经济体均属于<strong class="text-primary">中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
+        <p><strong class="text-primary">英国</strong>、爱尔兰和葡萄牙遵循<strong class="text-primary">西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong class="text-primary">罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于<strong class="text-primary">东欧时区（EET）</strong>。</p>
+        <p>⚠️ <strong class="text-primary">欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong class="text-primary">3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong class="text-primary">10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
+        <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
+    </section>
 
     <script>
         // --- Theme Management ---
@@ -214,10 +227,11 @@
         function toggleTheme() {
             const newTheme = themeToggleCheckbox.checked ? lightTheme : darkTheme;
             applyTheme(newTheme);
-            localStorage.setItem('transcelestialTheme', newTheme);
+            localStorage.setItem('euroTimeTheme', newTheme);
         }
         themeToggleCheckbox.addEventListener('change', toggleTheme);
-        applyTheme(localStorage.getItem('transcelestialTheme') || lightTheme);
+        const savedTheme = localStorage.getItem('euroTimeTheme') || lightTheme;
+        applyTheme(savedTheme);
 
         // --- DOM Elements ---
         const clocksContainer = document.getElementById('clocksContainer');
@@ -237,7 +251,7 @@
         const WORK_HOUR_START = 8;
         const WORK_HOUR_END = 18;
 
-        // ================= 全球国家/地区列表 =================
+        // 全球国家列表（已清理乱码）
         const allCountries = [
             { name: "🇫🇷 法国", timezone: "Europe/Paris" },
             { name: "🇩🇪 德国", timezone: "Europe/Berlin" },
@@ -299,7 +313,7 @@
             { name: "🇳🇿 新西兰", timezone: "Pacific/Auckland" }
         ];
 
-        // 默认显示的时区卡片（恢复你最初的长列表，使用 · 分隔符）
+        // 默认卡片
         let displayedTimezones = [
             { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
             { city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
@@ -396,8 +410,8 @@
                 clockCard.innerHTML = `
                     <div class="card-body p-4 flex flex-col justify-between">
                         <div class="flex justify-between items-start w-full">
-                            <div class="truncate pr-2">
-                                <h3 class="city-name truncate" title="${tzData.city}">${tzData.city}</h3>
+                            <div class="pr-2">
+                                <h3 class="city-name" title="${tzData.city}">${tzData.city}</h3>
                                 <p class="timezone-info mt-1 opacity-80">${tzData.timezone.replace(/_/g, ' ')} (${gmtOffset})</p>
                             </div>
                             ${!tzData.isLocal ? `<button class="btn btn-xs btn-circle btn-ghost text-error remove-btn shrink-0" data-index="${index}" title="删除时钟">
@@ -428,18 +442,18 @@
         }
 
         function saveTimezonesToLocalStorage() {
-            localStorage.setItem('transcelestialClocks', JSON.stringify(displayedTimezones));
+            localStorage.setItem('euroTimeClocks', JSON.stringify(displayedTimezones));
         }
 
         function loadTimezonesFromLocalStorage() {
-            const saved = localStorage.getItem('transcelestialClocks');
+            const saved = localStorage.getItem('euroTimeClocks');
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
                     if(Array.isArray(parsed) && parsed.length > 0) {
                         displayedTimezones = parsed;
                     }
-                } catch (e) { localStorage.removeItem('transcelestialClocks'); }
+                } catch (e) { localStorage.removeItem('euroTimeClocks'); }
             }
         }
 
@@ -491,16 +505,5 @@
         }
         document.addEventListener('DOMContentLoaded', init);
     </script>
-    
-    <noscript>
-        <div style="padding:20px; background:#f5f5f5; margin:20px; border-radius:8px; text-align: center; color: #333;">
-            <p>您的浏览器不支持或禁用了 JavaScript。以下是主要欧洲国家的参考标准时间：</p>
-            <ul style="list-style: none; padding: 0; margin-top: 10px;">
-                <li>🇫🇷 法国 / 🇩🇪 德国 / 🇮🇹 意大利 / 🇪🇸 西班牙 — 中欧时间 CET (UTC+1, 夏季 UTC+2)</li>
-                <li>🇬🇧 英国 / 🇮🇪 爱尔兰 — 西欧时间 WET (UTC+0, 夏季 UTC+1)</li>
-                <li>🇫🇮 芬兰 / 🇷🇴 罗马尼亚 / 🇬🇷 希腊 — 东欧时间 EET (UTC+2, 夏季 UTC+3)</li>
-            </ul>
-        </div>
-    </noscript>
 </body>
 </html>
