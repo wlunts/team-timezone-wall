@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="cupcake">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,11 +37,20 @@
             min-height: 100vh;
             padding: 15px;
             box-sizing: border-box;
+            background-color: #FFFFFF;
+        }
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 0.01px;
+            opacity: 0;
+            height: 0;
+            overflow: visible;
         }
         .clocksContainerWrapper {
             width: 100%;
             padding-bottom: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 0.5rem;
         }
         .clock-card-custom {
             width: 280px;
@@ -55,13 +64,15 @@
             font-size: 2.25rem;
             font-weight: 600;
             line-height: 1;
+            font-family: monospace;
         }
         .date {
             font-size: 0.8rem;
         }
         .city-name {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
+            line-height: 1.5;
         }
         .timezone-info {
             font-size: 0.75rem;
@@ -104,11 +115,11 @@
                 max-width: 320px;
             }
             .time { font-size: 2rem; }
-            .city-name { font-size: 0.95rem; }
+            .city-name { font-size: 0.85rem; }
         }
          @media (max-width: 480px) {
             .clocksContainerWrapper {
-                margin-top: 4rem;
+                margin-top: 3rem;
             }
             #timeControlsContainer {
                 width: 100%;
@@ -154,9 +165,7 @@
         </label>
     </div>
 
-    <h1 class="text-xl sm:text-2xl font-bold text-center mt-12 sm:mt-8 px-4 text-base-content max-w-3xl">
-        欧洲时间 & 欧洲各国当前当地时间实时查询
-    </h1>
+    <h1>欧洲时间 & 欧洲各国当前当地时间实时查询</h1>
 
     <div class="clocksContainerWrapper">
         <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full px-2"></div>
@@ -184,10 +193,10 @@
     <div style="max-width:1200px; margin:20px 10px 10px 10px; padding:25px; background: hsl(var(--b2)); border-radius:12px; text-align:left; font-size:14px; line-height: 1.6;">
         <h2 style="font-size:18px; font-weight: 700; margin-bottom:10px; text-align:center;">关于欧洲时间与时区划分</h2>
         <p style="margin-bottom: 8px;">欧洲大陆主要横跨四个标准时区：西欧时间（WET，UTC+0）、中欧时间（CET，UTC+1）、东欧时间（EET，UTC+2）以及远东欧洲时间（FET，UTC+3）。</p>
-        <p style="margin-bottom: 8px;">其中，<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、奥地利</strong>等绝大多数欧洲核心经济体均属于中欧时间（CET）范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
-        <p style="margin-bottom: 8px;"><strong>英国</strong>、爱尔兰和葡萄牙遵循西欧时区，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚</strong>等国则属于东欧时区（EET）。</p>
+        <p style="margin-bottom: 8px;">其中，<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利</strong>等绝大多数欧洲核心经济体均属于中欧时间（CET）范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
+        <p style="margin-bottom: 8px;"><strong>英国</strong>、爱尔兰和葡萄牙遵循西欧时区，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于东欧时区（EET）。</p>
         <p style="margin-bottom: 8px;">⚠️ <strong>欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong>3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong>10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
-        <p style="margin-top:15px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; font-weight: 500;">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同标配工具</p>
+        <p style="margin-top:15px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; font-weight: 500;">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
     </div>
 
     <script>
@@ -222,7 +231,6 @@
         const messageBoxAlert = document.getElementById('messageBoxAlert');
         const messageText = document.getElementById('messageText');
 
-        // --- State ---
         let timeOffsetHours = 0;
         let intervalId;
         let messageTimeout;
@@ -241,7 +249,7 @@
             { name: "🇧🇪 比利时", timezone: "Europe/Brussels" },
             { name: "🇵🇱 波兰", timezone: "Europe/Warsaw" },
             { name: "🇸🇪 瑞典", timezone: "Europe/Stockholm" },
-            { name: "🇳放 挪威", timezone: "Europe/Oslo" },
+            { name: "🇳🇴 挪威", timezone: "Europe/Oslo" },
             { name: "🇩🇰 丹麦", timezone: "Europe/Copenhagen" },
             { name: "🇫🇮 芬兰", timezone: "Europe/Helsinki" },
             { name: "🇮🇪 爱尔兰", timezone: "Europe/Dublin" },
@@ -255,28 +263,28 @@
             { name: "🇭🇷 克罗地亚", timezone: "Europe/Zagreb" },
             { name: "🇷🇸 塞尔维亚", timezone: "Europe/Belgrade" },
             { name: "🇸🇮 斯洛文尼亚", timezone: "Europe/Ljubljana" },
-            { name: "🇸 Slovak 斯洛伐克", timezone: "Europe/Bratislava" },
+            { name: "🇸🇰 斯洛伐克", timezone: "Europe/Bratislava" },
             { name: "🇱🇹 立陶宛", timezone: "Europe/Vilnius" },
-            { name: "🇱 Latvia 拉脱维亚", timezone: "Europe/Riga" },
+            { name: "🇱🇻 拉脱维亚", timezone: "Europe/Riga" },
             { name: "🇪🇪 爱沙尼亚", timezone: "Europe/Tallinn" },
             { name: "🇮🇸 冰岛", timezone: "Atlantic/Reykjavik" },
             { name: "🇲🇹 马耳他", timezone: "Europe/Malta" },
-            { name: "🇱 Luxembourg 卢森堡", timezone: "Europe/Luxembourg" },
+            { name: "🇱🇺 卢森堡", timezone: "Europe/Luxembourg" },
             { name: "🇲🇨 摩纳哥", timezone: "Europe/Monaco" },
             { name: "🇦🇩 安道尔", timezone: "Europe/Andorra" },
-            { name: "🇱 Liechtenstein 列支敦士登", timezone: "Europe/Vaduz" },
-            { name: "🇸 San Marino 圣马力诺", timezone: "Europe/San_Marino" },
+            { name: "🇱🇮 列支敦士登", timezone: "Europe/Vaduz" },
+            { name: "🇸🇲 圣马力诺", timezone: "Europe/San_Marino" },
             { name: "🇻🇦 梵蒂冈", timezone: "Europe/Vatican" },
             { name: "🇺🇦 乌克兰", timezone: "Europe/Kiev" },
             { name: "🇧🇾 白俄罗斯", timezone: "Europe/Minsk" },
-            { name: "🇲 Moldova 摩尔多瓦", timezone: "Europe/Chisinau" },
+            { name: "🇲🇩 摩尔多瓦", timezone: "Europe/Chisinau" },
             { name: "🇹🇷 土耳其", timezone: "Europe/Istanbul" },
             { name: "🇷🇺 俄罗斯", timezone: "Europe/Moscow" },
             { name: "🇦🇱 阿尔巴尼亚", timezone: "Europe/Tirane" },
             { name: "🇲🇰 北马其顿", timezone: "Europe/Skopje" },
-            { name: "🇧 Bosnia 波黑", timezone: "Europe/Sarajevo" },
-            { name: "🇲 Montenegro 黑山", timezone: "Europe/Podgorica" },
-            
+            { name: "🇧🇦 波黑", timezone: "Europe/Sarajevo" },
+            { name: "🇲🇪 黑山", timezone: "Europe/Podgorica" },
+            { name: "🇨🇾 塞浦路斯", timezone: "Asia/Nicosia" },
             { name: "🇨🇳 中国", timezone: "Asia/Shanghai" },
             { name: "🇨🇳 中国台湾", timezone: "Asia/Taipei" },
             { name: "🇭🇰 中国香港", timezone: "Asia/Hong_Kong" },
@@ -291,11 +299,12 @@
             { name: "🇳🇿 新西兰", timezone: "Pacific/Auckland" }
         ];
 
+        // 默认显示的时区卡片（恢复你最初的长列表，使用 · 分隔符）
         let displayedTimezones = [
             { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
             { city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
-            { city: "🇫🇷 法国 · 🇩🇪 德国 · 🇪🇸 西班牙 · 🇮🇹 意大利", timezone: "Europe/Paris" },
-            { city: "🇷🇴 罗马尼亚 · 🇬🇷 希腊 · 🇫🇮 芬兰", timezone: "Europe/Bucharest" },
+            { city: "🇫🇷 法国 · 🇩🇪 德国 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇦🇹 奥地利", timezone: "Europe/Paris" },
+            { city: "🇷🇴 罗马尼亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇧🇬 保加利亚 · 🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" }
         ];
 
         function filterAndPopulateTimezoneSelect(searchTerm = '') {
@@ -344,7 +353,7 @@
 
         function getFormattedDateTime(date, timeZone) {
             try {
-                const time = date.toLocaleTimeString('en-US', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+                const time = date.toLocaleTimeString('zh-CN', { timeZone, hour: '2-digit', minute: '2-digit', hour12: false });
                 const day = date.toLocaleDateString('zh-CN', { timeZone, weekday: 'short' });
                 const fullDate = date.toLocaleDateString('zh-CN', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' });
                 return { time, date: `${fullDate} (${day})` };
@@ -375,7 +384,7 @@
                 if (!tzData.isLocal) {
                     const hour = getHourInTimezone(baseDate, tzData.timezone);
                     if (hour >= WORK_HOUR_START && hour < WORK_HOUR_END) {
-                        cardClasses += ' bg-primary text-primary-content border-primary';
+                        cardClasses += ' bg-accent text-accent-content';
                     } else {
                         cardClasses += ' bg-base-100 text-base-content';
                     }
@@ -396,7 +405,7 @@
                             </button>` : ''}
                         </div>
                         <div class="text-right mt-4">
-                            <div class="time font-mono">${time}</div>
+                            <div class="time">${time}</div>
                             <div class="date mt-1 opacity-90">${date}</div>
                         </div>
                     </div>
