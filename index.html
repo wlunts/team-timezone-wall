@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="cupcake">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
     <title>欧洲时间 | 法国、德国、意大利等37欧洲国家当前时间实时查询</title>
     <meta name="description" content="实时显示法国、德国、意大利、英国、西班牙等37个欧洲国家的精准当地时间。自动识别夏令时，支持明/暗主题切换，全球团队协作的最佳时间工具.">
     <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间">
     <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
     
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "欧洲时间 - 实时时钟",
-  "url": "https://europetime.net",
-  "description": "实时显示欧洲37国的当前时间，自动识别夏令时",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://europetime.net/?city={city_name}",
-    "query-input": "required name=city_name"
-  }
-}
-</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "欧洲时间 - 实时时钟",
+      "url": "https://europetime.net",
+      "description": "实时显示欧洲37国的当前时间，自动识别夏令时",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://europetime.net/?city={city_name}",
+        "query-input": "required name=city_name"
+      }
+    }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -33,9 +35,8 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
-            background-color: #FFFFFF;
         }
         .clocksContainerWrapper {
             width: 100%;
@@ -43,8 +44,8 @@
             margin-top: 1.5rem;
         }
         .clock-card-custom {
-            width: 260px;
-            min-height: 155px;
+            width: 280px;
+            min-height: 160px;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
         }
         .clock-card-custom:hover {
@@ -63,9 +64,9 @@
             font-weight: 500;
         }
         .timezone-info {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             opacity: 0.7;
-            line-height: 1.2;
+            line-height: 1.3;
         }
         .alert-custom-pos {
             position: fixed;
@@ -87,47 +88,45 @@
         }
         .top-right-controls {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             z-index: 1010;
             display: flex;
             gap: 0.5rem;
         }
         .add-city-dropdown-content {
-            width: 280px;
+            width: 290px;
             padding: 1rem;
-        }
-        .add-city-dropdown-content .form-control {
-            margin-bottom: 0.75rem;
-        }
-        .add-city-dropdown-content .btn {
-            margin-top: 0.5rem;
         }
         @media (max-width: 767px) {
              .clock-card-custom {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
             }
             .time { font-size: 2rem; }
             .city-name { font-size: 0.95rem; }
-            #timeControlsContainer {
-                padding: 0.75rem;
-            }
         }
          @media (max-width: 480px) {
             .clocksContainerWrapper {
-                margin-top: 3.5rem;
+                margin-top: 4rem;
             }
-            #timeControlsContainer .form-control, #timeControlsContainer .text-center {
-                 width: 100%;
-            }
-             #timeControlsContainer .btn {
-                 width: auto;
+            #timeControlsContainer {
+                width: 100%;
+                padding: 1rem;
             }
          }
     </style>
 </head>
-<body>
+<body class="bg-base-100 text-base-content">
+
+    <script>
+        (function () {
+            const lightTheme = 'cupcake';
+            const savedTheme = localStorage.getItem('transcelestialTheme') || lightTheme;
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <div class="top-right-controls">
         <div class="dropdown dropdown-end">
             <button tabindex="0" role="button" class="btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="添加城市">
@@ -135,16 +134,15 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
             </button>
-            <div tabindex="0" class="dropdown-content z-[1] menu p-4 shadow bg-base-100 rounded-box w-72 add-city-dropdown-content">
+            <div tabindex="0" class="dropdown-content z-[1] menu p-4 shadow bg-base-100 rounded-box add-city-dropdown-content">
                 <h3 class="text-lg font-semibold mb-3">添加新时钟</h3>
-                <div class="form-control">
+                <div class="form-control mb-3">
                     <label class="label py-0.5 sm:py-1" for="customCityName"><span class="label-text text-xs">搜索国家/地区</span></label>
                     <input type="text" id="customCityName" placeholder="例如：法国、中国、美国" class="input input-xs sm:input-sm input-bordered input-primary w-full">
                 </div>
-                <div class="form-control">
+                <div class="form-control mb-4">
                     <label class="label py-0.5 sm:py-1" for="timezoneSelect"><span class="label-text text-xs">选择国家/地区</span></label>
-                    <select id="timezoneSelect" class="select select-xs sm:select-sm select-bordered select-primary w-full">
-                        </select>
+                    <select id="timezoneSelect" class="select select-xs sm:select-sm select-bordered select-primary w-full"></select>
                 </div>
                 <button id="addTimezoneBtn" class="btn btn-secondary btn-xs sm:btn-sm w-full">添加时钟</button>
             </div>
@@ -155,33 +153,41 @@
             <svg class="swap-off fill-current w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.56,15.7A8.12,8.12,0,0,1,12.14,19.73Z"/></svg>
         </label>
     </div>
-    <h1>欧洲时间 - 法国、德国、意大利等37个欧洲国家实时时间</h1>
+
+    <h1 class="text-xl sm:text-2xl font-bold text-center mt-12 sm:mt-8 px-4 text-base-content max-w-3xl">
+        欧洲时间 & 欧洲各国当前当地时间实时查询
+    </h1>
+
     <div class="clocksContainerWrapper">
-        <div id="clocksContainer" class="flex flex-wrap justify-center gap-3 w-full"></div>
+        <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full px-2"></div>
     </div>
-    <div id="timeControlsContainer" class="w-full max-w-md mx-auto my-6 p-3 bg-base-200 rounded-box shadow-lg">
-        <div class="form-control flex-grow">
+
+    <div id="timeControlsContainer" class="w-full max-w-md mx-auto my-6 p-4 bg-base-200 rounded-box shadow-md">
+        <div class="form-control">
             <label for="timeTravelSlider" class="label py-0.5">
-                <span class="label-text text-xs sm:text-sm">时间旅行: <span id="timeTravelValue" class="font-semibold">0 小时</span></span>
+                <span class="label-text text-xs sm:text-sm">时间旅行模拟: <span id="timeTravelValue" class="font-semibold text-primary">0 小时</span></span>
             </label>
             <input type="range" id="timeTravelSlider" min="-24" max="24" value="0" step="0.5" class="range range-primary range-xs sm:range-sm">
         </div>
         <div class="text-center mt-3">
-            <button id="resetTimeBtn" class="btn btn-primary btn-xs sm:btn-sm">重置到现在</button>
+            <button id="resetTimeBtn" class="btn btn-primary btn-xs sm:btn-sm btn-outline">重置到现在</button>
         </div>
     </div>
+
     <div id="messageBoxContainer" class="alert-custom-pos">
-        <div role="alert" id="messageBoxAlert" class="alert alert-sm sm:alert-md py-2 px-3">
+        <div role="alert" id="messageBoxAlert" class="alert alert-sm sm:alert-md py-2 px-3 shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-4 h-4 sm:w-5 sm:h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <span id="messageText" class="text-xs sm:text-sm"></span>
         </div>
     </div>
     
-    <!-- 底部：欧洲时间主题内容区块（SEO 增强） -->
-    <div style="max-width:1200px; margin:20px auto 10px auto; padding:20px; background:#f5f5f5; border-radius:12px; text-align:center; font-size:14px; color:#333;">
-        <h2 style="font-size:18px; margin-bottom:10px;">关于欧洲时间</h2>
-        <p>欧洲横跨UTC+0、UTC+1、UTC+2、UTC+3四个时区。<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典</strong>等国家属于CET时区（UTC+1，夏令时切换为UTC+2），<strong>英国</strong>属于WET时区（UTC+0），<strong>罗马尼亚、芬兰</strong>属于EET时区（UTC+2）。所有欧洲国家均实行夏令时（每年3月最后一个周日至10月最后一个周日）。</p>
-        <p style="margin-top:10px;">📌 实时更新 | 自动识别夏令时 | 支持明/暗主题切换 | 同时支持全球240+国家/地区时间查询</p>
+    <div style="max-width:1200px; margin:20px 10px 10px 10px; padding:25px; background: hsl(var(--b2)); border-radius:12px; text-align:left; font-size:14px; line-height: 1.6;">
+        <h2 style="font-size:18px; font-weight: 700; margin-bottom:10px; text-align:center;">关于欧洲时间与时区划分</h2>
+        <p style="margin-bottom: 8px;">欧洲大陆主要横跨四个标准时区：西欧时间（WET，UTC+0）、中欧时间（CET，UTC+1）、东欧时间（EET，UTC+2）以及远东欧洲时间（FET，UTC+3）。</p>
+        <p style="margin-bottom: 8px;">其中，<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、奥地利</strong>等绝大多数欧洲核心经济体均属于中欧时间（CET）范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
+        <p style="margin-bottom: 8px;"><strong>英国</strong>、爱尔兰和葡萄牙遵循西欧时区，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚</strong>等国则属于东欧时区（EET）。</p>
+        <p style="margin-bottom: 8px;">⚠️ <strong>欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong>3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong>10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
+        <p style="margin-top:15px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; font-weight: 500;">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同标配工具</p>
     </div>
 
     <script>
@@ -190,18 +196,19 @@
         const htmlElement = document.documentElement;
         const lightTheme = 'cupcake';
         const darkTheme = 'night';
+
         function applyTheme(theme) {
             htmlElement.setAttribute('data-theme', theme);
             themeToggleCheckbox.checked = theme === lightTheme;
         }
+
         function toggleTheme() {
             const newTheme = themeToggleCheckbox.checked ? lightTheme : darkTheme;
             applyTheme(newTheme);
             localStorage.setItem('transcelestialTheme', newTheme);
         }
         themeToggleCheckbox.addEventListener('change', toggleTheme);
-        const savedTheme = localStorage.getItem('transcelestialTheme') || lightTheme;
-        applyTheme(savedTheme);
+        applyTheme(localStorage.getItem('transcelestialTheme') || lightTheme);
 
         // --- DOM Elements ---
         const clocksContainer = document.getElementById('clocksContainer');
@@ -224,7 +231,6 @@
 
         // ================= 全球国家/地区列表 =================
         const allCountries = [
-            // 欧洲 (Europe) - 优先显示，因为关键词是"欧洲时间"
             { name: "🇫🇷 法国", timezone: "Europe/Paris" },
             { name: "🇩🇪 德国", timezone: "Europe/Berlin" },
             { name: "🇮🇹 意大利", timezone: "Europe/Rome" },
@@ -235,7 +241,7 @@
             { name: "🇧🇪 比利时", timezone: "Europe/Brussels" },
             { name: "🇵🇱 波兰", timezone: "Europe/Warsaw" },
             { name: "🇸🇪 瑞典", timezone: "Europe/Stockholm" },
-            { name: "🇳🇴 挪威", timezone: "Europe/Oslo" },
+            { name: "🇳放 挪威", timezone: "Europe/Oslo" },
             { name: "🇩🇰 丹麦", timezone: "Europe/Copenhagen" },
             { name: "🇫🇮 芬兰", timezone: "Europe/Helsinki" },
             { name: "🇮🇪 爱尔兰", timezone: "Europe/Dublin" },
@@ -249,30 +255,28 @@
             { name: "🇭🇷 克罗地亚", timezone: "Europe/Zagreb" },
             { name: "🇷🇸 塞尔维亚", timezone: "Europe/Belgrade" },
             { name: "🇸🇮 斯洛文尼亚", timezone: "Europe/Ljubljana" },
-            { name: "🇸🇰 斯洛伐克", timezone: "Europe/Bratislava" },
+            { name: "🇸 Slovak 斯洛伐克", timezone: "Europe/Bratislava" },
             { name: "🇱🇹 立陶宛", timezone: "Europe/Vilnius" },
-            { name: "🇱🇻 拉脱维亚", timezone: "Europe/Riga" },
+            { name: "🇱 Latvia 拉脱维亚", timezone: "Europe/Riga" },
             { name: "🇪🇪 爱沙尼亚", timezone: "Europe/Tallinn" },
             { name: "🇮🇸 冰岛", timezone: "Atlantic/Reykjavik" },
             { name: "🇲🇹 马耳他", timezone: "Europe/Malta" },
-            { name: "🇱🇺 卢森堡", timezone: "Europe/Luxembourg" },
+            { name: "🇱 Luxembourg 卢森堡", timezone: "Europe/Luxembourg" },
             { name: "🇲🇨 摩纳哥", timezone: "Europe/Monaco" },
             { name: "🇦🇩 安道尔", timezone: "Europe/Andorra" },
-            { name: "🇱🇮 列支敦士登", timezone: "Europe/Vaduz" },
-            { name: "🇸🇲 圣马力诺", timezone: "Europe/San_Marino" },
+            { name: "🇱 Liechtenstein 列支敦士登", timezone: "Europe/Vaduz" },
+            { name: "🇸 San Marino 圣马力诺", timezone: "Europe/San_Marino" },
             { name: "🇻🇦 梵蒂冈", timezone: "Europe/Vatican" },
             { name: "🇺🇦 乌克兰", timezone: "Europe/Kiev" },
             { name: "🇧🇾 白俄罗斯", timezone: "Europe/Minsk" },
-            { name: "🇲🇩 摩尔多瓦", timezone: "Europe/Chisinau" },
+            { name: "🇲 Moldova 摩尔多瓦", timezone: "Europe/Chisinau" },
             { name: "🇹🇷 土耳其", timezone: "Europe/Istanbul" },
             { name: "🇷🇺 俄罗斯", timezone: "Europe/Moscow" },
             { name: "🇦🇱 阿尔巴尼亚", timezone: "Europe/Tirane" },
             { name: "🇲🇰 北马其顿", timezone: "Europe/Skopje" },
-            { name: "🇧🇦 波黑", timezone: "Europe/Sarajevo" },
-            { name: "🇲🇪 黑山", timezone: "Europe/Podgorica" },
-            { name: "🇽🇰 科索沃", timezone: "Europe/Belgrade" },
+            { name: "🇧 Bosnia 波黑", timezone: "Europe/Sarajevo" },
+            { name: "🇲 Montenegro 黑山", timezone: "Europe/Podgorica" },
             
-            // 亚洲 (Asia)
             { name: "🇨🇳 中国", timezone: "Asia/Shanghai" },
             { name: "🇨🇳 中国台湾", timezone: "Asia/Taipei" },
             { name: "🇭🇰 中国香港", timezone: "Asia/Hong_Kong" },
@@ -281,125 +285,17 @@
             { name: "🇰🇷 韩国", timezone: "Asia/Seoul" },
             { name: "🇮🇳 印度", timezone: "Asia/Kolkata" },
             { name: "🇸🇬 新加坡", timezone: "Asia/Singapore" },
-            { name: "🇲🇾 马来西亚", timezone: "Asia/Kuala_Lumpur" },
-            { name: "🇮🇩 印度尼西亚", timezone: "Asia/Jakarta" },
-            { name: "🇵🇭 菲律宾", timezone: "Asia/Manila" },
-            { name: "🇻🇳 越南", timezone: "Asia/Ho_Chi_Minh" },
-            { name: "🇹🇭 泰国", timezone: "Asia/Bangkok" },
-            { name: "🇲🇲 缅甸", timezone: "Asia/Yangon" },
-            { name: "🇰🇭 柬埔寨", timezone: "Asia/Phnom_Penh" },
-            { name: "🇱🇦 老挝", timezone: "Asia/Vientiane" },
-            { name: "🇧🇩 孟加拉国", timezone: "Asia/Dhaka" },
-            { name: "🇵🇰 巴基斯坦", timezone: "Asia/Karachi" },
-            { name: "🇳🇵 尼泊尔", timezone: "Asia/Kathmandu" },
-            { name: "🇱🇰 斯里兰卡", timezone: "Asia/Colombo" },
-            { name: "🇮🇷 伊朗", timezone: "Asia/Tehran" },
-            { name: "🇮🇶 伊拉克", timezone: "Asia/Baghdad" },
-            { name: "🇸🇦 沙特阿拉伯", timezone: "Asia/Riyadh" },
-            { name: "🇦🇪 阿联酋", timezone: "Asia/Dubai" },
-            { name: "🇶🇦 卡塔尔", timezone: "Asia/Qatar" },
-            { name: "🇰🇼 科威特", timezone: "Asia/Kuwait" },
-            { name: "🇴🇲 阿曼", timezone: "Asia/Muscat" },
-            { name: "🇧🇭 巴林", timezone: "Asia/Bahrain" },
-            { name: "🇾🇪 也门", timezone: "Asia/Aden" },
-            { name: "🇯🇴 约旦", timezone: "Asia/Amman" },
-            { name: "🇱🇧 黎巴嫩", timezone: "Asia/Beirut" },
-            { name: "🇮🇱 以色列", timezone: "Asia/Jerusalem" },
-            { name: "🇵🇸 巴勒斯坦", timezone: "Asia/Gaza" },
-            { name: "🇨🇾 塞浦路斯", timezone: "Asia/Nicosia" },
-            { name: "🇦🇿 阿塞拜疆", timezone: "Asia/Baku" },
-            { name: "🇬🇪 格鲁吉亚", timezone: "Asia/Tbilisi" },
-            { name: "🇦🇲 亚美尼亚", timezone: "Asia/Yerevan" },
-            { name: "🇰🇿 哈萨克斯坦", timezone: "Asia/Almaty" },
-            { name: "🇺🇿 乌兹别克斯坦", timezone: "Asia/Tashkent" },
-            { name: "🇹🇲 土库曼斯坦", timezone: "Asia/Ashgabat" },
-            { name: "🇰🇬 吉尔吉斯斯坦", timezone: "Asia/Bishkek" },
-            { name: "🇹🇯 塔吉克斯坦", timezone: "Asia/Dushanbe" },
-            { name: "🇦🇫 阿富汗", timezone: "Asia/Kabul" },
-            { name: "🇲🇳 蒙古", timezone: "Asia/Ulaanbaatar" },
-            
-            // 北美洲 (North America)
             { name: "🇺🇸 美国", timezone: "America/New_York" },
             { name: "🇨🇦 加拿大", timezone: "America/Toronto" },
-            { name: "🇲🇽 墨西哥", timezone: "America/Mexico_City" },
-            { name: "🇨🇺 古巴", timezone: "America/Havana" },
-            { name: "🇯🇲 牙买加", timezone: "America/Jamaica" },
-            { name: "🇭🇹 海地", timezone: "America/Port-au-Prince" },
-            { name: "🇩🇴 多米尼加", timezone: "America/Santo_Domingo" },
-            { name: "🇧🇸 巴哈马", timezone: "America/Nassau" },
-            { name: "🇹🇹 特立尼达和多巴哥", timezone: "America/Port_of_Spain" },
-            { name: "🇧🇧 巴巴多斯", timezone: "America/Barbados" },
-            { name: "🇱🇨 圣卢西亚", timezone: "America/St_Lucia" },
-            { name: "🇬🇩 格林纳达", timezone: "America/Grenada" },
-            { name: "🇻🇨 圣文森特", timezone: "America/St_Vincent" },
-            { name: "🇦🇬 安提瓜和巴布达", timezone: "America/Antigua" },
-            { name: "🇰🇳 圣基茨和尼维斯", timezone: "America/St_Kitts" },
-            { name: "🇬🇹 危地马拉", timezone: "America/Guatemala" },
-            { name: "🇸🇻 萨尔瓦多", timezone: "America/El_Salvador" },
-            { name: "🇭🇳 洪都拉斯", timezone: "America/Tegucigalpa" },
-            { name: "🇳🇮 尼加拉瓜", timezone: "America/Managua" },
-            { name: "🇨🇷 哥斯达黎加", timezone: "America/Costa_Rica" },
-            { name: "🇵🇦 巴拿马", timezone: "America/Panama" },
-            
-            // 南美洲 (South America)
-            { name: "🇧🇷 巴西", timezone: "America/Sao_Paulo" },
-            { name: "🇦🇷 阿根廷", timezone: "America/Argentina/Buenos_Aires" },
-            { name: "🇨🇱 智利", timezone: "America/Santiago" },
-            { name: "🇵🇪 秘鲁", timezone: "America/Lima" },
-            { name: "🇨🇴 哥伦比亚", timezone: "America/Bogota" },
-            { name: "🇻🇪 委内瑞拉", timezone: "America/Caracas" },
-            { name: "🇧🇴 玻利维亚", timezone: "America/La_Paz" },
-            { name: "🇵🇾 巴拉圭", timezone: "America/Asuncion" },
-            { name: "🇺🇾 乌拉圭", timezone: "America/Montevideo" },
-            { name: "🇪🇨 厄瓜多尔", timezone: "America/Guayaquil" },
-            { name: "🇬🇾 圭亚那", timezone: "America/Guyana" },
-            { name: "🇸🇷 苏里南", timezone: "America/Paramaribo" },
-            
-            // 非洲 (Africa)
-            { name: "🇿🇦 南非", timezone: "Africa/Johannesburg" },
-            { name: "🇪🇬 埃及", timezone: "Africa/Cairo" },
-            { name: "🇩🇿 阿尔及利亚", timezone: "Africa/Algiers" },
-            { name: "🇲🇦 摩洛哥", timezone: "Africa/Casablanca" },
-            { name: "🇹🇳 突尼斯", timezone: "Africa/Tunis" },
-            { name: "🇱🇾 利比亚", timezone: "Africa/Tripoli" },
-            { name: "🇸🇩 苏丹", timezone: "Africa/Khartoum" },
-            { name: "🇰🇪 肯尼亚", timezone: "Africa/Nairobi" },
-            { name: "🇳🇬 尼日利亚", timezone: "Africa/Lagos" },
-            { name: "🇬🇭 加纳", timezone: "Africa/Accra" },
-            { name: "🇨🇮 科特迪瓦", timezone: "Africa/Abidjan" },
-            { name: "🇸🇳 塞内加尔", timezone: "Africa/Dakar" },
-            { name: "🇹🇿 坦桑尼亚", timezone: "Africa/Dar_es_Salaam" },
-            { name: "🇺🇬 乌干达", timezone: "Africa/Kampala" },
-            { name: "🇷🇼 卢旺达", timezone: "Africa/Kigali" },
-            { name: "🇨🇩 刚果(金)", timezone: "Africa/Kinshasa" },
-            { name: "🇦🇴 安哥拉", timezone: "Africa/Luanda" },
-            { name: "🇲🇿 莫桑比克", timezone: "Africa/Maputo" },
-            { name: "🇲🇬 马达加斯加", timezone: "Indian/Antananarivo" },
-            { name: "🇿🇼 津巴布韦", timezone: "Africa/Harare" },
-            { name: "🇿🇲 赞比亚", timezone: "Africa/Lusaka" },
-            { name: "🇲🇼 马拉维", timezone: "Africa/Blantyre" },
-            { name: "🇧🇼 博茨瓦纳", timezone: "Africa/Gaborone" },
-            { name: "🇳🇦 纳米比亚", timezone: "Africa/Windhoek" },
-            { name: "🇲🇺 毛里求斯", timezone: "Indian/Mauritius" },
-            { name: "🇪🇹 埃塞俄比亚", timezone: "Africa/Addis_Ababa" },
-            { name: "🇸🇴 索马里", timezone: "Africa/Mogadishu" },
-            
-            // 大洋洲 (Oceania)
             { name: "🇦🇺 澳大利亚", timezone: "Australia/Sydney" },
-            { name: "🇳🇿 新西兰", timezone: "Pacific/Auckland" },
-            { name: "🇫🇯 斐济", timezone: "Pacific/Fiji" },
-            { name: "🇵🇬 巴布亚新几内亚", timezone: "Pacific/Port_Moresby" },
-            { name: "🇸🇧 所罗门群岛", timezone: "Pacific/Guadalcanal" },
-            { name: "🇼🇸 萨摩亚", timezone: "Pacific/Apia" },
-            { name: "🇹🇴 汤加", timezone: "Pacific/Tongatapu" }
+            { name: "🇳🇿 新西兰", timezone: "Pacific/Auckland" }
         ];
 
-        // 默认显示的时区卡片（聚焦欧洲）
         let displayedTimezones = [
             { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
-            { city: "🇬🇧 英国🇵🇹 葡萄牙🇮🇪 爱尔兰", timezone: "Europe/London" },
-            { city: "🇫🇷 法国🇩🇪 德国🇪🇸 西班牙🇮🇹 意大利🇳🇱 荷兰🇵🇱 波兰🇸🇪 瑞典🇨🇿 捷克🇧🇪 比利时🇭🇺 匈牙利", timezone: "Europe/Paris" },
-            { city: "🇷🇴 罗马尼亚🇬🇷 希腊🇫🇮 芬兰🇧🇬 保加利亚🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" },
+            { city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
+            { city: "🇫🇷 法国 · 🇩🇪 德国 · 🇪🇸 西班牙 · 🇮🇹 意大利", timezone: "Europe/Paris" },
+            { city: "🇷🇴 罗马尼亚 · 🇬🇷 希腊 · 🇫🇮 芬兰", timezone: "Europe/Bucharest" },
         ];
 
         function filterAndPopulateTimezoneSelect(searchTerm = '') {
@@ -422,15 +318,13 @@
             });
         }
 
-        // 监听输入框的输入事件
         customCityNameInput.addEventListener('input', (e) => {
             filterAndPopulateTimezoneSelect(e.target.value);
         });
 
-        // --- 以下为原有功能函数（保持不变）---
         function showMessage(text, type = 'info', duration = 2500) {
             messageText.textContent = text;
-            messageBoxAlert.className = 'alert alert-sm sm:alert-md py-2 px-3';
+            messageBoxAlert.className = 'alert alert-sm sm:alert-md py-2 px-3 shadow-lg';
             if (type === 'success') messageBoxAlert.classList.add('alert-success');
             else if (type === 'error') messageBoxAlert.classList.add('alert-error');
             else messageBoxAlert.classList.add('alert-info');
@@ -445,18 +339,15 @@
                 const parts = formatter.formatToParts(dateObject);
                 const hourPart = parts.find(part => part.type === 'hour');
                 return hourPart ? parseInt(hourPart.value) : -1;
-            } catch (e) {
-                console.error("Error getting hour for timezone:", timeZone, e);
-                return -1;
-            }
+            } catch (e) { return -1; }
         }
 
         function getFormattedDateTime(date, timeZone) {
             try {
-                const time = date.toLocaleTimeString('en-US', { timeZone, hour: '2-digit', minute: '2-digit', hour12: false });
-                const day = date.toLocaleDateString('en-US', { timeZone, weekday: 'short' });
-                const fullDate = date.toLocaleDateString('en-GB', { timeZone, day: '2-digit', month: '2-digit', year: 'numeric' });
-                return { time, date: `${day}, ${fullDate}` };
+                const time = date.toLocaleTimeString('en-US', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+                const day = date.toLocaleDateString('zh-CN', { timeZone, weekday: 'short' });
+                const fullDate = date.toLocaleDateString('zh-CN', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' });
+                return { time, date: `${fullDate} (${day})` };
             } catch (e) { return { time: "Error", date: "Invalid TZ" }; }
         }
 
@@ -467,54 +358,51 @@
                 const parts = formatter.formatToParts(now);
                 const gmtOffsetPart = parts.find(part => part.type === 'timeZoneName');
                 if (gmtOffsetPart && gmtOffsetPart.value) return gmtOffsetPart.value;
-                const dateInTZ = new Date(now.toLocaleString('en-US', {timeZone}));
-                if (isNaN(dateInTZ.getTime())) return "N/A";
-                const offsetMinutes = -dateInTZ.getTimezoneOffset();
-                const sign = offsetMinutes >= 0 ? '+' : '-';
-                const absOffsetMinutes = Math.abs(offsetMinutes);
-                const hours = Math.floor(absOffsetMinutes / 60);
-                const minutes = absOffsetMinutes % 60;
-                return `GMT${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-            } catch (e) { return "N/A"; }
+                return "UTC";
+            } catch (e) { return "UTC"; }
         }
 
         function renderClocks() {
             clocksContainer.innerHTML = '';
             const baseDate = new Date(Date.now() + timeOffsetHours * 60 * 60 * 1000);
+            
             displayedTimezones.forEach((tzData, index) => {
                 const { time, date } = getFormattedDateTime(baseDate, tzData.timezone);
                 const gmtOffset = getGMTOffset(tzData.timezone);
                 const clockCard = document.createElement('div');
-                let cardClasses = 'card clock-card-custom shadow-md hover:shadow-lg';
+                
+                let cardClasses = 'card clock-card-custom shadow-md hover:shadow-lg border border-base-300';
                 if (!tzData.isLocal) {
                     const hour = getHourInTimezone(baseDate, tzData.timezone);
                     if (hour >= WORK_HOUR_START && hour < WORK_HOUR_END) {
-                        cardClasses += ' bg-accent text-accent-content';
+                        cardClasses += ' bg-primary text-primary-content border-primary';
                     } else {
-                        cardClasses += ' bg-base-100';
+                        cardClasses += ' bg-base-100 text-base-content';
                     }
                 } else {
-                    cardClasses += ' bg-base-100';
+                    cardClasses += ' bg-base-200 text-base-content font-medium';
                 }
+                
                 clockCard.className = cardClasses;
                 clockCard.innerHTML = `
-                    <div class="card-body p-3 sm:p-4">
-                        <div class="flex justify-between items-start mb-1">
-                            <div>
-                                <h3 class="city-name">${tzData.city}</h3>
-                                <p class="timezone-info">${tzData.timezone.replace(/_/g, ' ')} <br class="sm:hidden">(${gmtOffset})</p>
+                    <div class="card-body p-4 flex flex-col justify-between">
+                        <div class="flex justify-between items-start w-full">
+                            <div class="truncate pr-2">
+                                <h3 class="city-name truncate" title="${tzData.city}">${tzData.city}</h3>
+                                <p class="timezone-info mt-1 opacity-80">${tzData.timezone.replace(/_/g, ' ')} (${gmtOffset})</p>
                             </div>
-                            ${!tzData.isLocal ? `<button class="btn btn-xs btn-circle btn-ghost text-error remove-btn" data-index="${index}" title="删除时钟">
+                            ${!tzData.isLocal ? `<button class="btn btn-xs btn-circle btn-ghost text-error remove-btn shrink-0" data-index="${index}" title="删除时钟">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>` : ''}
                         </div>
-                        <div class="text-right mt-auto pt-1">
-                            <div class="time">${time}</div>
-                            <div class="date mt-0.5">${date}</div>
+                        <div class="text-right mt-4">
+                            <div class="time font-mono">${time}</div>
+                            <div class="date mt-1 opacity-90">${date}</div>
                         </div>
                     </div>
                 `;
                 clocksContainer.appendChild(clockCard);
+                
                 if (!tzData.isLocal) {
                     clockCard.querySelector('.remove-btn').addEventListener('click', (e) => {
                         const button = e.target.closest('.remove-btn');
@@ -539,20 +427,11 @@
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
-                    if(Array.isArray(parsed) && parsed.every(item => typeof item === 'object' && item.city && item.timezone)) {
+                    if(Array.isArray(parsed) && parsed.length > 0) {
                         displayedTimezones = parsed;
-                    } else {
-                        localStorage.removeItem('transcelestialClocks');
                     }
-                } catch (e) {
-                    console.error("Error parsing timezones from localStorage:", e);
-                    localStorage.removeItem('transcelestialClocks');
-                }
+                } catch (e) { localStorage.removeItem('transcelestialClocks'); }
             }
-        }
-
-        function initTimezoneSelector() {
-            filterAndPopulateTimezoneSelect('');
         }
 
         function addTimezoneHandler() {
@@ -560,14 +439,10 @@
             const selectedOption = timezoneSelect.options[timezoneSelect.selectedIndex];
             let cityName = selectedOption ? selectedOption.textContent : '';
             if (!selectedTz) { showMessage("请选择一个国家或地区。", 'error'); return; }
-            if (!cityName || cityName === '未找到匹配的国家/地区') {
-                cityName = selectedTz.substring(selectedTz.lastIndexOf('/') + 1).replace(/_/g, ' ');
-            }
+            
             if (displayedTimezones.some(tz => tz.timezone === selectedTz)) {
                 showMessage(`${cityName} 已经存在。`, 'info'); return;
             }
-            try { new Date().toLocaleTimeString('en-US', { timeZone: selectedTz }); }
-            catch (e) { showMessage(`无效的时区: ${selectedTz.replace(/_/g, ' ')}。`, 'error'); return; }
 
             displayedTimezones.push({ city: cityName, timezone: selectedTz });
             saveTimezonesToLocalStorage();
@@ -584,40 +459,39 @@
             }
         }
 
-        // --- Event Listeners ---
         timeTravelSlider.addEventListener('input', (e) => {
             timeOffsetHours = parseFloat(e.target.value);
-            timeTravelValueDisplay.textContent = `${timeOffsetHours} 小时`;
+            timeTravelValueDisplay.textContent = `${timeOffsetHours > 0 ? '+' : ''}${timeOffsetHours} 小时`;
             updateClocks();
         });
+        
         resetTimeBtn.addEventListener('click', () => {
             timeOffsetHours = 0;
             timeTravelSlider.value = 0;
             timeTravelValueDisplay.textContent = `0 小时`;
             updateClocks();
-            showMessage("时间已重置为当前时间。", 'info');
+            showMessage("时间已重置为当前系统时间。", 'info');
         });
+        
         addTimezoneBtn.addEventListener('click', addTimezoneHandler);
 
-        // --- Initialization ---
         function init() {
-            applyTheme(localStorage.getItem('transcelestialTheme') || lightTheme);
             loadTimezonesFromLocalStorage();
-            initTimezoneSelector();
+            filterAndPopulateTimezoneSelect('');
             updateClocks();
         }
         document.addEventListener('DOMContentLoaded', init);
     </script>
+    
     <noscript>
-    <div style="padding:20px;background:#f5f5f5;margin:10px;border-radius:8px;">
-        <p>您的浏览器不支持 JavaScript。以下是主要欧洲国家的参考时间：</p>
-        <ul>
-            <li>🇫🇷 法国 / 🇩🇪 德国 / 🇮🇹 意大利 / 🇳🇱 荷兰 / 🇵🇱 波兰 / 🇪🇸 西班牙 / 🇸🇪 瑞典 — CET (UTC+1)</li>
-            <li>🇬🇧 英国 — GMT (UTC+0)</li>
-            <li>🇷🇴 罗马尼亚 — EET (UTC+2)</li>
-        </ul>
-        <p>请启用 JavaScript 以查看实时更新。</p>
-    </div>
-</noscript>
+        <div style="padding:20px; background:#f5f5f5; margin:20px; border-radius:8px; text-align: center; color: #333;">
+            <p>您的浏览器不支持或禁用了 JavaScript。以下是主要欧洲国家的参考标准时间：</p>
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                <li>🇫🇷 法国 / 🇩🇪 德国 / 🇮🇹 意大利 / 🇪🇸 西班牙 — 中欧时间 CET (UTC+1, 夏季 UTC+2)</li>
+                <li>🇬🇧 英国 / 🇮🇪 爱尔兰 — 西欧时间 WET (UTC+0, 夏季 UTC+1)</li>
+                <li>🇫🇮 芬兰 / 🇷🇴 罗马尼亚 / 🇬🇷 希腊 — 东欧时间 EET (UTC+2, 夏季 UTC+3)</li>
+            </ul>
+        </div>
+    </noscript>
 </body>
 </html>
