@@ -33,7 +33,6 @@
             padding: 15px;
             box-sizing: border-box;
         }
-        /* 隐藏 H1 标签以保持界面简洁，同时为 SEO 保留关键词 */
         .seo-h1 {
             position: absolute;
             width: 1px;
@@ -208,7 +207,7 @@
         <p>欧洲大陆主要横跨四个标准时区：<strong class="text-primary">西欧时间（WET，UTC+0）</strong>、<strong class="text-primary">中欧时间（CET，UTC+1）</strong>、<strong class="text-primary">东欧时间（EET，UTC+2）</strong>以及<strong class="text-primary">远东欧洲时间（FET，UTC+3）</strong>。</p>
         <p>其中，<strong class="text-primary">法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利</strong>等绝大多数欧洲核心经济体均属于<strong class="text-primary">中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
         <p><strong class="text-primary">英国</strong>、爱尔兰和葡萄牙遵循<strong class="text-primary">西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong class="text-primary">罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于<strong class="text-primary">东欧时区（EET）</strong>。</p>
-        <p>⚠️ <strong class="text-primary">欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong class="text-primary">3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong class="text-primary">10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
+        <p>⚠️ <strong class="text-primary">欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong class="text-primary">3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong class="text-primary">10 月的最后一个星期日</strong>凌晨恢复为 winter时（标准时间）。</p>
         <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
     </section>
 
@@ -251,7 +250,7 @@
         const WORK_HOUR_START = 8;
         const WORK_HOUR_END = 18;
 
-        // 全球国家列表（已清理乱码）
+        // 【数据纯净化】：彻底清洗所有乱码前缀，并精确校准了标准的欧洲37国及全球核心时区
         const allCountries = [
             { name: "🇫🇷 法国", timezone: "Europe/Paris" },
             { name: "🇩🇪 德国", timezone: "Europe/Berlin" },
@@ -289,7 +288,7 @@
             { name: "🇱🇮 列支敦士登", timezone: "Europe/Vaduz" },
             { name: "🇸🇲 圣马力诺", timezone: "Europe/San_Marino" },
             { name: "🇻🇦 梵蒂冈", timezone: "Europe/Vatican" },
-            { name: "🇺🇦 乌克兰", timezone: "Europe/Kiev" },
+            { name: "🇺🇦 乌克兰", timezone: "Europe/Kyiv" },
             { name: "🇧🇾 白俄罗斯", timezone: "Europe/Minsk" },
             { name: "🇲🇩 摩尔多瓦", timezone: "Europe/Chisinau" },
             { name: "🇹🇷 土耳其", timezone: "Europe/Istanbul" },
@@ -313,13 +312,15 @@
             { name: "🇳🇿 新西兰", timezone: "Pacific/Auckland" }
         ];
 
-        // 默认卡片
-        let displayedTimezones = [
+        // 默认保留的多城市联合看板数据
+        let defaultTimezones = [
             { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
             { city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
-            { city: "🇫🇷 法国 · 🇩🇪 德国 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利", timezone: "Europe/Paris" },
+            { city: "🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利", timezone: "Europe/Paris" },
             { city: "🇷🇴 罗马尼亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇧🇬 保加利亚 · 🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" }
         ];
+        
+        let displayedTimezones = [...defaultTimezones];
 
         function filterAndPopulateTimezoneSelect(searchTerm = '') {
             const filtered = allCountries.filter(country =>
@@ -367,7 +368,7 @@
 
         function getFormattedDateTime(date, timeZone) {
             try {
-                const time = date.toLocaleTimeString('zh-CN', { timeZone, hour: '2-digit', minute: '2-digit', hour12: false });
+                const time = date.toLocaleTimeString('zh-CN', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
                 const day = date.toLocaleDateString('zh-CN', { timeZone, weekday: 'short' });
                 const fullDate = date.toLocaleDateString('zh-CN', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' });
                 return { time, date: `${fullDate} (${day})` };
