@@ -31,7 +31,6 @@
     }
     </script>
 
-    <!-- 新增 FAQPage 结构化数据，增强 SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -107,6 +106,15 @@
             opacity: 0.7;
             line-height: 1.2;
         }
+        /* 移动端触摸优化 */
+        .range, #timeSlider {
+            touch-action: manipulation;
+        }
+        /* 临时高亮动画 */
+        .highlight-card {
+            transition: box-shadow 0.2s;
+            box-shadow: 0 0 0 3px hsl(var(--p)), 0 0 0 6px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="min-h-screen bg-base-100 text-base-content flex flex-col items-center pt-0 px-6 pb-6 select-none">
@@ -159,7 +167,25 @@
         <p class="mb-2">其中，<strong class="text-primary">法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利、塞尔维亚</strong>等绝大多数欧洲核心经济体均属于<strong class="text-primary">中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
         <p class="mb-2"><strong class="text-primary">英国</strong>、爱尔兰和葡萄牙遵循<strong class="text-primary">西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong class="text-primary">罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于<strong class="text-primary">东欧时区（EET）</strong>。</p>
         <p class="mb-2">⚠️ <strong class="text-primary">欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong class="text-primary">3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong class="text-primary">10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
-        <p class="footer-note">📌 实时更新 | 自动识别夏令时 | 明暗主题 | 全球240+国家</p>
+        
+        <!-- 内部链接：点击时区名称滚动并高亮对应卡片 -->
+        <p class="mt-3 text-center text-primary hover:underline cursor-pointer">
+            <a href="javascript:void(0)" onclick="highlightCard('card_uk')">西欧时间 (WET)</a> &nbsp;|&nbsp;
+            <a href="javascript:void(0)" onclick="highlightCard('card_france')">中欧时间 (CET)</a> &nbsp;|&nbsp;
+            <a href="javascript:void(0)" onclick="highlightCard('card_eet')">东欧时间 (EET)</a>
+        </p>
+
+        <!-- 折叠深度科普区块，增加内容深度，不影响简洁性 -->
+        <details class="mt-4 text-center">
+            <summary class="text-xs cursor-pointer text-primary hover:underline">📖 欧洲时区变化对跨境商务的影响（点击展开）</summary>
+            <div class="text-left mt-3 pt-2 border-t border-base-300 text-xs leading-relaxed">
+                <p class="mb-2">对于跨境电商、远程办公以及国际物流，欧洲每年两次的夏令时切换（3月底和10月底）可能会造成会议时间的混乱和沟通成本的增加。</p>
+                <p class="mb-2">建议在切换前后两周主动与欧洲合作伙伴确认会议时间，并使用本工具的“时间旅行模拟”功能提前测试不同时段的当地时刻，避免错过重要沟通。</p>
+                <p>此外，了解客户的当地工作习惯（例如德国和法国通常上午9点开始工作）有助于提高业务效率。本工具实时更新，自动处理夏令时，助你轻松应对跨时区协作。</p>
+            </div>
+        </details>
+
+        <p class="footer-note mt-4">📌 实时更新 | 自动识别夏令时 | 明暗主题 | 全球240+国家</p>
     </footer>
 
     <div id="toastContainer" class="toast toast-top toast-center z-[100] hidden">
@@ -209,7 +235,7 @@
             clocks: [
                 { id: "local", city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
                 { id: "uk", city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
-                { id: "france", city: "🇫🇷 法国 · 🇩🇪 德国 · 🇪🇸 西班牙 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚", timezone: "Europe/Paris" },
+                { id: "france", city: "🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚", timezone: "Europe/Paris" },
                 { id: "eet", city: "🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" }
             ]
         };
@@ -245,6 +271,19 @@
             clearTimeout(toastLock);
             toastLock = setTimeout(() => nodes.toast.classList.add('hidden'), 2200);
         }
+
+        // 高亮卡片函数（内部链接使用）
+        window.highlightCard = function(cardId) {
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('highlight-card');
+                setTimeout(() => card.classList.remove('highlight-card'), 2000);
+            } else {
+                // 卡片不存在时不自动添加，保持简洁
+                notify('请先通过“添加时区”功能添加上方对应的时钟卡片');
+            }
+        };
 
         function generateStructure() {
             nodes.grid.innerHTML = state.clocks.map(c => `
