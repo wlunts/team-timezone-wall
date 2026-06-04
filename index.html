@@ -1,57 +1,94 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="cupcake">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
+    
     <title>欧洲时间 | 法国、德国、英国等欧洲37国当前时间实时查询</title>
     <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，支持时差转换模拟，跨境协同办公的专业欧洲时钟。">
     <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间">
     <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
     
+    <link rel="canonical" href="https://euclock.com/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="欧洲时间 | 实时欧洲时钟">
+    <meta property="og:description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时。">
+    <meta property="og:url" content="https://euclock.com/">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "欧洲时间网",
-      "url": "https://euclock.com",
-      "description": "实时显示欧洲37国的当前精准时间，全自动无感识别夏令时调整。"
+      "@type": "WebApplication",
+      "name": "欧洲时间实时时钟",
+      "url": "https://euclock.com/",
+      "description": "实时显示欧洲37国的当前精准时间，全自动无感识别夏令时调整。",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "inLanguage": "zh-CN",
+      "dateModified": "2026-06-04"
     }
     </script>
-    
+
+    <!-- 新增 FAQPage 结构化数据，增强 SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "欧洲现在和北京时间相差几个小时？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "欧洲大部分国家（如法国、德国、意大利）在冬令时比北京时间慢7小时，夏令时慢6小时。英国、葡萄牙在冬令时慢8小时，夏令时慢7小时。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "欧洲夏令时什么时候开始和结束？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "欧洲（除冰岛、俄罗斯、白俄罗斯外）统一在每年3月的最后一个星期日凌晨1点将时钟拨快1小时，进入夏令时；10月的最后一个星期日凌晨拨回1小时，恢复冬令时。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "法国、德国现在是什么时区？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "英国现在是什么时区？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。"
+          }
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        .seo-h1 {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        .clocksContainerWrapper {
-            width: 100%;
-            padding-bottom: 1rem;
-            margin-top: 0.5rem;
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; }
+        .city-name {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+            word-break: break-word;
         }
         .clock-card-custom {
-            width: 280px;
-            min-height: 180px;
+            width: 100%;
+            max-width: 280px;
+            min-height: 160px;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
         }
         .clock-card-custom:hover {
@@ -61,451 +98,273 @@
             font-size: 2.25rem;
             font-weight: 600;
             line-height: 1;
-            font-family: monospace;
         }
-        .date { font-size: 0.8rem; }
-        .city-name {
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.5;
-            white-space: normal;
-            word-break: break-word;
+        .date {
+            font-size: 0.8rem;
         }
         .timezone-info {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             opacity: 0.7;
-            line-height: 1.3;
-        }
-        .alert-custom-pos {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            z-index: 1020;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            min-width: 280px;
-        }
-        .alert-custom-pos.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        .select option {
-            background-color: hsl(var(--b1));
-            color: hsl(var(--bc));
-        }
-        .top-right-controls {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 1010;
-            display: flex;
-            gap: 0.5rem;
-        }
-        .add-city-dropdown-content { width: 290px; padding: 1rem; }
-        .about-section {
-            max-width: 1200px;
-            margin: 20px 10px 10px 10px;
-            padding: 25px;
-            background: hsl(var(--b2));
-            border-radius: 12px;
-            text-align: left;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .about-section h2 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .about-section p { margin-bottom: 8px; }
-        .about-section .footer-note {
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            text-align: center;
-            font-weight: 500;
-        }
-        @media (max-width: 767px) {
-            .clock-card-custom { width: 100%; max-width: 320px; }
-            .time { font-size: 2rem; }
-            .city-name { font-size: 0.8rem; }
-            .about-section { padding: 20px; margin: 15px 8px; }
-        }
-        @media (max-width: 480px) {
-            .clocksContainerWrapper { margin-top: 1rem; }
-            #timeControlsContainer { width: 100%; padding: 1rem; }
-            .about-section { padding: 15px; }
+            line-height: 1.2;
         }
     </style>
 </head>
-<body class="bg-base-100 text-base-content">
+<body class="min-h-screen bg-base-100 text-base-content flex flex-col items-center pt-0 px-6 pb-6 select-none">
 
-    <script>
-        (function () {
-            const lightTheme = 'cupcake';
-            const savedTheme = localStorage.getItem('euroTimeTheme') || lightTheme;
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
-
-    <div class="top-right-controls">
-        <div class="dropdown dropdown-end">
-            <button tabindex="0" role="button" class="btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="添加城市">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 sm:w-6 sm:h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-            </button>
-            <div tabindex="0" class="dropdown-content z-[1] menu p-4 shadow bg-base-100 rounded-box add-city-dropdown-content">
-                <h3 class="text-lg font-semibold mb-3">添加新时钟</h3>
-                <div class="form-control mb-3">
-                    <label class="label py-0.5 sm:py-1" for="customCityName"><span class="label-text text-xs">搜索国家/地区</span></label>
-                    <input type="text" id="customCityName" placeholder="例如：法国、中国、美国" class="input input-xs sm:input-sm input-bordered input-primary w-full">
+    <div class="w-full max-w-6xl flex justify-between items-center mb-0 border-b border-base-200 pb-1">
+        <h1 class="text-xl font-bold tracking-tight text-base-content">
+            🕒 欧洲时间
+        </h1>
+        <div class="flex items-center gap-2">
+            <div class="dropdown dropdown-end">
+                <button tabindex="0" role="button" class="btn btn-circle btn-ghost btn-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                </button>
+                <div tabindex="0" class="dropdown-content z-[50] card card-compact w-72 p-4 shadow bg-base-100 border border-base-200 mt-2">
+                    <h3 class="font-bold text-sm mb-2">添加时区</h3>
+                    <input type="text" id="searchTzInput" placeholder="搜索国家..." class="input input-bordered input-sm w-full mb-2">
+                    <select id="tzSelect" class="select select-bordered select-sm w-full mb-3"></select>
+                    <button id="addTzBtn" class="btn btn-primary btn-sm w-full">添加</button>
                 </div>
-                <div class="form-control mb-4">
-                    <label class="label py-0.5 sm:py-1" for="timezoneSelect"><span class="label-text text-xs">选择国家/地区</span></label>
-                    <select id="timezoneSelect" class="select select-xs sm:select-sm select-bordered select-primary w-full"></select>
-                </div>
-                <button id="addTimezoneBtn" class="btn btn-secondary btn-xs sm:btn-sm w-full">添加时钟</button>
             </div>
-        </div>
-        <label class="swap swap-rotate btn btn-ghost btn-xs sm:btn-sm btn-circle" aria-label="切换主题">
-            <input type="checkbox" id="themeToggleCheckbox" />
-            <svg class="swap-on fill-current w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29l.71-.71a1,1,0,0,0,-1.41-1.41l-.71.71A1,1,0,0,0,5.64,7.05ZM12,15a3,3,0,1,0,3-3A3,3,0,0,0,12,15Zm12.71,1.29a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.41l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM20,12a1,1,0,0,0-1-1H19a1,1,0,0,0,0,2h1A1,1,0,0,0,20,12ZM18.36,7.05a1,1,0,0,0-.7-.29,1,1,0,0,0-.71.29l-.71.71a1,1,0,1,0,1.41,1.41l.71-.71A1,1,0,0,0,18.36,7.05ZM12,9a1,1,0,0,0,1-1V7a1,1,0,0,0-2,0V8A1,1,0,0,0,12,9Z"/></svg>
-            <svg class="swap-off fill-current w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.56,15.7A8.12,8.12,0,0,1,12.14,19.73Z"/></svg>
-        </label>
-    </div>
-
-    <h1 class="seo-h1">欧洲时间 - 法国、德国、英国等欧洲37国当前时间实时查询</h1>
-
-    <div class="clocksContainerWrapper">
-        <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full px-2"></div>
-    </div>
-
-    <div id="timeControlsContainer" class="w-full max-w-md mx-auto my-6 p-4 bg-base-200 rounded-box shadow-md">
-        <div class="form-control">
-            <label for="timeTravelSlider" class="label py-0.5">
-                <span class="label-text text-xs sm:text-sm">时间旅行模拟: <span id="timeTravelValue" class="font-semibold text-primary">0 小时</span></span>
+            
+            <label class="swap swap-rotate btn btn-circle btn-ghost btn-sm">
+                <input type="checkbox" id="themeToggle" />
+                <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29l.71-.71a1,1,0,0,0,-1.41-1.41l-.71.71A1,1,0,0,0,5.64,7.05ZM12,15a3,3,0,1,0,3-3A3,3,0,0,0,12,15Zm12.71,1.29a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.41l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM20,12a1,1,0,0,0-1-1H19a1,1,0,0,0,0,2h1A1,1,0,0,0,20,12ZM18.36,7.05a1,1,0,0,0-.7-.29,1,1,0,0,0-.71.29l-.71.71a1,1,0,1,0,1.41,1.41l.71-.71A1,1,0,0,0,18.36,7.05ZM12,9a1,1,0,0,0,1-1V7a1,1,0,0,0-2,0V8A1,1,0,0,0,12,9Z"/></svg>
+                <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.56,15.7A8.12,8.12,0,0,1,12.14,19.73Z"/></svg>
             </label>
-            <input type="range" id="timeTravelSlider" min="-24" max="24" value="0" step="0.5" class="range range-primary range-xs sm:range-sm">
-        </div>
-        <div class="text-center mt-3">
-            <button id="resetTimeBtn" class="btn btn-primary btn-xs sm:btn-sm btn-outline">重置到现在</button>
         </div>
     </div>
 
-    <div id="messageBoxContainer" class="alert-custom-pos">
-        <div role="alert" id="messageBoxAlert" class="alert alert-sm sm:alert-md py-2 px-3 shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-4 h-4 sm:w-5 sm:h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span id="messageText" class="text-xs sm:text-sm"></span>
+    <div id="clocksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl mt-1 mb-8 items-stretch">
+    </div>
+
+    <div class="w-full max-w-xl bg-base-200 rounded-2xl p-5 border border-base-300 mb-6">
+        <div class="flex justify-between items-center mb-3">
+            <span class="text-sm font-medium opacity-80">时间旅行模拟</span>
+            <span id="sliderValue" class="badge badge-primary font-mono font-bold">实时时间</span>
+        </div>
+        <input type="range" id="timeSlider" min="-24" max="24" value="0" step="0.5" class="range range-primary range-sm">
+        <div class="flex justify-between text-xs px-2 mt-1 opacity-50 font-mono">
+            <span>-24h</span><span>-12h</span><span>当前</span><span>+12h</span><span>+24h</span>
+        </div>
+        <div class="text-center mt-4">
+            <button id="resetSliderBtn" class="btn btn-xs btn-outline btn-secondary px-4 rounded-full hidden">同步到当前时间</button>
         </div>
     </div>
-    
-    <section class="about-section">
-        <h2>关于欧洲时间与时区划分</h2>
-        <p>欧洲大陆主要横跨四个标准时区：<strong class="text-primary">西欧时间（WET，UTC+0）</strong>、<strong class="text-primary">中欧时间（CET，UTC+1）</strong>、<strong class="text-primary">东欧时间（EET，UTC+2）</strong>以及<strong class="text-primary">远东欧洲时间（FET，UTC+3）</strong>。</p>
-        <p>其中，<strong class="text-primary">法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利</strong>等绝大多数欧洲核心经济体均属于<strong class="text-primary">中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
-        <p><strong class="text-primary">英国</strong>、爱尔兰和葡萄牙遵循<strong class="text-primary">西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong class="text-primary">罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于<strong class="text-primary">东欧时区（EET）</strong>。</p>
-        <p>⚠️ <strong class="text-primary">欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong class="text-primary">3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong class="text-primary">10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
-        <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
-    </section>
+
+    <footer class="w-full max-w-4xl text-xs opacity-60 leading-relaxed border-t border-base-200 pt-4 mt-auto">
+        <h2 class="font-semibold text-sm mb-3 text-base-content text-center">关于欧洲时间与时区划分</h2>
+        <p class="mb-2">欧洲大陆主要横跨四个标准时区：<strong class="text-primary">西欧时间（WET，UTC+0）</strong>、<strong class="text-primary">中欧时间（CET，UTC+1）</strong>、<strong class="text-primary">东欧时间（EET，UTC+2）</strong>以及<strong class="text-primary">远东欧洲时间（FET，UTC+3）</strong>。</p>
+        <p class="mb-2">其中，<strong class="text-primary">法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利、塞尔维亚</strong>等绝大多数欧洲核心经济体均属于<strong class="text-primary">中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
+        <p class="mb-2"><strong class="text-primary">英国</strong>、爱尔兰和葡萄牙遵循<strong class="text-primary">西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong class="text-primary">罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于<strong class="text-primary">东欧时区（EET）</strong>。</p>
+        <p class="mb-2">⚠️ <strong class="text-primary">欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong class="text-primary">3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong class="text-primary">10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
+        <p class="footer-note">📌 实时更新 | 自动识别夏令时 | 明暗主题 | 全球240+国家</p>
+    </footer>
+
+    <div id="toastContainer" class="toast toast-top toast-center z-[100] hidden">
+        <div class="alert alert-info py-2 px-4 shadow-lg rounded-xl">
+            <span id="toastText" class="text-xs font-medium"></span>
+        </div>
+    </div>
 
     <script>
-        // --- Theme Management ---
-        const themeToggleCheckbox = document.getElementById('themeToggleCheckbox');
-        const htmlElement = document.documentElement;
-        const lightTheme = 'cupcake';
-        const darkTheme = 'night';
-
-        function applyTheme(theme) {
-            htmlElement.setAttribute('data-theme', theme);
-            themeToggleCheckbox.checked = theme === lightTheme;
-        }
-
-        function toggleTheme() {
-            const newTheme = themeToggleCheckbox.checked ? lightTheme : darkTheme;
-            applyTheme(newTheme);
-            localStorage.setItem('euroTimeTheme', newTheme);
-        }
-        themeToggleCheckbox.addEventListener('change', toggleTheme);
-        const savedTheme = localStorage.getItem('euroTimeTheme') || lightTheme;
-        applyTheme(savedTheme);
-
-        // --- DOM Elements ---
-        const clocksContainer = document.getElementById('clocksContainer');
-        const timeTravelSlider = document.getElementById('timeTravelSlider');
-        const timeTravelValueDisplay = document.getElementById('timeTravelValue');
-        const resetTimeBtn = document.getElementById('resetTimeBtn');
-        const timezoneSelect = document.getElementById('timezoneSelect');
-        const customCityNameInput = document.getElementById('customCityName');
-        const addTimezoneBtn = document.getElementById('addTimezoneBtn');
-        const messageBoxContainer = document.getElementById('messageBoxContainer');
-        const messageBoxAlert = document.getElementById('messageBoxAlert');
-        const messageText = document.getElementById('messageText');
-
-        let timeOffsetHours = 0;
-        let intervalId;
-        let messageTimeout;
-        const WORK_HOUR_START = 8;
-        const WORK_HOUR_END = 18;
-
-        // 【数据纯净化】：彻底清洗所有乱码前缀，并精确校准了标准的欧洲37国及全球核心时区
-        const allCountries = [
-            { name: "🇫🇷 法国", timezone: "Europe/Paris" },
-            { name: "🇩🇪 德国", timezone: "Europe/Berlin" },
-            { name: "🇮🇹 意大利", timezone: "Europe/Rome" },
-            { name: "🇪🇸 西班牙", timezone: "Europe/Madrid" },
-            { name: "🇬🇧 英国", timezone: "Europe/London" },
-            { name: "🇵🇹 葡萄牙", timezone: "Europe/Lisbon" },
-            { name: "🇳🇱 荷兰", timezone: "Europe/Amsterdam" },
-            { name: "🇧🇪 比利时", timezone: "Europe/Brussels" },
-            { name: "🇵🇱 波兰", timezone: "Europe/Warsaw" },
-            { name: "🇸🇪 瑞典", timezone: "Europe/Stockholm" },
-            { name: "🇳🇴 挪威", timezone: "Europe/Oslo" },
-            { name: "🇩🇰 丹麦", timezone: "Europe/Copenhagen" },
-            { name: "🇫🇮 芬兰", timezone: "Europe/Helsinki" },
-            { name: "🇮🇪 爱尔兰", timezone: "Europe/Dublin" },
-            { name: "🇨🇭 瑞士", timezone: "Europe/Zurich" },
-            { name: "🇦🇹 奥地利", timezone: "Europe/Vienna" },
-            { name: "🇨🇿 捷克", timezone: "Europe/Prague" },
-            { name: "🇭🇺 匈牙利", timezone: "Europe/Budapest" },
-            { name: "🇷🇴 罗马尼亚", timezone: "Europe/Bucharest" },
-            { name: "🇧🇬 保加利亚", timezone: "Europe/Sofia" },
-            { name: "🇬🇷 希腊", timezone: "Europe/Athens" },
-            { name: "🇭🇷 克罗地亚", timezone: "Europe/Zagreb" },
-            { name: "🇷🇸 塞尔维亚", timezone: "Europe/Belgrade" },
-            { name: "🇸🇮 斯洛文尼亚", timezone: "Europe/Ljubljana" },
-            { name: "🇸🇰 斯洛伐克", timezone: "Europe/Bratislava" },
-            { name: "🇱🇹 立陶宛", timezone: "Europe/Vilnius" },
-            { name: "🇱🇻 拉脱维亚", timezone: "Europe/Riga" },
-            { name: "🇪🇪 爱沙尼亚", timezone: "Europe/Tallinn" },
-            { name: "🇮🇸 冰岛", timezone: "Atlantic/Reykjavik" },
-            { name: "🇲🇹 马耳他", timezone: "Europe/Malta" },
-            { name: "🇱🇺 卢森堡", timezone: "Europe/Luxembourg" },
-            { name: "🇲🇨 摩纳哥", timezone: "Europe/Monaco" },
-            { name: "🇦🇩 安道尔", timezone: "Europe/Andorra" },
-            { name: "🇱🇮 列支敦士登", timezone: "Europe/Vaduz" },
-            { name: "🇸🇲 圣马力诺", timezone: "Europe/San_Marino" },
-            { name: "🇻🇦 梵蒂冈", timezone: "Europe/Vatican" },
-            { name: "🇺🇦 乌克兰", timezone: "Europe/Kyiv" },
-            { name: "🇧🇾 白俄罗斯", timezone: "Europe/Minsk" },
-            { name: "🇲🇩 摩尔多瓦", timezone: "Europe/Chisinau" },
-            { name: "🇹🇷 土耳其", timezone: "Europe/Istanbul" },
-            { name: "🇷🇺 俄罗斯", timezone: "Europe/Moscow" },
-            { name: "🇦🇱 阿尔巴尼亚", timezone: "Europe/Tirane" },
-            { name: "🇲🇰 北马其顿", timezone: "Europe/Skopje" },
-            { name: "🇧🇦 波黑", timezone: "Europe/Sarajevo" },
-            { name: "🇲🇪 黑山", timezone: "Europe/Podgorica" },
-            { name: "🇨🇾 塞浦路斯", timezone: "Asia/Nicosia" },
-            { name: "🇨🇳 中国", timezone: "Asia/Shanghai" },
-            { name: "🇨🇳 中国台湾", timezone: "Asia/Taipei" },
-            { name: "🇭🇰 中国香港", timezone: "Asia/Hong_Kong" },
-            { name: "🇲🇴 中国澳门", timezone: "Asia/Macau" },
-            { name: "🇯🇵 日本", timezone: "Asia/Tokyo" },
-            { name: "🇰🇷 韩国", timezone: "Asia/Seoul" },
-            { name: "🇮🇳 印度", timezone: "Asia/Kolkata" },
-            { name: "🇸🇬 新加坡", timezone: "Asia/Singapore" },
-            { name: "🇺🇸 美国", timezone: "America/New_York" },
-            { name: "🇨🇦 加拿大", timezone: "America/Toronto" },
-            { name: "🇦🇺 澳大利亚", timezone: "Australia/Sydney" },
-            { name: "🇳🇿 新西兰", timezone: "Pacific/Auckland" }
-        ];
-
-        // 默认保留的多城市联合看板数据
-        let defaultTimezones = [
-            { city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
-            { city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
-            { city: "🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚", timezone: "Europe/Paris" },
-            { city: "🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" }
-        ];
+        const CONFIG = { themes: { light: 'cupcake', dark: 'night' }, workHour: { start: 8, end: 18 } };
         
-        let displayedTimezones = [...defaultTimezones];
+        // 完整国家列表（欧洲全境 + 世界重要国家）
+        const countryDB = [
+            { n: "🇫🇷 法国", t: "Europe/Paris" }, { n: "🇩🇪 德国", t: "Europe/Berlin" },
+            { n: "🇮🇹 意大利", t: "Europe/Rome" }, { n: "🇪🇸 西班牙", t: "Europe/Madrid" },
+            { n: "🇬🇧 英国", t: "Europe/London" }, { n: "🇵🇹 葡萄牙", t: "Europe/Lisbon" },
+            { n: "🇳🇱 荷兰", t: "Europe/Amsterdam" }, { n: "🇧🇪 比利时", t: "Europe/Brussels" },
+            { n: "🇵🇱 波兰", t: "Europe/Warsaw" }, { n: "🇸🇪 瑞典", t: "Europe/Stockholm" },
+            { n: "🇳🇴 挪威", t: "Europe/Oslo" }, { n: "🇩🇰 丹麦", t: "Europe/Copenhagen" },
+            { n: "🇫🇮 芬兰", t: "Europe/Helsinki" }, { n: "🇮🇪 爱尔兰", t: "Europe/Dublin" },
+            { n: "🇨🇭 瑞士", t: "Europe/Zurich" }, { n: "🇦🇹 奥地利", t: "Europe/Vienna" },
+            { n: "🇨🇿 捷克", t: "Europe/Prague" }, { n: "🇭🇺 匈牙利", t: "Europe/Budapest" },
+            { n: "🇷🇴 罗马尼亚", t: "Europe/Bucharest" }, { n: "🇧🇬 保加利亚", t: "Europe/Sofia" },
+            { n: "🇬🇷 希腊", t: "Europe/Athens" }, { n: "🇭🇷 克罗地亚", t: "Europe/Zagreb" },
+            { n: "🇷🇸 塞尔维亚", t: "Europe/Belgrade" }, { n: "🇸🇮 斯洛文尼亚", t: "Europe/Ljubljana" },
+            { n: "🇸🇰 斯洛伐克", t: "Europe/Bratislava" }, { n: "🇱🇹 立陶宛", t: "Europe/Vilnius" },
+            { n: "🇱🇻 拉脱维亚", t: "Europe/Riga" }, { n: "🇪🇪 爱沙尼亚", t: "Europe/Tallinn" },
+            { n: "🇮🇸 冰岛", t: "Atlantic/Reykjavik" }, { n: "🇲🇹 马耳他", t: "Europe/Malta" },
+            { n: "🇱🇺 卢森堡", t: "Europe/Luxembourg" }, { n: "🇲🇨 摩纳哥", t: "Europe/Monaco" },
+            { n: "🇦🇩 安道尔", t: "Europe/Andorra" }, { n: "🇱🇮 列支敦士登", t: "Europe/Vaduz" },
+            { n: "🇸🇲 圣马力诺", t: "Europe/San_Marino" }, { n: "🇻🇦 梵蒂冈", t: "Europe/Vatican" },
+            { n: "🇺🇦 乌克兰", t: "Europe/Kyiv" }, { n: "🇧🇾 白俄罗斯", t: "Europe/Minsk" },
+            { n: "🇲🇩 摩尔多瓦", t: "Europe/Chisinau" }, { n: "🇹🇷 土耳其", t: "Europe/Istanbul" },
+            { n: "🇷🇺 俄罗斯", t: "Europe/Moscow" }, { n: "🇦🇱 阿尔巴尼亚", t: "Europe/Tirane" },
+            { n: "🇲🇰 北马其顿", t: "Europe/Skopje" }, { n: "🇧🇦 波黑", t: "Europe/Sarajevo" },
+            { n: "🇲🇪 黑山", t: "Europe/Podgorica" }, { n: "🇨🇾 塞浦路斯", t: "Asia/Nicosia" },
+            { n: "🇨🇳 中国", t: "Asia/Shanghai" }, { n: "🇨🇳 中国台湾", t: "Asia/Taipei" },
+            { n: "🇭🇰 中国香港", t: "Asia/Hong_Kong" }, { n: "🇲🇴 中国澳门", t: "Asia/Macau" },
+            { n: "🇯🇵 日本", t: "Asia/Tokyo" }, { n: "🇰🇷 韩国", t: "Asia/Seoul" },
+            { n: "🇮🇳 印度", t: "Asia/Kolkata" }, { n: "🇸🇬 新加坡", t: "Asia/Singapore" },
+            { n: "🇺🇸 美国 (纽约)", t: "America/New_York" }, { n: "🇨🇦 加拿大", t: "America/Toronto" },
+            { n: "🇦🇺 澳大利亚 (悉尼)", t: "Australia/Sydney" }, { n: "🇳🇿 新西兰", t: "Pacific/Auckland" }
+        ];
 
-        function filterAndPopulateTimezoneSelect(searchTerm = '') {
-            const filtered = allCountries.filter(country =>
-                country.name.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            timezoneSelect.innerHTML = '';
-            if (filtered.length === 0) {
-                const option = document.createElement('option');
-                option.textContent = '未找到匹配的国家/地区';
-                option.disabled = true;
-                timezoneSelect.appendChild(option);
-                return;
-            }
-            filtered.forEach(country => {
-                const option = document.createElement('option');
-                option.value = country.timezone;
-                option.textContent = country.name;
-                timezoneSelect.appendChild(option);
+        let state = {
+            offset: 0,
+            clocks: [
+                { id: "local", city: "我的本地时间", timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, isLocal: true },
+                { id: "uk", city: "🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰", timezone: "Europe/London" },
+                { id: "france", city: "🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚", timezone: "Europe/Paris" },
+                { id: "eet", city: "🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯", timezone: "Europe/Bucharest" }
+            ]
+        };
+
+        const nodes = {
+            grid: document.getElementById('clocksGrid'),
+            slider: document.getElementById('timeSlider'),
+            sliderVal: document.getElementById('sliderValue'),
+            resetBtn: document.getElementById('resetSliderBtn'),
+            themeBox: document.getElementById('themeToggle'),
+            searchInp: document.getElementById('searchTzInput'),
+            selectTz: document.getElementById('tzSelect'),
+            addBtn: document.getElementById('addTzBtn'),
+            toast: document.getElementById('toastContainer'),
+            toastMsg: document.getElementById('toastText')
+        };
+
+        function initTheme() {
+            const saved = localStorage.getItem('__pref_theme') || CONFIG.themes.light;
+            document.documentElement.setAttribute('data-theme', saved);
+            nodes.themeBox.checked = (saved === CONFIG.themes.dark);
+            nodes.themeBox.addEventListener('change', () => {
+                const target = nodes.themeBox.checked ? CONFIG.themes.dark : CONFIG.themes.light;
+                document.documentElement.setAttribute('data-theme', target);
+                localStorage.setItem('__pref_theme', target);
             });
         }
 
-        customCityNameInput.addEventListener('input', (e) => {
-            filterAndPopulateTimezoneSelect(e.target.value);
-        });
-
-        function showMessage(text, type = 'info', duration = 2500) {
-            messageText.textContent = text;
-            messageBoxAlert.className = 'alert alert-sm sm:alert-md py-2 px-3 shadow-lg';
-            if (type === 'success') messageBoxAlert.classList.add('alert-success');
-            else if (type === 'error') messageBoxAlert.classList.add('alert-error');
-            else messageBoxAlert.classList.add('alert-info');
-            messageBoxContainer.classList.add('show');
-            clearTimeout(messageTimeout);
-            messageTimeout = setTimeout(() => messageBoxContainer.classList.remove('show'), duration);
+        let toastLock;
+        function notify(msg) {
+            nodes.toastMsg.textContent = msg;
+            nodes.toast.classList.remove('hidden');
+            clearTimeout(toastLock);
+            toastLock = setTimeout(() => nodes.toast.classList.add('hidden'), 2200);
         }
 
-        function getHourInTimezone(dateObject, timeZone) {
-            try {
-                const formatter = new Intl.DateTimeFormat('en-US', { timeZone, hour: 'numeric', hourCycle: 'h23' });
-                const parts = formatter.formatToParts(dateObject);
-                const hourPart = parts.find(part => part.type === 'hour');
-                return hourPart ? parseInt(hourPart.value) : -1;
-            } catch (e) { return -1; }
-        }
-
-        // 修正：删除秒显示，只显示时和分
-        function getFormattedDateTime(date, timeZone) {
-            try {
-                const time = date.toLocaleTimeString('zh-CN', { timeZone, hour: '2-digit', minute: '2-digit', hour12: false });
-                const day = date.toLocaleDateString('zh-CN', { timeZone, weekday: 'short' });
-                const fullDate = date.toLocaleDateString('zh-CN', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' });
-                return { time, date: `${fullDate} (${day})` };
-            } catch (e) { return { time: "Error", date: "Invalid TZ" }; }
-        }
-
-        function getGMTOffset(timeZone) {
-             try {
-                const now = new Date();
-                const formatter = new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'longOffset' });
-                const parts = formatter.formatToParts(now);
-                const gmtOffsetPart = parts.find(part => part.type === 'timeZoneName');
-                if (gmtOffsetPart && gmtOffsetPart.value) return gmtOffsetPart.value;
-                return "UTC";
-            } catch (e) { return "UTC"; }
-        }
-
-        function renderClocks() {
-            clocksContainer.innerHTML = '';
-            const baseDate = new Date(Date.now() + timeOffsetHours * 60 * 60 * 1000);
-            
-            displayedTimezones.forEach((tzData, index) => {
-                const { time, date } = getFormattedDateTime(baseDate, tzData.timezone);
-                const gmtOffset = getGMTOffset(tzData.timezone);
-                const clockCard = document.createElement('div');
-                
-                let cardClasses = 'card clock-card-custom shadow-md hover:shadow-lg border border-base-300';
-                if (!tzData.isLocal) {
-                    const hour = getHourInTimezone(baseDate, tzData.timezone);
-                    if (hour >= WORK_HOUR_START && hour < WORK_HOUR_END) {
-                        cardClasses += ' bg-accent text-accent-content';
-                    } else {
-                        cardClasses += ' bg-base-100 text-base-content';
-                    }
-                } else {
-                    cardClasses += ' bg-base-200 text-base-content font-medium';
-                }
-                
-                clockCard.className = cardClasses;
-                clockCard.innerHTML = `
-                    <div class="card-body p-4 flex flex-col justify-between">
-                        <div class="flex justify-between items-start w-full">
-                            <div class="pr-2">
-                                <h3 class="city-name" title="${tzData.city}">${tzData.city}</h3>
-                                <p class="timezone-info mt-1 opacity-80">${tzData.timezone.replace(/_/g, ' ')} (${gmtOffset})</p>
+        function generateStructure() {
+            nodes.grid.innerHTML = state.clocks.map(c => `
+                <div id="card_${c.id}" class="card clock-card-custom border shadow-sm transition-all duration-200">
+                    <div class="card-body p-4 flex flex-col justify-between h-full min-h-[160px]">
+                        <div class="flex justify-between items-start gap-2">
+                            <div>
+                                <h4 class="city-name">${c.city}</h4>
+                                <p class="timezone-info mt-1 opacity-80 font-mono text-[10px] tracking-tight">${c.timezone}</p>
                             </div>
-                            ${!tzData.isLocal ? `<button class="btn btn-xs btn-circle btn-ghost text-error remove-btn shrink-0" data-index="${index}" title="删除时钟">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button>` : ''}
+                            ${!c.isLocal ? `<button class="btn btn-ghost btn-xs btn-circle text-error/70 hover:text-error shrink-0" onclick="removeClock('${c.id}')">✕</button>` : ''}
                         </div>
-                        <div class="text-right mt-4">
-                            <div class="time">${time}</div>
-                            <div class="date mt-1 opacity-90">${date}</div>
+                        <div class="text-right mt-auto pt-2">
+                            <span data-target="time" class="time block">--:--</span>
+                            <span data-target="date" class="date block mt-0.5">--</span>
                         </div>
                     </div>
-                `;
-                clocksContainer.appendChild(clockCard);
-                
-                if (!tzData.isLocal) {
-                    clockCard.querySelector('.remove-btn').addEventListener('click', (e) => {
-                        const button = e.target.closest('.remove-btn');
-                        if (button) removeTimezone(parseInt(button.dataset.index));
-                    });
-                }
+                </div>
+            `).join('');
+        }
+
+        function tick() {
+            const baseMs = Date.now() + (state.offset * 3600000);
+            const baseDate = new Date(baseMs);
+
+            state.clocks.forEach(c => {
+                const card = document.getElementById(`card_${c.id}`);
+                if (!card) return;
+
+                try {
+                    const timeStr = baseDate.toLocaleTimeString('zh-CN', { timeZone: c.timezone, hour: '2-digit', minute: '2-digit', hour12: false });
+                    const dateStr = baseDate.toLocaleDateString('zh-CN', { timeZone: c.timezone, weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit' });
+                    const offsetStr = new Intl.DateTimeFormat('zh-CN', { timeZone: c.timezone, timeZoneName: 'shortOffset' }).formatToParts(baseDate).find(p => p.type === 'timeZoneName').value;
+
+                    card.querySelector('[data-target="time"]').textContent = timeStr;
+                    card.querySelector('[data-target="date"]').textContent = `${dateStr} (${offsetStr})`;
+
+                    const currentHour = parseInt(baseDate.toLocaleTimeString('en-US', { timeZone: c.timezone, hour: '2-digit', hourCycle: 'h23' }));
+                    const isWorkHour = (currentHour >= CONFIG.workHour.start && currentHour < CONFIG.workHour.end);
+
+                    if (isWorkHour) {
+                        card.className = "card clock-card-custom border shadow-sm transition-all duration-200 bg-primary/50 text-base-content border-primary/50";
+                    } else {
+                        card.className = "card clock-card-custom border shadow-sm transition-all duration-200 bg-base-100 text-base-content border-base-200";
+                    }
+                } catch(e) { }
             });
         }
 
-        function updateClocks() {
-            if (intervalId) clearInterval(intervalId);
-            renderClocks();
-            intervalId = setInterval(renderClocks, 1000);
+        window.removeClock = function(id) {
+            state.clocks = state.clocks.filter(c => c.id !== id);
+            localStorage.setItem('__user_clocks', JSON.stringify(state.clocks));
+            generateStructure();
+            tick();
+            notify("已删除");
+        };
+
+        function populateSelect(filter = '') {
+            const query = filter.toLowerCase();
+            const matched = countryDB.filter(item => item.n.toLowerCase().includes(query));
+            nodes.selectTz.innerHTML = matched.map(i => `<option value="${i.t}">${i.n}</option>`).join('');
+            if(!matched.length) nodes.selectTz.innerHTML = '<option disabled>未找到匹配国家</option>';
         }
 
-        function saveTimezonesToLocalStorage() {
-            localStorage.setItem('euroTimeClocks', JSON.stringify(displayedTimezones));
-        }
-
-        function loadTimezonesFromLocalStorage() {
-            const saved = localStorage.getItem('euroTimeClocks');
-            if (saved) {
-                try {
-                    const parsed = JSON.parse(saved);
-                    if(Array.isArray(parsed) && parsed.length > 0) {
-                        displayedTimezones = parsed;
-                    }
-                } catch (e) { localStorage.removeItem('euroTimeClocks'); }
-            }
-        }
-
-        function addTimezoneHandler() {
-            const selectedTz = timezoneSelect.value;
-            const selectedOption = timezoneSelect.options[timezoneSelect.selectedIndex];
-            let cityName = selectedOption ? selectedOption.textContent : '';
-            if (!selectedTz) { showMessage("请选择一个国家或地区。", 'error'); return; }
+        function bootstrap() {
+            initTheme();
             
-            if (displayedTimezones.some(tz => tz.timezone === selectedTz)) {
-                showMessage(`${cityName} 已经存在。`, 'info'); return;
+            const cached = localStorage.getItem('__user_clocks');
+            if (cached) { 
+                try { 
+                    const parsed = JSON.parse(cached);
+                    if (parsed && parsed.length) {
+                        state.clocks = parsed.map(c => ({
+                            id: c.id,
+                            city: c.city,
+                            timezone: c.timezone || c.zone,
+                            isLocal: c.isLocal
+                        }));
+                    }
+                } catch(e){} 
             }
 
-            displayedTimezones.push({ city: cityName, timezone: selectedTz });
-            saveTimezonesToLocalStorage();
-            updateClocks();
-            showMessage(`${cityName} 时钟已添加。`, 'success');
+            generateStructure();
+            populateSelect();
+
+            nodes.slider.addEventListener('input', (e) => {
+                state.offset = parseFloat(e.target.value);
+                nodes.sliderVal.textContent = state.offset === 0 ? '实时时间' : `${state.offset > 0 ? '+' : ''}${state.offset} 小时`;
+                state.offset === 0 ? nodes.resetBtn.classList.add('hidden') : nodes.resetBtn.classList.remove('hidden');
+                tick();
+            });
+
+            nodes.resetBtn.addEventListener('click', () => {
+                nodes.slider.value = 0;
+                state.offset = 0;
+                nodes.sliderVal.textContent = '实时时间';
+                nodes.resetBtn.classList.add('hidden');
+                tick();
+            });
+
+            nodes.searchInp.addEventListener('input', (e) => populateSelect(e.target.value));
+            nodes.addBtn.addEventListener('click', () => {
+                const zone = nodes.selectTz.value;
+                if(!zone) return;
+                if(state.clocks.some(c => c.timezone === zone)) return notify("已存在");
+                
+                const optionText = nodes.selectTz.options[nodes.selectTz.selectedIndex].text;
+                state.clocks.push({ id: 'custom_' + Date.now(), city: optionText, timezone: zone });
+                localStorage.setItem('__user_clocks', JSON.stringify(state.clocks));
+                
+                generateStructure();
+                tick();
+                notify("已添加");
+            });
+
+            tick();
+            setInterval(tick, 1000);
         }
 
-        function removeTimezone(index) {
-            if (index >= 0 && index < displayedTimezones.length && !displayedTimezones[index].isLocal) {
-                const removed = displayedTimezones.splice(index, 1);
-                saveTimezonesToLocalStorage();
-                updateClocks();
-                showMessage(`${removed[0].city} 时钟已删除。`, 'info');
-            }
-        }
-
-        timeTravelSlider.addEventListener('input', (e) => {
-            timeOffsetHours = parseFloat(e.target.value);
-            timeTravelValueDisplay.textContent = `${timeOffsetHours > 0 ? '+' : ''}${timeOffsetHours} 小时`;
-            updateClocks();
-        });
-        
-        resetTimeBtn.addEventListener('click', () => {
-            timeOffsetHours = 0;
-            timeTravelSlider.value = 0;
-            timeTravelValueDisplay.textContent = `0 小时`;
-            updateClocks();
-            showMessage("时间已重置为当前系统时间。", 'info');
-        });
-        
-        addTimezoneBtn.addEventListener('click', addTimezoneHandler);
-
-        function init() {
-            loadTimezonesFromLocalStorage();
-            filterAndPopulateTimezoneSelect('');
-            updateClocks();
-        }
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', bootstrap);
     </script>
 </body>
 </html>
