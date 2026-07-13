@@ -2,7 +2,7 @@
 <html lang="zh-CN" data-theme="cupcake">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
     
     <title>欧洲时间 | 法国、德国、英国等欧洲37国当前时间实时查询</title>
@@ -73,8 +73,9 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; }
@@ -129,12 +130,12 @@
         </h1>
         <div class="flex items-center gap-2">
             <div class="dropdown dropdown-end">
-                <button tabindex="0" role="button" class="btn btn-circle btn-ghost btn-sm">
+                <button tabindex="0" role="button" aria-label="添加时区" class="btn btn-circle btn-ghost btn-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                 </button>
                 <div tabindex="0" class="dropdown-content z-[50] card card-compact w-72 p-4 shadow bg-base-100 border border-base-200 mt-2">
                     <h3 class="font-bold text-sm mb-2">添加时区</h3>
-                    <input type="text" id="searchTzInput" placeholder="搜索国家..." class="input input-bordered input-sm w-full mb-2">
+                    <input type="text" id="searchTzInput" aria-label="搜索国家" placeholder="搜索国家..." ...>
                     <select id="tzSelect" class="select select-bordered select-sm w-full mb-3"></select>
                     <button id="addTzBtn" class="btn btn-primary btn-sm w-full">添加</button>
                 </div>
