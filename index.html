@@ -74,7 +74,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; }
@@ -122,7 +122,7 @@
 <link rel="alternate" hreflang="en" href="https://www.europetime.net/" />
 </head>
 <body class="min-h-screen bg-base-100 text-base-content flex flex-col items-center pt-0 px-6 pb-6 select-none">
-
+<main>
     <div class="w-full max-w-6xl flex justify-between items-center mb-0 border-b border-base-200 pb-1">
         <h1 class="text-xl font-bold tracking-tight text-base-content">
             🕒 欧洲时间
@@ -166,7 +166,7 @@
     </div>
 
     <div class="my-12"></div>
-
+    </main>
     <footer class="w-full max-w-4xl text-xs opacity-60 leading-relaxed border-t border-base-200 pt-4 mt-auto">
         <h2 class="font-semibold text-sm mb-3 text-base-content text-center">关于欧洲时间与时区划分</h2>
         <p class="mb-2">欧洲大陆主要横跨四个标准时区：<strong class="text-primary">西欧时间（WET，UTC+0）</strong>、<strong class="text-primary">中欧时间（CET，UTC+1）</strong>、<strong class="text-primary">东欧时间（EET，UTC+2）</strong>以及<strong class="text-primary">远东欧洲时间（FET，UTC+3）</strong>。</p>
