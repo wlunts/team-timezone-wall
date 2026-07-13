@@ -16,6 +16,7 @@
     <meta property="og:title" content="欧洲时间 | 实时欧洲时钟">
     <meta property="og:description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时。">
     <meta property="og:url" content="https://www.euclock.com/">
+    <meta property="og:image" content="https://www.euclock.com/og-image.svg">
 
     <script type="application/ld+json">
     {
@@ -73,8 +74,7 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css"></noscript>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <style>
@@ -135,7 +135,7 @@
                 </button>
                 <div tabindex="0" class="dropdown-content z-[50] card card-compact w-72 p-4 shadow bg-base-100 border border-base-200 mt-2">
                     <h3 class="font-bold text-sm mb-2">添加时区</h3>
-                    <input type="text" id="searchTzInput" placeholder="搜索国家..." class="input input-bordered input-sm w-full mb-2">
+                    <input type="text" id="searchTzInput" aria-label="搜索国家" placeholder="搜索国家..." class="input input-bordered input-sm w-full mb-2">
                     <select id="tzSelect" class="select select-bordered select-sm w-full mb-3"></select>
                     <button id="addTzBtn" class="btn btn-primary btn-sm w-full">添加</button>
                 </div>
