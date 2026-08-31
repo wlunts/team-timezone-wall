@@ -9,6 +9,7 @@
     <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，支持时差转换模拟，跨境协同办公的专业欧洲时钟。">
     <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间">
     <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
+    <meta name="date" content="2026-08-31">
 
     <!-- DNS 预解析 + 预连接 -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -38,7 +39,7 @@
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "inLanguage": "zh-CN",
-      "dateModified": "2026-07-22"
+      "dateModified": "2026-08-31"
     }
     </script>
 
@@ -313,7 +314,7 @@
         </div>
     </section>
 
-    <!-- 明文 FAQ 区域：与 JSON-LD FAQPage 严格一致，解决违规隐患 -->
+    <!-- 明文 FAQ 区域：与 JSON-LD FAQPage 严格一致 -->
     <section class="w-full max-w-4xl my-6 p-6 bg-base-200/50 rounded-2xl border border-base-200">
         <h2 class="text-base font-bold mb-4 text-center text-base-content">欧洲时差与时区常见问题 FAQ</h2>
         <div class="space-y-3 text-sm">
@@ -612,43 +613,9 @@
         nodes.realtimeIndicator.classList.remove('hidden');
     }
 
-    function syncHash() {
-        const customTzs = state.clocks
-            .filter(c => !c.isLocal)
-            .map(c => c.timezone)
-            .join(',');
-        const url = new URL(window.location);
-        if (customTzs) {
-            url.hash = customTzs;
-        } else {
-            url.hash = '';
-        }
-        history.replaceState(null, '', url);
-    }
-
-    function restoreFromHash() {
-        const hash = window.location.hash.slice(1);
-        if (!hash) return;
-        const tzList = hash.split(',').map(s => s.trim()).filter(Boolean);
-        const existingTzs = new Set(state.clocks.map(c => c.timezone));
-        const countryMap = new Map(countryDB.map(i => [i.t, i.n]));
-
-        tzList.forEach(tz => {
-            if (!existingTzs.has(tz)) {
-                existingTzs.add(tz);
-                const label = countryMap.get(tz) || tz.replace(/[_\/]/g, ' ').replace(/^.*\//, '');
-                state.clocks.push({
-                    id: 'custom_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
-                    city: label,
-                    timezone: tz
-                });
-            }
-        });
-    }
-
     function persistClocks() {
         localStorage.setItem('__user_clocks', JSON.stringify(state.clocks));
-        syncHash();
+        // ✅ 已移除 syncHash()，不再污染 URL
     }
 
     function populateSelect(filter = '') {
@@ -754,11 +721,12 @@
 
     function bootstrap() {
         initTheme();
-        restoreFromHash();
+
+        // ✅ 已移除 restoreFromHash() —— 不再从 URL 读取 # 参数
 
         const cached = localStorage.getItem('__user_clocks');
         let customLoaded = false;
-        if (cached && !window.location.hash.slice(1)) {
+        if (cached) {
             try {
                 const parsed = JSON.parse(cached);
                 if (parsed && parsed.length) {
@@ -773,14 +741,14 @@
             } catch (e) { }
         }
 
-        if (customLoaded || window.location.hash.slice(1)) {
+        if (customLoaded) {
             generateStructure();
         } else {
             cacheClockRefs();
         }
 
         populateSelect();
-        syncHash();
+        // ✅ 已移除 syncHash() —— 不再向 URL 写入 #
         bindEvents();
 
         tick();
