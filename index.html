@@ -1,92 +1,102 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="cupcake">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
 
     <title>欧洲时间 | 法国、德国、英国等欧洲37国当前时间实时查询</title>
-    <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，支持时差转换模拟，跨境协同办公的专业欧洲时钟。" />
-    <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间" />
+    <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，支持时差转换模拟，跨境协同办公的专业欧洲时钟。">
+    <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间">
     <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
     <meta name="date" content="2026-09-08" />
+
+    <!-- DNS 预解析 + 预连接 -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <link rel="canonical" href="https://www.euclock.com/" />
     <link rel="alternate" hreflang="zh" href="https://www.euclock.com/" />
     <link rel="alternate" hreflang="en" href="https://www.europetime.net/" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="欧洲时间 | 实时欧洲时钟" />
-    <meta property="og:description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时。" />
-    <meta property="og:url" content="https://www.euclock.com/" />
-    <meta property="og:image" content="https://www.euclock.com/og-image.svg" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="欧洲时间 | 实时欧洲时钟">
+    <meta property="og:description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时。">
+    <meta property="og:url" content="https://www.euclock.com/">
+    <meta property="og:image" content="https://www.euclock.com/og-image.svg">
 
     <!-- JSON-LD 结构化数据 -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "欧洲时间实时时钟",
-            "url": "https://www.euclock.com/",
-            "description": "实时显示欧洲37国的当前精准时间，全自动无感识别夏令时调整。",
-            "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "All",
-            "inLanguage": "zh-CN",
-            "dateModified": "2026-09-08"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [{
-                "@type": "Question",
-                "name": "欧洲现在和北京时间相差几个小时？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "欧洲大部分国家（如法国、德国、意大利）在冬令时比北京时间慢7小时，夏令时慢6小时。英国、葡萄牙在冬令时慢8小时，夏令时慢7小时。"
-                }
-            }, {
-                "@type": "Question",
-                "name": "欧洲夏令时什么时候开始和结束？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "欧洲（除冰岛、俄罗斯、白俄罗斯外）统一在每年3月的最后一个星期日凌晨1点将时钟拨快1小时，进入夏令时；10月的最后一个星期日凌晨拨回1小时，恢复冬令时。"
-                }
-            }, {
-                "@type": "Question",
-                "name": "法国、德国现在是什么时区？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。"
-                }
-            }, {
-                "@type": "Question",
-                "name": "英国现在是什么时区？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。"
-                }
-            }]
-        }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "欧洲时间实时时钟",
+      "url": "https://www.euclock.com/",
+      "description": "实时显示欧洲37国的当前精准时间，全自动无感识别夏令时调整。",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "inLanguage": "zh-CN",
+      "dateModified": "2026-09-08"
+    }
     </script>
 
-    <!-- Tailwind Play CDN (生产环境建议使用 Tailwind CLI 构建离线 CSS) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "欧洲现在和北京时间相差几个小时？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "欧洲大部分国家（如法国、德国、意大利）在冬令时比北京时间慢7小时，夏令时慢6小时。英国、葡萄牙在冬令时慢8小时，夏令时慢7小时。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "欧洲夏令时什么时候开始和结束？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "欧洲（除冰岛、俄罗斯、白俄罗斯外）统一在每年3月的最后一个星期日凌晨1点将时钟拨快1小时，进入夏令时；10月的最后一个星期日凌晨拨回1小时，恢复冬令时。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "法国、德国现在是什么时区？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "英国现在是什么时区？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind + DaisyUI -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 锁定 DaisyUI 稳定版本 -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" type="text/css" />
-    <!-- 补全 JetBrains Mono 字体引入 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
     <style>
         /* ─── 全局样式 ─── */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
@@ -126,9 +136,7 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .clock-card:hover {
-            transform: translateY(-3px);
-        }
+        .clock-card:hover { transform: translateY(-3px); }
 
         .clock-card .city-name {
             font-size: 1rem;
@@ -188,9 +196,7 @@
             display: none;
         }
         @media (min-width: 640px) {
-            .top-bar .brand span {
-                display: inline;
-            }
+            .top-bar .brand span { display: inline; }
         }
         .top-bar .controls {
             display: flex;
@@ -261,9 +267,7 @@
             text-align: center;
             margin-bottom: 12px;
         }
-        .faq-section p {
-            margin-bottom: 6px;
-        }
+        .faq-section p { margin-bottom: 6px; }
         .faq-section .footer-note {
             margin-top: 14px;
             padding-top: 12px;
@@ -272,46 +276,39 @@
             font-weight: 500;
             font-size: 0.8rem;
         }
-        .faq-section strong {
-            color: hsl(var(--p));
-        }
+        .faq-section strong { color: hsl(var(--p)); }
 
         /* ─── 响应式 ─── */
         @media (max-width: 640px) {
-            .clock-card {
-                width: 100%;
-                max-width: 340px;
-            }
-            .clock-card .time-display {
-                font-size: 1.75rem;
-            }
-            .top-bar .brand h2 {
-                font-size: 1rem;
-            }
-            .faq-section {
-                padding: 16px;
-                font-size: 0.8rem;
-            }
+            .clock-card { width: 100%; max-width: 340px; }
+            .clock-card .time-display { font-size: 1.75rem; }
+            .top-bar .brand h2 { font-size: 1rem; }
+            .faq-section { padding: 16px; font-size: 0.8rem; }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
-            .clock-card {
-                width: 240px;
-            }
+            .clock-card { width: 240px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ============================================================
+    隐藏 H1（仅用于 SEO）
+    ============================================================ -->
     <h1 class="seo-h1">欧洲时间 - 实时查询法国、德国、英国等37国当地时间</h1>
 
-    <!-- Toast 消息容器 -->
+    <!-- ============================================================
+    Toast 消息容器
+    ============================================================ -->
     <div id="toastContainer" class="toast-container">
         <div id="toastAlert" class="alert alert-info shadow-lg py-2 px-4 text-sm">
             <span id="toastMessage">消息</span>
         </div>
     </div>
 
-    <!-- 顶部导航栏 -->
+    <!-- ============================================================
+    顶部导航栏
+    ============================================================ -->
     <header class="top-bar">
         <div class="brand">
             <span style="font-size:1.4rem;">🕒</span>
@@ -319,7 +316,6 @@
             <span>实时欧洲37国时钟 · 自动夏令时校准</span>
         </div>
         <div class="controls">
-            <!-- 添加时区下拉菜单 -->
             <div class="dropdown dropdown-end">
                 <button tabindex="0" class="btn btn-ghost btn-sm btn-circle" aria-label="添加时区">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -333,7 +329,6 @@
                     <button id="addBtn" class="btn btn-primary btn-sm w-full">添加时钟</button>
                 </div>
             </div>
-            <!-- 主题切换 -->
             <label class="swap swap-rotate btn btn-ghost btn-sm btn-circle" aria-label="切换主题">
                 <input type="checkbox" id="themeToggle" />
                 <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29l.71-.71a1,1,0,0,0,-1.41-1.41l-.71.71A1,1,0,0,0,5.64,7.05ZM12,15a3,3,0,1,0,3-3A3,3,0,0,0,12,15Zm12.71,1.29a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.41l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM20,12a1,1,0,0,0-1-1H19a1,1,0,0,0,0,2h1A1,1,0,0,0,20,12ZM18.36,7.05a1,1,0,0,0-.7-.29,1,1,0,0,0-.71.29l-.71.71a1,1,0,1,0,1.41,1.41l.71-.71A1,1,0,0,0,18.36,7.05ZM12,9a1,1,0,0,0,1-1V7a1,1,0,0,0-2,0V8A1,1,0,0,0,12,9Z"/></svg>
@@ -342,18 +337,20 @@
         </div>
     </header>
 
-    <!-- 时钟网格 (预埋 4 张静态卡片提供 SEO 预渲染) -->
+    <!-- ============================================================
+    时钟网格 — 预埋 4 张静态卡片（百度爬虫可见）
+    ============================================================ -->
     <section class="clocks-wrapper">
         <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full">
 
             <!-- 卡片1：我的本地时间 -->
             <div id="card_local" class="card clock-card shadow-md border border-base-300 bg-base-200" data-tz="LOCAL" data-is-local="true">
-                <div class="card-body p-4">
+                <div class="card-body p-4 flex flex-col">
                     <div>
                         <h3 class="city-name">我的本地时间</h3>
                         <p class="timezone-label">Local Time</p>
                     </div>
-                    <div class="text-right mt-2">
+                    <div class="text-right mt-auto pt-2">
                         <div class="time-display" data-time="card_local">--:--</div>
                         <div class="date-display" data-date="card_local">----/--/-- 周-</div>
                     </div>
@@ -362,40 +359,40 @@
 
             <!-- 卡片2：英国 · 葡萄牙 · 爱尔兰 -->
             <div id="card_uk" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/London">
-                <div class="card-body p-4">
+                <div class="card-body p-4 flex flex-col">
                     <div>
                         <h3 class="city-name">🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰</h3>
                         <p class="timezone-label">Europe/London</p>
                     </div>
-                    <div class="text-right mt-2">
+                    <div class="text-right mt-auto pt-2">
                         <div class="time-display" data-time="card_uk">--:--</div>
                         <div class="date-display" data-date="card_uk">----/--/-- 周-</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 卡片3：法国 · 德国 · 意大利等 -->
+            <!-- 卡片3：法国 · 德国 · 荷兰 · 波兰 · 西班牙 · 意大利 · 瑞典 · 捷克 · 比利时 · 匈牙利 · 塞尔维亚 -->
             <div id="card_paris" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/Paris">
-                <div class="card-body p-4">
+                <div class="card-body p-4 flex flex-col">
                     <div>
                         <h3 class="city-name">🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚</h3>
                         <p class="timezone-label">Europe/Paris</p>
                     </div>
-                    <div class="text-right mt-2">
+                    <div class="text-right mt-auto pt-2">
                         <div class="time-display" data-time="card_paris">--:--</div>
                         <div class="date-display" data-date="card_paris">----/--/-- 周-</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 卡片4：罗马尼亚 · 保加利亚等 -->
+            <!-- 卡片4：罗马尼亚 · 保加利亚 · 希腊 · 芬兰 · 塞浦路斯 · 拉脱维亚 · 爱沙尼亚 -->
             <div id="card_bucharest" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/Bucharest">
-                <div class="card-body p-4">
+                <div class="card-body p-4 flex flex-col">
                     <div>
-                        <h3 class="city-name">🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯</h3>
+                        <h3 class="city-name">🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯 · 🇱🇻 拉脱维亚 · 🇪🇪 爱沙尼亚</h3>
                         <p class="timezone-label">Europe/Bucharest</p>
                     </div>
-                    <div class="text-right mt-2">
+                    <div class="text-right mt-auto pt-2">
                         <div class="time-display" data-time="card_bucharest">--:--</div>
                         <div class="date-display" data-date="card_bucharest">----/--/-- 周-</div>
                     </div>
@@ -405,7 +402,9 @@
         </div>
     </section>
 
-    <!-- 时间旅行滑块 -->
+    <!-- ============================================================
+    时间旅行滑块
+    ============================================================ -->
     <section class="slider-section">
         <div class="slider-header">
             <span class="label">⏳ 时间旅行模拟</span>
@@ -420,17 +419,21 @@
         </div>
     </section>
 
-    <!-- 底部 FAQ 区域（爬虫可见的静态文字） -->
+    <!-- ============================================================
+    底部 FAQ 区域（爬虫可见的静态文字）
+    ============================================================ -->
     <section class="faq-section">
         <h2>关于欧洲时间与时区划分</h2>
         <p>欧洲大陆主要横跨四个标准时区：<strong>西欧时间（WET，UTC+0）</strong>、<strong>中欧时间（CET，UTC+1）</strong>、<strong>东欧时间（EET，UTC+2）</strong>以及<strong>远东欧洲时间（FET，UTC+3）</strong>。</p>
         <p>其中，<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利、塞尔维亚</strong>等绝大多数欧洲核心经济体均属于<strong>中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
-        <p><strong>英国</strong>、爱尔兰和葡萄牙遵循<strong>西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯</strong>等国则属于<strong>东欧时区（EET）</strong>。</p>
+        <p><strong>英国</strong>、爱尔兰和葡萄牙遵循<strong>西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯、拉脱维亚、爱沙尼亚</strong>等国则属于<strong>东欧时区（EET）</strong>。</p>
         <p>⚠️ <strong>欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong>3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong>10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
         <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
     </section>
 
-    <!-- JavaScript -->
+    <!-- ============================================================
+    JavaScript
+    ============================================================ -->
     <script>
         (function() {
             'use strict';
@@ -532,7 +535,7 @@
                 { id: 'local', city: '我的本地时间', tz: 'LOCAL', isLocal: true },
                 { id: 'uk', city: '🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰', tz: 'Europe/London' },
                 { id: 'paris', city: '🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚', tz: 'Europe/Paris' },
-                { id: 'bucharest', city: '🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯', tz: 'Europe/Bucharest' }
+                { id: 'bucharest', city: '🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯 · 🇱🇻 拉脱维亚 · 🇪🇪 爱沙尼亚', tz: 'Europe/Bucharest' }
             ];
 
             let clocks = [];
@@ -642,12 +645,12 @@
                     const displayTz = getDisplayTz(tz);
 
                     card.innerHTML = `
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 flex flex-col">
                             <div>
                                 <h3 class="city-name">${clock.city}</h3>
                                 <p class="timezone-label">${displayTz}</p>
                             </div>
-                            <div class="text-right mt-2">
+                            <div class="text-right mt-auto pt-2">
                                 <div class="time-display" data-time="${cardId}">${timeStr}</div>
                                 <div class="date-display" data-date="${cardId}">${dateStr}${offsetStr}</div>
                             </div>
