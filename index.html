@@ -33,18 +33,24 @@
     <meta property="og:url" content="https://www.euclock.com/">
     <meta property="og:image" content="https://www.euclock.com/og-image.svg">
 
-    <!-- JSON-LD 结构化数据 -->
+    <!-- JSON-LD 结构化数据（优化版） -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "欧洲时间实时时钟",
       "url": "https://www.euclock.com/",
-      "description": "实时显示欧洲37国的当前精准时间，全自动无感识别夏令时调整。",
+      "description": "实时显示欧洲37国当前时间与日期，自动识别夏令时，是跨境商务和旅行的专业欧洲时间查询工具。",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "inLanguage": "zh-CN",
-      "dateModified": "2026-09-08"
+      "dateModified": "2026-09-08",
+      "keywords": "欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间",
+      "provider": {
+        "@type": "Organization",
+        "name": "欧洲时间网",
+        "url": "https://www.euclock.com/"
+      }
     }
     </script>
 
@@ -83,6 +89,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "欧洲时间查询工具是免费的吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，本站欧洲时间查询工具完全免费，无需注册，打开网页即可实时查看欧洲37国的当前时间和日期，并自动识别冬夏令时切换。"
           }
         }
       ]
@@ -152,7 +166,7 @@
         .clock-card .time-display {
             font-size: 2.25rem;
             font-weight: 600;
-            font-family: 'JetBrains Mono', 'Inter', monospace;
+            font-family: 'Inter', system-ui, sans-serif;
             font-variant-numeric: tabular-nums;
             line-height: 1;
         }
@@ -202,6 +216,26 @@
             display: flex;
             align-items: center;
             gap: 6px;
+        }
+
+        /* ─── 介绍段落（SEO） ─── */
+        .intro-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 16px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: hsl(var(--bc) / 0.8);
+        }
+        .intro-section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: hsl(var(--bc));
+        }
+        .intro-section strong {
+            color: hsl(var(--p));
         }
 
         /* ─── 时间滑块 ─── */
@@ -284,6 +318,7 @@
             .clock-card .time-display { font-size: 1.75rem; }
             .top-bar .brand h2 { font-size: 1rem; }
             .faq-section { padding: 16px; font-size: 0.8rem; }
+            .intro-section { padding: 0 12px; }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
             .clock-card { width: 240px; }
@@ -403,6 +438,14 @@
     </section>
 
     <!-- ============================================================
+    欧洲时间介绍段落（SEO 强化）
+    ============================================================ -->
+    <section class="intro-section">
+        <h2>欧洲时间查询 - 实时欧洲时钟</h2>
+        <p>本站提供精准的<strong>欧洲时间</strong>查询服务，实时显示欧洲37个国家的当前当地时间，包括英国、法国、德国、意大利、西班牙、荷兰、波兰、瑞典等。自动识别冬夏令时转换，无论是跨境商务、留学还是旅行，都能轻松掌握<strong>欧洲时间</strong>与<strong>欧洲时差</strong>。</p>
+    </section>
+
+    <!-- ============================================================
     时间旅行滑块
     ============================================================ -->
     <section class="slider-section">
@@ -423,23 +466,25 @@
     底部 FAQ 区域（爬虫可见的静态文字）
     ============================================================ -->
     <section class="faq-section">
-        <h2>关于欧洲时间与时区划分</h2>
-        <p>欧洲大陆主要横跨四个标准时区：<strong>西欧时间（WET，UTC+0）</strong>、<strong>中欧时间（CET，UTC+1）</strong>、<strong>东欧时间（EET，UTC+2）</strong>以及<strong>远东欧洲时间（FET，UTC+3）</strong>。</p>
-        <p>其中，<strong>法国、德国、意大利、荷兰、波兰、西班牙、瑞典、捷克、比利时、匈牙利、奥地利、塞尔维亚</strong>等绝大多数欧洲核心经济体均属于<strong>中欧时间（CET）</strong>范围。在冬季时比北京时间慢 7 个小时；进入夏令时后，自动切换为中欧夏令时间（CEST，UTC+2），时差缩短至 6 小时。</p>
-        <p><strong>英国</strong>、爱尔兰和葡萄牙遵循<strong>西欧时区（WET）</strong>，冬季使用格林威治标准时间（GMT）；东欧的<strong>罗马尼亚、芬兰、希腊、保加利亚、塞浦路斯、拉脱维亚、爱沙尼亚</strong>等国则属于<strong>东欧时区（EET）</strong>。</p>
-        <p>⚠️ <strong>欧洲夏令时规则：</strong>除冰岛、俄罗斯、白俄罗斯外，绝大多数欧洲国家均在每年 <strong>3 月的最后一个星期日</strong>凌晨开启夏令时（时钟向前拨快 1 小时），并在 <strong>10 月的最后一个星期日</strong>凌晨恢复为冬令时（标准时间）。</p>
+        <h2>欧洲时间与时区常见问题 FAQ</h2>
+        <p><strong>欧洲时间</strong>是跨境办公、留学、旅行中最常查询的信息之一。以下整理了几个关于<strong>欧洲时间</strong>与欧洲时区的常见问题：</p>
+        <p><strong>Q1：欧洲现在和北京时间相差几个小时？</strong><br>欧洲大部分国家（如法国、德国、意大利）在冬令时比北京时间慢7小时，夏令时慢6小时。英国、葡萄牙在冬令时慢8小时，夏令时慢7小时。</p>
+        <p><strong>Q2：欧洲夏令时什么时候开始和结束？</strong><br>欧洲（除冰岛、俄罗斯、白俄罗斯外）统一在每年3月的最后一个星期日凌晨1点将时钟拨快1小时，进入夏令时；10月的最后一个星期日凌晨拨回1小时，恢复冬令时。</p>
+        <p><strong>Q3：法国、德国现在是什么时区？</strong><br>法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。</p>
+        <p><strong>Q4：英国现在是什么时区？</strong><br>英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。</p>
+        <p><strong>Q5：欧洲时间查询工具是免费的吗？</strong><br>是的，本站<strong>欧洲时间</strong>查询工具完全免费，无需注册，打开网页即可实时查看欧洲37国的当前时间和日期，并自动识别冬夏令时切换。</p>
         <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
     </section>
 
     <div class="w-full max-w-4xl text-center mt-8 pt-4 border-t border-base-200 text-xs opacity-70">
-    <p>
-        💬 改进建议？
-        <a href="mailto:su@euclock.com?subject=欧洲时间工具反馈" class="link link-primary font-medium hover:text-primary-focus transition-colors">
-            电邮告诉我
-        </a>
-    </p>
-</div>
-    
+        <p>
+            💬 改进建议？
+            <a href="mailto:su@euclock.com?subject=欧洲时间工具反馈" class="link link-primary font-medium hover:text-primary-focus transition-colors">
+                电邮告诉我
+            </a>
+        </p>
+    </div>
+
     <!-- ============================================================
     JavaScript
     ============================================================ -->
@@ -568,37 +613,47 @@
                 return 'UTC';
             }
 
+            /* ✅ 修复：强制使用冒号分隔 */
             function formatTime(date, tz) {
                 try {
-                    return date.toLocaleTimeString('zh-CN', {
+                    const parts = new Intl.DateTimeFormat('zh-CN', {
                         timeZone: tz,
                         hour: '2-digit',
                         minute: '2-digit',
                         hour12: false
-                    });
+                    }).formatToParts(date);
+                    const hour = parts.find(p => p.type === 'hour').value;
+                    const minute = parts.find(p => p.type === 'minute').value;
+                    return `${hour}:${minute}`;
                 } catch (_) { return '--:--'; }
             }
 
             function formatDate(date, tz) {
                 try {
-                    return date.toLocaleDateString('zh-CN', {
+                    const parts = new Intl.DateTimeFormat('zh-CN', {
                         timeZone: tz,
                         year: 'numeric',
                         month: '2-digit',
                         day: '2-digit',
                         weekday: 'short'
-                    });
+                    }).formatToParts(date);
+                    const year = parts.find(p => p.type === 'year').value;
+                    const month = parts.find(p => p.type === 'month').value;
+                    const day = parts.find(p => p.type === 'day').value;
+                    const weekday = parts.find(p => p.type === 'weekday').value;
+                    return `${year}/${month}/${day} ${weekday}`;
                 } catch (_) { return '----/--/-- 周-'; }
             }
 
             function getHour(date, tz) {
                 try {
-                    const h = parseInt(date.toLocaleTimeString('zh-CN', {
+                    const parts = new Intl.DateTimeFormat('zh-CN', {
                         timeZone: tz,
                         hour: '2-digit',
                         hour12: false
-                    }), 10);
-                    return isNaN(h) ? -1 : h;
+                    }).formatToParts(date);
+                    const hour = parts.find(p => p.type === 'hour').value;
+                    return parseInt(hour, 10);
                 } catch (_) { return -1; }
             }
 
