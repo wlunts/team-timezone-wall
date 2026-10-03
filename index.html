@@ -7,10 +7,10 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
     <title>欧洲时间 | 法国、德国、英国等欧洲37国当前时间实时查询</title>
-    <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，支持时差转换模拟，跨境协同办公的专业欧洲时钟。">
+    <meta name="description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，卡片按上班时段颜色高亮，时间旅行滑块可预览未来 24 小时，跨境协同办公的专业欧洲时钟。">
     <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间">
     <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
-    <meta name="date" content="2026-09-08" />
+    <meta name="date" content="2026-10-03" />
     <!-- DNS 预解析 + 预连接 -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -26,7 +26,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="欧洲时间 | 实时欧洲时钟">
-    <meta property="og:description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时。">
+    <meta property="og:description" content="精准实时欧洲时间查询。提供法国、德国、意大利、英国、西班牙等37个欧洲国家与时区当地时间。自动识别冬夏令时，卡片按上班时段颜色高亮，时间旅行滑块可预览未来 24 小时。">
     <meta property="og:url" content="https://www.euclock.com/">
     <meta property="og:image" content="https://www.euclock.com/og-image.svg">
     <!-- JSON-LD 合并 @graph：WebApplication + FAQPage + BreadcrumbList -->
@@ -44,8 +44,16 @@
           "operatingSystem": "All",
           "browserRequirements":"Requires JavaScript",
           "inLanguage": "zh-CN",
-          "dateModified": "2026-09-08",
+          "dateModified": "2026-10-03",
           "keywords": "欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间",
+          "featureList": [
+            "实时显示欧洲37国当前时间，按共享时区分组",
+            "自动识别冬夏令时（DST）切换",
+            "卡片按当地上班时段（8:00–18:00）颜色高亮，一眼看出哪些国家在工作",
+            "时间旅行滑块，可预览未来或过去最多 24 小时",
+            "一键添加或删除国家，选择自动保存到下次访问",
+            "完全免费，无需注册"
+          ],
           "provider": {
             "@type": "Organization",
             "name": "欧洲时间网",
@@ -111,6 +119,22 @@
                 "@type":"Answer",
                 "text":"浏览器关闭JavaScript后，页面会展示静态时区参考信息，可手动换算欧洲当地时间。"
               }
+            },
+            {
+              "@type":"Question",
+              "name":"卡片颜色代表什么意思？",
+              "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"卡片在对应国家当地时间 8:00–18:00 之间会显示浅色高亮，代表该国大概率处于上班时段。其他时间显示为普通背景，表示大概率下班或休息。一眼就能看出哪个国家现在方便联系。"
+              }
+            },
+            {
+              "@type":"Question",
+              "name":"时间旅行滑块怎么用？",
+              "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"拖动时钟卡片下方的时间旅行滑块，即可预览未来最多 24 小时或过去最多 24 小时的欧洲各国时间。所有卡片会同步更新。常用于规划跨时区电话会议，比如「明天上午 9 点给德国客户打电话，他们几点？」"
+              }
             }
           ]
         },
@@ -151,6 +175,18 @@
             padding: 16px;
             background-color: #ffffff;
         }
+        /* screen-reader only，仅给爬虫/读屏，视觉隐藏 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
         /* ─── 时钟容器 ─── */
         .clocks-wrapper {
             width: 100%;
@@ -175,7 +211,7 @@
         }
         .clock-card .timezone-label {
             font-size: 0.75rem;
-            opacity: 0.7;
+            opacity: 0.8;
             margin-top: 2px;
         }
         .clock-card .time-display {
@@ -187,7 +223,7 @@
         }
         .clock-card .date-display {
             font-size: 0.8rem;
-            opacity: 0.85;
+            opacity: 0.9;
             margin-top: 4px;
         }
         /* ─── 工作时段高亮 ─── */
@@ -290,6 +326,26 @@
             transform: translateX(-50%) translateY(0);
             pointer-events: auto;
         }
+        /* ─── Why we built this ─── */
+        .why-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: hsl(var(--bc) / 0.8);
+            text-align: center;
+        }
+        .why-section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: hsl(var(--bc));
+        }
+        .why-section p {
+            margin-bottom: 12px;
+        }
         /* ─── 底部 FAQ ─── */
         .faq-section {
             width: 100%;
@@ -324,6 +380,7 @@
             .top-bar .brand h1 { font-size: 1rem; }
             .faq-section { padding: 16px; font-size: 0.8rem; }
             .intro-section { padding: 0 12px; }
+            .why-section { padding: 0 12px; }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
             .clock-card { width: 240px; }
@@ -369,9 +426,14 @@
         </div>
     </header>
     <!-- ============================================================
+    sr-only SEO 标题（屏幕阅读器/爬虫可读，视觉不占空间）
+    目的：为下方卡片建立 h2 → h3 的层级，避免 h1 → h3 跳跃
+    ============================================================ -->
+    <h2 class="sr-only" id="clock-grid-heading">实时欧洲37国时钟 · 按共享时区分组</h2>
+    <!-- ============================================================
     时钟网格 — 预埋 4 张静态卡片（百度爬虫可见）
     ============================================================ -->
-    <section class="clocks-wrapper">
+    <section class="clocks-wrapper" aria-labelledby="clock-grid-heading">
         <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full">
             <!-- 卡片1：我的本地时间 -->
             <div id="card_local" class="card clock-card shadow-md border border-base-300 bg-base-200" data-tz="LOCAL" data-is-local="true">
@@ -383,8 +445,8 @@
                     <div class="mt-auto pt-2 flex items-end justify-between gap-2">
                         <div class="w-6 shrink-0"></div>
                         <div class="text-right">
-                            <div class="time-display" data-time="card_local">--:--</div>
-                            <div class="date-display" data-date="card_local">----/--/-- 周-</div>
+                            <div class="time-display" data-time="card_local">12:00</div>
+                            <div class="date-display" data-date="card_local">2026/01/01 周四</div>
                         </div>
                     </div>
                 </div>
@@ -399,8 +461,8 @@
                     <div class="mt-auto pt-2 flex items-end justify-between gap-2">
                         <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="1" aria-label="删除">✕</button>
                         <div class="text-right">
-                            <div class="time-display" data-time="card_uk">--:--</div>
-                            <div class="date-display" data-date="card_uk">----/--/-- 周-</div>
+                            <div class="time-display" data-time="card_uk">11:00</div>
+                            <div class="date-display" data-date="card_uk">2026/01/01 周四</div>
                         </div>
                     </div>
                 </div>
@@ -415,8 +477,8 @@
                     <div class="mt-auto pt-2 flex items-end justify-between gap-2">
                         <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="2" aria-label="删除">✕</button>
                         <div class="text-right">
-                            <div class="time-display" data-time="card_paris">--:--</div>
-                            <div class="date-display" data-date="card_paris">----/--/-- 周-</div>
+                            <div class="time-display" data-time="card_paris">12:00</div>
+                            <div class="date-display" data-date="card_paris">2026/01/01 周四</div>
                         </div>
                     </div>
                 </div>
@@ -431,8 +493,8 @@
                     <div class="mt-auto pt-2 flex items-end justify-between gap-2">
                         <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="3" aria-label="删除">✕</button>
                         <div class="text-right">
-                            <div class="time-display" data-time="card_bucharest">--:--</div>
-                            <div class="date-display" data-date="card_bucharest">----/--/-- 周-</div>
+                            <div class="time-display" data-time="card_bucharest">13:00</div>
+                            <div class="date-display" data-date="card_bucharest">2026/01/01 周四</div>
                         </div>
                     </div>
                 </div>
@@ -463,7 +525,17 @@
         <p>本站提供精准的查询服务，实时展示欧洲37个国家的当地时间，涵盖英国、法国、德国、意大利、西班牙、荷兰、波兰、瑞典等地区。工具自动适配冬夏令时切换，无论是跨境商务对接、留学参考还是出境旅行，都可以便捷了解欧洲各国时区与时差情况。</p>
     </section>
     <!-- ============================================================
-    底部 FAQ 区域（爬虫可见的静态文字）
+    为什么做这个极简的欧洲时间工具（建站说明）
+    ============================================================ -->
+    <section class="why-section">
+        <h2>为什么做这个极简的欧洲时间工具</h2>
+        <p>我们是一个做外贸相关的团队。每天跟欧洲客户联系前，我们都要先看一眼时间——而每天，我们都会落在同一类网站上：一张地图、一串城市名、几篇文章，时间藏在中间。我们只是想知道现在几点。这么简单的事，居然这么难。</p>
+        <p>于是我们找了很久，看有没有一个能直接看时间的工具。大部分时间类网站都想覆盖所有东西——地图、城市列表、文章、广告，真正需要的时间反而埋在最下面。大多数搜"欧洲时间"的人并不熟悉欧洲的城市，只认得国家名。不需要秒，不需要城市地点，只需要打开一个页面，看到法国几点、德国几点、英国几点。就这么简单。</p>
+        <p>所以我们做了这个页面。同一个时区的国家放在一张卡片上，整个欧洲一眼就能看完。卡片在当地工作时段会高亮，一眼就知道哪个国家可能在上班。还有一个时间旅行滑块，可以预览未来或过去 24 小时——规划明天的电话很方便。需要更多？自己加，下次打开还在。</p>
+        <p>这不是一个销售工具。我们做它，是因为我们自己及身边的同事和朋友都有这个需求，而现有的工具都不合用。做完之后我们想：为什么只有我们能用？所以它免费，给所有人——客户、非客户、同行，谁都可以。想用多少次都行。如果能帮到你，我们就很高兴了。</p>
+    </section>
+    <!-- ============================================================
+    底部 FAQ 区域（爬虫可见的静态文字，与 JSON-LD 一一对应）
     ============================================================ -->
     <section class="faq-section">
         <h2>欧洲时间与时区常见问题 FAQ</h2>
@@ -473,6 +545,10 @@
         <p><strong>Q3：法国、德国现在是什么时区？</strong><br>法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。</p>
         <p><strong>Q4：英国现在是什么时区？</strong><br>英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。</p>
         <p><strong>Q5：欧洲时间查询工具是免费的吗？</strong><br>是的，本站查询工具完全免费，无需注册，打开网页即可实时查看欧洲37国的当前时间和日期，并自动识别冬夏令时切换。</p>
+        <p><strong>Q6：如何换算欧洲当地时间和北京时间？</strong><br>可以直接使用本工具对比两地时钟。中欧冬令时比北京晚7小时，夏令时晚6小时；西欧英国冬令时晚8小时，夏令时晚7小时。注意每年夏令时切换月份会改变时差。</p>
+        <p><strong>Q7：不开启 JavaScript 可以查看欧洲各国时区参考吗？</strong><br>浏览器关闭 JavaScript 后，页面会展示静态时区参考信息，可手动换算欧洲当地时间。</p>
+        <p><strong>Q8：卡片颜色代表什么意思？</strong><br>卡片在对应国家当地时间 8:00–18:00 之间会显示浅色高亮，代表该国大概率处于上班时段。其他时间显示为普通背景，表示大概率下班或休息。一眼就能看出哪个国家现在方便联系。</p>
+        <p><strong>Q9：时间旅行滑块怎么用？</strong><br>拖动时钟卡片下方的时间旅行滑块，即可预览未来最多 24 小时或过去最多 24 小时的欧洲各国时间。所有卡片会同步更新。常用于规划跨时区电话会议，比如"明天上午 9 点给德国客户打电话，他们几点？"</p>
         <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
     </section>
     <!-- noscript：关闭JS时，给爬虫/浏览器静态时区参考 -->
@@ -677,13 +753,14 @@
                 } catch (_) {}
                 return 'UTC';
             }
+            /* 强制使用 00-23 小时制，避免 24:00 bug */
             function formatTime(date, tz) {
                 try {
                     const parts = new Intl.DateTimeFormat('zh-CN', {
                         timeZone: tz,
                         hour: '2-digit',
                         minute: '2-digit',
-                        hour12: false
+                        hourCycle: 'h23'
                     }).formatToParts(date);
                     const hour = parts.find(p => p.type === 'hour').value;
                     const minute = parts.find(p => p.type === 'minute').value;
@@ -711,7 +788,7 @@
                     const parts = new Intl.DateTimeFormat('zh-CN', {
                         timeZone: tz,
                         hour: '2-digit',
-                        hour12: false
+                        hourCycle: 'h23'
                     }).formatToParts(date);
                     const hour = parts.find(p => p.type === 'hour').value;
                     return parseInt(hour, 10);
