@@ -1,194 +1,222 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="cupcake">
+<html lang="es" data-theme="cupcake">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🕒%3C/text%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
-    <title>欧洲时间 | 法国、德国、英国等欧洲37国当前时间实时查询</title>
-    <meta name="description" content="欧洲时间实时查询 — 查看法国、德国、英国、意大利等37国当前时间与日期。欧洲现在时间自动识别冬夏令时，工作时段颜色高亮，时间旅行预览，无需注册。">
-    <meta name="keywords" content="欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间,中欧时间">
-    <meta name="baidu-site-verification" content="codeva-nSZ0r5Tjex" />
-    <meta name="date" content="2026-10-03" />
-    <!-- DNS 预解析 + 预连接 -->
+    <title>Hora en Europa — Reloj en Vivo y Conversor de Horario Europeo</title>
+    <meta name="author" content="Hora en Europa">
+    <meta name="copyright" content="Hora en Europa">
+    <meta name="description" content="Consulta la hora actual en Europa desde México, Colombia, Argentina, Chile, Perú y EE. UU. Relojes en vivo para 37+ países europeos, conversor de diferencia horaria y cambio de horario automático.">
+    <!-- 关键词专门吃拉美及美洲西语习惯 -->
+    <meta name="keywords" content="hora en Europa, hora Europa, hora actual en Europa, diferencia horaria Europa, conversor hora Europa, hora de Europa en vivo, hora en Alemania desde Mexico, hora en Francia desde Colombia, horario europeo actual">
+    
+    <!-- 独立西班牙语域名 Canonical 与 Hreflang 互联映射 -->
+    <link rel="canonical" href="https://www.euclock.com/" />
+    <link rel="alternate" hreflang="es" href="https://www.euclock.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.europetime.net/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.europetime.net/" />
+
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="canonical" href="https://www.euclock.com/" />
-    <link rel="alternate" hreflang="zh" href="https://www.euclock.com/" />
-    <link rel="alternate" hreflang="en" href="https://www.europetime.net/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.europetime.net/" />
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="欧洲时间 | 实时欧洲时钟">
-    <meta property="og:description" content="欧洲时间实时查询 — 查看法国、德国、英国、意大利等37国当前时间与日期。欧洲现在时间自动识别冬夏令时，工作时段颜色高亮，时间旅行预览，无需注册。">
+    <meta property="og:title" content="Hora en Europa — Reloj en Vivo y Conversor para Latinoamérica">
+    <meta property="og:description" content="¿Qué hora es ahora en Europa? Relojes en vivo para 37+ países con conversor de hora para México, Colombia, Argentina, Chile, Perú y más.">
     <meta property="og:url" content="https://www.euclock.com/">
-    <meta property="og:image" content="https://www.euclock.com/og-image.svg">
-    <!-- Twitter Card -->
+    <meta property="og:site_name" content="Hora en Europa">
+    <meta property="og:locale" content="es_419">
+    <meta property="og:image" content="https://www.euclock.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="欧洲时间 | 欧洲现在时间实时查询">
-    <meta name="twitter:description" content="欧洲时间实时查询 — 查看法国、德国、英国、意大利等37国当前时间与日期。自动识别冬夏令时，工作时段颜色高亮。">
-    <meta name="twitter:image" content="https://www.euclock.com/og-image.svg">
-    <!-- JSON-LD 合并 @graph：WebApplication + FAQPage + BreadcrumbList -->
+    <meta name="twitter:title" content="Hora en Europa | Reloj en Vivo para Latinoamérica">
+    <meta name="twitter:description" content="Consulta la hora actual en Europa y calcula la diferencia horaria con tu país en América Latina. Relojes en vivo y simulación horaria.">
+    <meta name="twitter:image" content="https://www.euclock.com/og-image.png">
+
+    <!-- JSON-LD 结构化数据：FAQPage 已与下方 13 个 details 严格一一对应 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "WebApplication",
-          "@id":"https://www.euclock.com/#webapp",
-          "name": "欧洲时间",
+          "@id": "https://www.euclock.com/#webapp",
+          "name": "Hora en Europa",
+          "alternateName": ["Hora Europa", "Hora Actual en Europa", "Diferencia Horaria con Europa", "Reloj de Europa para Latinoamérica"],
           "url": "https://www.euclock.com/",
-          "description": "实时显示欧洲37国当前时间与日期，自动识别夏令时，是跨境商务和旅行的专业欧洲时间查询工具。",
+          "description": "Herramienta rápida y ligera para consultar la hora en Europa en tiempo real y calcular la diferencia horaria desde México, Colombia, Argentina, Chile, Perú y otros países de América.",
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "All",
-          "browserRequirements":"Requires JavaScript",
-          "inLanguage": "zh-CN",
+          "browserRequirements": "Requires JavaScript",
+          "datePublished": "2026-01-01",
           "dateModified": "2026-10-03",
-          "keywords": "欧洲时间,欧洲现在几点,欧洲当地时间,欧洲时区,欧洲时差,德国时间,英国时间,法国时间",
+          "inLanguage": "es-419",
+          "keywords": "hora en Europa, hora Europa, hora actual en Europa, conversor hora Europa, diferencia horaria con Europa",
           "featureList": [
-            "实时显示欧洲37国当前时间，按共享时区分组",
-            "自动识别冬夏令时（DST）切换",
-            "卡片按当地上班时段（8:00–18:00）颜色高亮，一眼看出哪些国家在工作",
-            "时间旅行滑块，可预览未来或过去最多 24 小时",
-            "一键添加或删除国家，选择自动保存到下次访问",
-            "完全免费，无需注册"
+            "Relojes en vivo para más de 37 países europeos agrupados por zonas horarias",
+            "Conversor de diferencia horaria respecto a países de América Latina",
+            "Ajuste automático del horario de verano europeo (DST)",
+            "Tarjetas de color para identificar el horario de oficina en Europa",
+            "Deslizador interactivo para previsualizar la hora futura o pasada en Europa (hasta 24h)",
+            "100% gratis y sin necesidad de registro"
           ],
-          "provider": {
-            "@type": "Organization",
-            "name": "欧洲时间网",
-            "url": "https://www.euclock.com/"
-          }
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "screenshot": "https://www.euclock.com/og-image.png",
+          "provider": { "@id": "https://www.euclock.com/#organization" },
+          "copyrightYear": "2026"
         },
         {
-          "@type":"FAQPage",
-          "@id":"https://www.euclock.com/#faq",
-          "mainEntity":[
+          "@type": "Organization",
+          "@id": "https://www.euclock.com/#organization",
+          "name": "Hora en Europa",
+          "url": "https://www.euclock.com/",
+          "logo": "https://www.euclock.com/logo.png",
+          "email": "su@euclock.com",
+          "sameAs": [
+            "https://www.linkedin.com/company/europetime"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.euclock.com/#faq",
+          "mainEntity": [
             {
-              "@type":"Question",
-              "name":"欧洲现在时间和北京时间相差几个小时？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"欧洲大部分国家（如法国、德国、意大利）在冬令时比北京时间慢7小时，夏令时慢6小时。英国、葡萄牙在冬令时慢8小时，夏令时慢7小时。"
+              "@type": "Question",
+              "name": "¿Qué hora es ahora en Europa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La hora en Europa ahora se refiere a la hora local actual en los diferentes países europeos. Esta página muestra la hora en vivo para más de 37 países, ajustada automáticamente para el horario de verano, de modo que puedas consultar de un vistazo la hora actual en el Reino Unido, Francia, Alemania, Italia, España y más."
               }
             },
             {
-              "@type":"Question",
-              "name":"欧洲夏令时什么时候开始和结束？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"欧洲（除冰岛、俄罗斯、白俄罗斯外）统一在每年3月的最后一个星期日凌晨1点将时钟拨快1小时，进入夏令时；10月的最后一个星期日凌晨拨回1小时，恢复冬令时。"
+              "@type": "Question",
+              "name": "¿Cómo afecta el horario de verano a las reuniones de negocios en Europa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Los cambios de hora semestrales de Europa pueden provocar conflictos de programación al trabajar con la hora europea. Esta herramienta minimalista gestiona automáticamente el DST, permitiéndote utilizar la función de simulación (Time Travel) para verificar las horas locales en distintas zonas europeas y lograr una colaboración fluida."
               }
             },
             {
-              "@type":"Question",
-              "name":"法国、德国现在是什么时区？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。"
+              "@type": "Question",
+              "name": "¿Cuáles son las principales zonas horarias en Europa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Europa abarca cuatro zonas horarias estándar principales: Hora de Europa Occidental (WET/GMT, UTC+0), Hora Central Europea (CET, UTC+1), Hora de Europa Oriental (EET, UTC+2) y Hora de Moscú (MSK, UTC+3). Utiliza esta herramienta para ver la hora en Europa en cada zona."
               }
             },
             {
-              "@type":"Question",
-              "name":"英国现在是什么时区？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。"
+              "@type": "Question",
+              "name": "¿Cuándo cambia Europa al horario de verano?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La mayoría de los países europeos cambian al horario de verano (Summer Time) el último domingo de marzo y regresan al horario estándar el último domingo de octubre de cada año, lo cual desplaza los desfasajes horarios en Europa."
               }
             },
             {
-              "@type":"Question",
-              "name":"欧洲时间查询工具是免费的吗？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"是的，本站欧洲时间查询工具完全免费，无需注册，打开网页即可实时查看欧洲37国的当前时间和日期，并自动识别冬夏令时切换。"
+              "@type": "Question",
+              "name": "¿Qué países utilizan la Hora Central Europea (CET)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La Hora Central Europea (CET, UTC+1) cubre Francia, Alemania, Italia, España, Países Bajos, Polonia, Austria, Suecia, Hungría, Chequia, Bélgica, Suiza y varios países más. Durante el verano, se convierte en CEST (UTC+2) y actualiza la hora en consecuencia."
               }
             },
             {
-              "@type":"Question",
-              "name":"如何换算欧洲当地时间和北京时间？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"可以直接使用本工具对比两地时钟。中欧冬令时比北京晚7小时，夏令时晚6小时；西欧英国冬令时晚8小时，夏令时晚7小时。注意每年夏令时切换月份会改变时差。"
+              "@type": "Question",
+              "name": "¿Es gratuita esta herramienta especializada en la hora de Europa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, este reloj y conversor de husos horarios es completamente gratuito. Es limpio y no requiere registro. Simplemente abre la página para ver la hora en vivo en más de 37 países europeos con gestión automática del horario de verano."
               }
             },
             {
-              "@type":"Question",
-              "name":"不开启JS可以查看欧洲各国时区参考吗？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"浏览器关闭JavaScript后，页面会展示静态时区参考信息，可手动换算欧洲当地时间。"
+              "@type": "Question",
+              "name": "¿Cómo puedo comprobar la hora actual en Europa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Puedes consultar la hora actualizada de Europa directamente en esta página. Los relojes en vivo muestran la hora local en tiempo real para decenas de naciones europeas, ajustada automáticamente para las transiciones del horario de verano."
               }
             },
             {
-              "@type":"Question",
-              "name":"卡片颜色代表什么意思？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"卡片在对应国家当地时间 8:00–18:00 之间会显示浅色高亮，代表该国大概率处于上班时段。其他时间显示为普通背景，表示大概率下班或休息。一眼就能看出哪个国家现在方便联系。"
+              "@type": "Question",
+              "name": "¿Cómo convierto la hora de Europa a mi hora local?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Compara la hora en Europa con tu reloj local utilizando nuestro conversor. Añade zonas horarias adicionales o utiliza el deslizador de simulación del tiempo para previsualizar horas adelantadas o atrasadas, ideal para planificar reuniones transfronterizas."
               }
             },
             {
-              "@type":"Question",
-              "name":"时间旅行滑块怎么用？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"拖动时钟卡片下方的时间旅行滑块，即可预览未来最多 24 小时或过去最多 24 小时的欧洲各国时间。所有卡片会同步更新。常用于规划跨时区电话会议，比如「明天上午 9 点给德国客户打电话，他们几点？」"
+              "@type": "Question",
+              "name": "¿Qué es el deslizador de simulación del tiempo (Time Travel)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arrastra el deslizador ubicado debajo de la cuadrícula de relojes para previsualizar la hora en Europa hasta 24 horas antes o después del momento actual. Todas las tarjetas de países se actualizan en vivo mientras arrastras. Está diseñado para responder a una pregunta de planificación común: \"Si llamo a Alemania a las 9 a. m. hora de mi país mañana, ¿qué hora será allá?\""
               }
             },
             {
-              "@type":"Question",
-              "name":"哪些欧洲国家和英国同一时区？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"英国、爱尔兰、葡萄牙都使用西欧时间（WET，UTC+0）冬令时；夏令时期间英国和爱尔兰切换为 BST（UTC+1），葡萄牙切换为 WEST（UTC+1）。冰岛全年使用 UTC+0，但不实行夏令时。"
+              "@type": "Question",
+              "name": "¿Qué significan las tarjetas de colores?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Las tarjetas resaltadas en color marcan los países que actualmente se encuentran dentro de las horas de oficina locales típicas en días laborables (lunes a viernes), de 08:00 a 18:00. Las tarjetas con fondo plano están fuera del horario de oficina. De un vistazo puedes saber quién es probable que responda el teléfono en este momento, sin necesidad de hacer cálculos mentales de husos horarios."
               }
             },
             {
-              "@type":"Question",
-              "name":"从中国给欧洲客户打电话，什么时候最合适？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"欧洲办公室通常在当地时间 09:00–17:00 上班，换算成北京时间：中欧国家（法国、德国、意大利等）冬令时对应 16:00–24:00，夏令时对应 15:00–23:00；东欧国家（希腊、罗马尼亚、芬兰等）冬令时对应 15:00–23:00，夏令时对应 14:00–22:00；英国、葡萄牙冬令时对应 17:00–次日 01:00，夏令时对应 16:00–24:00。综合来看，北京时间 15:00–23:00 是联系欧洲客户比较合适的窗口。"
+              "@type": "Question",
+              "name": "¿Qué países europeos comparten la misma zona horaria que el Reino Unido?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El Reino Unido, Irlanda y Portugal utilizan la Hora de Europa Occidental (WET, UTC+0) en invierno. Islandia también permanece en UTC+0 todo el año pero no observa el horario de verano. Durante el verano, el Reino Unido e Irlanda cambian a BST (UTC+1) mientras que Portugal cambia a WEST (UTC+1)."
               }
             },
             {
-              "@type":"Question",
-              "name":"哪些欧洲国家不实行夏令时？",
-              "acceptedAnswer":{
-                "@type":"Answer",
-                "text":"冰岛、俄罗斯、白俄罗斯、土耳其全年使用同一时间，不实行夏令时。其余欧洲国家通常在每年 3 月最后一个周日切换夏令时，10 月最后一个周日恢复冬令时。"
+              "@type": "Question",
+              "name": "¿Cuál es la diferencia horaria entre Europa y EE. UU. / América?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dependiendo de la zona, Europa está de 5 a 7 horas por delante de Nueva York y de 8 a 10 horas por delante de Los Ángeles. La brecha se reduce 1 hora durante las semanas en que Europa ya ha cambiado al horario de verano pero Estados Unidos o América Latina aún no lo han hecho (o viceversa), por lo general a mediados de marzo y finales de octubre."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Todos los países europeos observan el horario de verano?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Islandia, Rusia, Bielorrusia y Turquía mantienen el mismo reloj todo el año. El resto de Europa cambia el último domingo de marzo y regresa el último domingo de octubre. Incluso dentro de la UE, la política está bajo revisión: el Parlamento Europeo votó en 2019 para poner fin a los cambios de hora estacionales, pero su implementación se ha pospuesto indefinidamente."
               }
             }
           ]
         },
         {
-          "@type":"BreadcrumbList",
-          "@id":"https://www.euclock.com/#breadcrumb",
-          "itemListElement":[
+          "@type": "BreadcrumbList",
+          "@id": "https://www.euclock.com/#breadcrumb",
+          "itemListElement": [
             {
-              "@type":"ListItem",
-              "position":1,
-              "name":"首页",
-              "item":"https://www.euclock.com/"
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://www.euclock.com/"
             }
           ]
         }
       ]
     }
     </script>
-    <!-- Tailwind + DaisyUI -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
     <style>
-        /* ─── 全局样式 ─── */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -197,9 +225,9 @@
             flex-direction: column;
             align-items: center;
             padding: 16px;
-            background-color: #ffffff;
+            background-color: #FFFFFF;
         }
-        /* screen-reader only，仅给爬虫/读屏，视觉隐藏 */
+
         .sr-only {
             position: absolute;
             width: 1px;
@@ -211,13 +239,13 @@
             white-space: nowrap;
             border-width: 0;
         }
-        /* ─── 时钟容器 ─── */
+
         .clocks-wrapper {
             width: 100%;
             max-width: 1280px;
             margin-top: 8px;
         }
-        /* ─── 时钟卡片 ─── */
+
         .clock-card {
             width: 280px;
             min-height: 180px;
@@ -225,8 +253,10 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            flex-shrink: 0;
         }
         .clock-card:hover { transform: translateY(-3px); }
+
         .clock-card .city-name {
             font-size: 1rem;
             font-weight: 500;
@@ -250,203 +280,15 @@
             opacity: 0.9;
             margin-top: 4px;
         }
-        /* ─── 工作时段高亮 ─── */
+
         .clock-card.is-working {
             background-color: oklch(var(--p) / 0.15);
             border-color: oklch(var(--p) / 0.4);
         }
-        /* ─── 顶部工具栏 ─── */
-        .top-bar {
-            width: 100%;
-            max-width: 1280px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .top-bar .brand {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .top-bar .brand h1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        .top-bar .brand span {
-            font-size: 0.6rem;
-            opacity: 0.6;
-            display: none;
-        }
-        @media (min-width: 640px) {
-            .top-bar .brand span { display: inline; }
-        }
-        .top-bar .controls {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        /* ─── 介绍段落（SEO） ─── */
-        .intro-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 98px auto 0;
-            padding: 0 20px;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: hsl(var(--bc) / 0.8);
-            text-align: center;
-        }
-        .intro-section h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: hsl(var(--bc));
-        }
-        /* ─── 时间滑块 ─── */
-        .slider-section {
-            width: 100%;
-            max-width: 600px;
-            margin: 16px auto;
-            padding: 16px 20px;
-            background: hsl(var(--b2));
-            border-radius: 16px;
-            border: 1px solid hsl(var(--b3));
-        }
-        .slider-section .slider-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        .slider-section .slider-header .label {
-            font-size: 0.875rem;
-            font-weight: 500;
-            opacity: 0.8;
-        }
-        .slider-section .slider-header .value {
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
-            color: hsl(var(--p));
-        }
-        /* ─── Toast 消息 ─── */
-        .toast-container {
-            position: fixed;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-            min-width: 240px;
-        }
-        .toast-container.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-            pointer-events: auto;
-        }
-        /* ─── Why we built this ─── */
-        .why-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: hsl(var(--bc) / 0.8);
-            text-align: center;
-        }
-        .why-section h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: hsl(var(--bc));
-        }
-        .why-section p {
-            margin-bottom: 12px;
-        }
-        /* ─── 内容扩展区（时区对照表 / 最佳联系时间） ─── */
-        .content-section {
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 24px;
-            padding: 24px 28px;
-            background: hsl(var(--b2));
-            border-radius: 16px;
-            border: 1px solid hsl(var(--b3));
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .content-section h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        .content-section table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.8rem;
-            margin-top: 12px;
-        }
-        .content-section th,
-        .content-section td {
-            border: 1px solid hsl(var(--b3));
-            padding: 8px 10px;
-            text-align: left;
-        }
-        .content-section th {
-            background: hsl(var(--b3) / 0.5);
-            font-weight: 600;
-        }
-        .content-section .note {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            opacity: 0.7;
-            text-align: center;
-        }
-        /* ─── 底部 FAQ ─── */
-        .faq-section {
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 24px;
-            padding: 24px 28px;
-            background: hsl(var(--b2));
-            border-radius: 16px;
-            border: 1px solid hsl(var(--b3));
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .faq-section h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        .faq-section p { margin-bottom: 6px; }
-        .faq-section .footer-note {
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            text-align: center;
-            font-weight: 500;
-            font-size: 0.8rem;
-        }
-        /* ─── 响应式 ─── */
+
         @media (max-width: 640px) {
-            .clock-card { width: 100%; max-width: 340px; }
+            .clock-card { width: 100%; max-width: 340px; min-height: 160px; }
             .clock-card .time-display { font-size: 1.75rem; }
-            .top-bar .brand h1 { font-size: 1rem; }
-            .faq-section { padding: 16px; font-size: 0.8rem; }
-            .intro-section { padding: 0 12px; }
-            .why-section { padding: 0 12px; }
-            .content-section { padding: 16px; }
-            .content-section table { font-size: 0.7rem; }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
             .clock-card { width: 240px; }
@@ -454,800 +296,664 @@
     </style>
 </head>
 <body>
-    <!-- ============================================================
-    Toast 消息容器
-    ============================================================ -->
-    <div id="toastContainer" class="toast-container">
-        <div id="toastAlert" class="alert alert-info shadow-lg py-2 px-4 text-sm">
-            <span id="toastMessage">消息</span>
-        </div>
-    </div>
-    <!-- ============================================================
-    顶部导航栏，H1直接可见
-    ============================================================ -->
-    <header class="top-bar">
-        <div class="brand">
-            <h1>欧洲时间<span class="sr-only"> — 欧洲现在时间实时查询</span></h1>
-            <span>实时欧洲37国时钟 · 自动夏令时校准</span>
-        </div>
-        <div class="controls">
-            <div class="dropdown dropdown-end">
-                <button tabindex="0" class="btn btn-ghost btn-sm btn-circle" aria-label="添加时区">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                </button>
-                <div tabindex="0" class="dropdown-content z-50 menu p-4 shadow-xl bg-base-100 rounded-box w-72 border border-base-300">
-                    <h3 class="font-semibold text-sm mb-2">添加新时钟</h3>
-                    <input type="text" id="searchInput" placeholder="搜索国家或城市..." class="input input-sm input-bordered w-full mb-2" />
-                    <select id="tzSelect" class="select select-sm select-bordered w-full mb-3"></select>
-                    <button id="addBtn" class="btn btn-primary btn-sm w-full">添加时钟</button>
-                </div>
-            </div>
-            <label class="swap swap-rotate btn btn-ghost btn-sm btn-circle" aria-label="切换主题">
-                <input type="checkbox" id="themeToggle" />
-                <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29l.71-.71a1,1,0,0,0,-1.41-1.41l-.71.71A1,1,0,0,0,5.64,7.05ZM12,15a3,3,0,1,0,3-3A3,3,0,0,0,12,15Zm12.71,1.29a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.41l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM20,12a1,1,0,0,0-1-1H19a1,1,0,0,0,0,2h1A1,1,0,0,0,20,12ZM18.36,7.05a1,1,0,0,0-.7-.29,1,1,0,0,0-.71.29l-.71.71a1,1,0,1,0,1.41,1.41l.71-.71A1,1,0,0,0,18.36,7.05ZM12,9a1,1,0,0,0,1-1V7a1,1,0,0,0-2,0V8A1,1,0,0,0,12,9Z"/></svg>
-                <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.56,15.7A8.12,8.12,0,0,1,12.14,19.73Z"/></svg>
-            </label>
-        </div>
-    </header>
-    <!-- ============================================================
-    sr-only SEO 标题（屏幕阅读器/爬虫可读，视觉不占空间）
-    目的：为下方卡片建立 h2 → h3 的层级，避免 h1 → h3 跳跃
-    ============================================================ -->
-    <h2 class="sr-only" id="clock-grid-heading">实时欧洲37国时钟 · 按共享时区分组</h2>
-    <!-- ============================================================
-    时钟网格 — 预埋 4 张静态卡片（百度爬虫可见）
-    ============================================================ -->
-    <section class="clocks-wrapper" aria-labelledby="clock-grid-heading">
-        <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full">
-            <!-- 卡片1：我的本地时间 -->
-            <div id="card_local" class="card clock-card shadow-md border border-base-300 bg-base-200" data-tz="LOCAL" data-is-local="true">
-                <div class="card-body p-4 flex flex-col">
-                    <div>
-                        <h3 class="city-name">我的本地时间</h3>
-                        <p class="timezone-label">Local Time</p>
+
+    <main class="flex flex-col items-center w-full">
+
+        <div class="w-full max-w-6xl flex justify-between items-center mb-0 border-b border-base-200 pb-1">
+            <h1 class="text-xl font-bold tracking-tight text-base-content">
+                Hora en Europa — Relojes Europeos en Vivo
+            </h1>
+            <div class="flex items-center gap-2">
+                <div class="dropdown dropdown-end">
+                    <button tabindex="0" role="button" aria-label="Añadir zona horaria" class="btn btn-circle btn-ghost btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                    </button>
+                    <div tabindex="0" class="dropdown-content z-[50] card card-compact w-72 p-4 shadow bg-base-100 border border-base-200 mt-2">
+                        <h3 class="font-bold text-sm mb-2">Añadir zona horaria</h3>
+                        <input type="text" id="searchTzInput" placeholder="Buscar país o ciudad..." class="input input-bordered input-sm w-full mb-2">
+                        <select id="tzSelect" class="select select-bordered select-sm w-full mb-3"></select>
+                        <button id="addTzBtn" class="btn btn-primary btn-sm w-full">Añadir</button>
                     </div>
-                    <div class="mt-auto pt-2 flex items-end justify-between gap-2">
-                        <div class="w-6 shrink-0"></div>
-                        <div class="text-right">
-                            <div class="time-display" data-time="card_local">12:00</div>
-                            <div class="date-display" data-date="card_local">2026/01/01 周四</div>
+                </div>
+                <label class="swap swap-rotate btn btn-circle btn-ghost btn-sm">
+                    <input type="checkbox" id="themeToggle" aria-label="Cambiar tema" />
+                    <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29l.71-.71a1,1,0,0,0,-1.41-1.41l-.71.71A1,1,0,0,0,5.64,7.05ZM12,15a3,3,0,1,0,3-3A3,3,0,0,0,12,15Zm12.71,1.29a1,1,0,0,0-.71.29,1,1,0,0,0,0,1.41l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM20,12a1,1,0,0,0-1-1H19a1,1,0,0,0,0,2h1A1,1,0,0,0,20,12ZM18.36,7.05a1,1,0,0,0-.7-.29,1,1,0,0,0-.71.29l-.71.71a1,1,0,1,0,1.41,1.41l.71-.71A1,1,0,0,0,18.36,7.05ZM12,9a1,1,0,0,0,1-1V7a1,1,0,0,0-2,0V8A1,1,0,0,0,12,9Z" /></svg>
+                    <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.56,15.7A8.12,8.12,0,0,1,12.14,19.73Z" /></svg>
+                </label>
+            </div>
+        </div>
+
+        <h2 class="sr-only" id="clock-grid-heading">Relojes en vivo para consultar la hora en Europa en más de 37 países</h2>
+
+        <!-- Clocks Grid -->
+        <section class="clocks-wrapper" aria-labelledby="clock-grid-heading">
+            <div id="clocksContainer" class="flex flex-wrap justify-center gap-4 w-full">
+
+                <!-- Card 1 -->
+                <div id="card_local" class="card clock-card shadow-md border border-base-300 bg-base-200" data-tz="LOCAL" data-is-local="true">
+                    <div class="card-body p-4 flex flex-col">
+                        <div>
+                            <h3 class="city-name">Mi Hora Local</h3>
+                            <p class="timezone-label">Hora Local (Tu País)</p>
+                        </div>
+                        <div class="mt-auto pt-2 flex items-end justify-between gap-2">
+                            <div class="w-6 shrink-0"></div>
+                            <div class="text-right">
+                                <div class="time-display" data-time="card_local">12:00</div>
+                                <div class="date-display" data-date="card_local">lun, 01 ene</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- 卡片2：英国 · 葡萄牙 · 爱尔兰 -->
-            <div id="card_uk" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/London">
-                <div class="card-body p-4 flex flex-col">
-                    <div>
-                        <h3 class="city-name">🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰</h3>
-                        <p class="timezone-label">Europe/London</p>
-                    </div>
-                    <div class="mt-auto pt-2 flex items-end justify-between gap-2">
-                        <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="1" aria-label="删除">✕</button>
-                        <div class="text-right">
-                            <div class="time-display" data-time="card_uk">11:00</div>
-                            <div class="date-display" data-date="card_uk">2026/01/01 周四</div>
+
+                <!-- Card 2 -->
+                <div id="card_uk" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/London">
+                    <div class="card-body p-4 flex flex-col">
+                        <div>
+                            <h3 class="city-name">🇬🇧 Reino Unido · 🇵🇹 Portugal · 🇮🇪 Irlanda</h3>
+                            <p class="timezone-label">Europe/London</p>
+                        </div>
+                        <div class="mt-auto pt-2 flex items-end justify-between gap-2">
+                            <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="1" aria-label="Eliminar reloj">✕</button>
+                            <div class="text-right">
+                                <div class="time-display" data-time="card_uk">11:00</div>
+                                <div class="date-display" data-date="card_uk">lun, 01 ene</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- 卡片3：法国 · 德国 · 荷兰 · 波兰 · 西班牙 · 意大利 · 瑞典 · 捷克 · 比利时 · 匈牙利 · 塞尔维亚 -->
-            <div id="card_paris" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/Paris">
-                <div class="card-body p-4 flex flex-col">
-                    <div>
-                        <h3 class="city-name">🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚</h3>
-                        <p class="timezone-label">Europe/Paris</p>
-                    </div>
-                    <div class="mt-auto pt-2 flex items-end justify-between gap-2">
-                        <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="2" aria-label="删除">✕</button>
-                        <div class="text-right">
-                            <div class="time-display" data-time="card_paris">12:00</div>
-                            <div class="date-display" data-date="card_paris">2026/01/01 周四</div>
+
+                <!-- Card 3 -->
+                <div id="card_france" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/Paris">
+                    <div class="card-body p-4 flex flex-col">
+                        <div>
+                            <h3 class="city-name">🇫🇷 Francia · 🇩🇪 Alemania · 🇪🇸 Spain · 🇳🇱 Países Bajos · 🇮🇹 Italia · 🇵🇱 Polonia · 🇦🇹 Austria · 🇸🇪 Suecia · 🇭🇺 Hungría</h3>
+                            <p class="timezone-label">Europe/Paris</p>
+                        </div>
+                        <div class="mt-auto pt-2 flex items-end justify-between gap-2">
+                            <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="2" aria-label="Eliminar reloj">✕</button>
+                            <div class="text-right">
+                                <div class="time-display" data-time="card_france">12:00</div>
+                                <div class="date-display" data-date="card_france">lun, 01 ene</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- 卡片4：罗马尼亚 · 保加利亚 · 希腊 · 芬兰 · 塞浦路斯 · 拉脱维亚 · 爱沙尼亚 -->
-            <div id="card_bucharest" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/Bucharest">
-                <div class="card-body p-4 flex flex-col">
-                    <div>
-                        <h3 class="city-name">🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯 · 🇱🇻 拉脱维亚 · 🇪🇪 爱沙尼亚</h3>
-                        <p class="timezone-label">Europe/Bucharest</p>
-                    </div>
-                    <div class="mt-auto pt-2 flex items-end justify-between gap-2">
-                        <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="3" aria-label="删除">✕</button>
-                        <div class="text-right">
-                            <div class="time-display" data-time="card_bucharest">13:00</div>
-                            <div class="date-display" data-date="card_bucharest">2026/01/01 周四</div>
+
+                <!-- Card 4 -->
+                <div id="card_eet" class="card clock-card shadow-md border border-base-300 bg-base-100" data-tz="Europe/Bucharest">
+                    <div class="card-body p-4 flex flex-col">
+                        <div>
+                            <h3 class="city-name">🇷🇴 Rumanía · 🇧🇬 Bulgaria · 🇬🇷 Grecia · 🇫🇮 Finlandia · 🇨🇾 Chipre · 🇱🇻 Letonia · 🇪🇪 Estonia</h3>
+                            <p class="timezone-label">Europe/Bucharest</p>
+                        </div>
+                        <div class="mt-auto pt-2 flex items-end justify-between gap-2">
+                            <button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="3" aria-label="Eliminar reloj">✕</button>
+                            <div class="text-right">
+                                <div class="time-display" data-time="card_eet">13:00</div>
+                                <div class="date-display" data-date="card_eet">lun, 01 ene</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-    </section>
-    <!-- ============================================================
-    时间旅行滑块
-    ============================================================ -->
-    <section class="slider-section">
-        <div class="slider-header">
-            <span class="label">⏳ 时间旅行模拟</span>
-            <span class="value" id="sliderValue">实时时间</span>
-        </div>
-        <input type="range" id="timeSlider" min="-24" max="24" value="0" step="0.5" class="range range-primary range-sm" />
-        <div class="flex justify-between text-xs px-1 mt-1 opacity-50 font-mono">
-            <span>-24h</span><span>-12h</span><span>当前</span><span>+12h</span><span>+24h</span>
-        </div>
-        <div class="text-center mt-3">
-            <button id="resetSliderBtn" class="btn btn-xs btn-outline btn-secondary px-4 rounded-full hidden">同步到当前时间</button>
-        </div>
-    </section>
-    <!-- ============================================================
-    欧洲时间介绍段落（SEO 强化）
-    ============================================================ -->
-    <section class="intro-section">
-        <h2>欧洲时间 — 欧洲现在时间实时显示</h2>
-        <p>本站提供精准的欧洲时间查询服务，实时展示欧洲37个国家的当地时间，涵盖英国、法国、德国、意大利、西班牙、荷兰、波兰、瑞典等地区。想看欧洲现在时间？打开页面即可查看法国、德国、英国、意大利等国的当前时间与日期。工具自动适配冬夏令时切换，无论是跨境商务对接、留学参考还是出境旅行，都可以便捷了解欧洲各国时区与时差情况。</p>
-    </section>
-    <!-- ============================================================
-    为什么做这个极简的欧洲时间工具（建站说明）
-    ============================================================ -->
-    <section class="why-section">
-        <h2>为什么做这个极简的欧洲时间工具</h2>
-        <p>这个工具不是为一个项目而做的。我们做它，是因为我们想给每一个需要查看欧洲时间的人，做一件真正有用的东西——不啰嗦不少关键信息。</p>
-        <p>我们团队，连同身边的朋友和同事，都做外贸。联系客户之前先看一眼欧洲当地时间，是我们每天都会做的事。一个简单可靠的时间工具对我们来说不是奢侈——是刚需。</p>
-        <p>我们在 Google、必应、百度和 Yandex 上找过，只想找一个能直接看时间的工具。找到的网站都想覆盖一切：地图、城市列表、文章。我们真正需要的那一样——现在几点——却藏在中间，被其他东西压着。大部分搜"欧洲时间"的人对欧洲城市并不熟悉，只认得国家名。不需要秒，不需要城市地点，只想打开一个页面，看到法国几点、德国几点、英国几点、意大利几点、西班牙几点。就这么简单。</p>
-        <p>所以我们做了我们一直在找的那个页面。同一个时区的国家共用一张卡片，整个欧洲一眼就能看完。卡片在当地工作时段会高亮，一眼就知道谁可能接电话。还有一个时间旅行滑块，可以预览未来最多 24 小时——规划明天早上的电话时很有用。需要更多？自己加，下次打开还在。打开，看到时间，结束。不用搜索，不用滚动，没有干扰。</p>
-        <p>这不是一家创业公司。它只是一个我们想用的工具——也希望它能帮到其他一直在找它的人。</p>
-    </section>
-    <!-- ============================================================
-    欧洲现在时间查询 — 商务与国际通话场景
-    ============================================================ -->
-    <section class="content-section">
-        <h2>欧洲现在时间查询 — 商务与国际通话场景</h2>
-        <p>打开页面即可查看精准的欧洲当地时间，适用于远程团队会议、海外客户对接、出国旅行等场景。工具自动适配冬夏令时切换，无需手动换算。将欧洲时间与你的本地时钟对比，避免因时差造成的会议安排失误。</p>
-    </section>
-    <!-- ============================================================
-    欧洲主要时区一览（3 张卡片）
-    ============================================================ -->
-    <section class="content-section">
-        <h2>欧洲主要时区一览</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-            <div class="p-4 bg-base-100 rounded-xl border border-base-300">
-                <h3 class="font-semibold text-sm mb-2 text-primary">西欧时间（WET）</h3>
-                <p class="mb-1">UTC+0（冬令时）/ UTC+1（夏令时 WEST）</p>
-                <p class="opacity-70">国家：英国、爱尔兰、葡萄牙</p>
+        </section>
+
+        <!-- Timeline Calibration Slider -->
+        <section class="w-full max-w-xl mx-auto bg-base-200 rounded-2xl p-5 border border-base-300" style="margin-top: 35px; margin-bottom: 75px;">
+            <div class="flex justify-between items-center mb-3">
+                <span class="text-sm font-medium opacity-80">Simulador de Diferencia Horaria</span>
+                <span id="sliderValue" class="badge badge-primary font-mono font-bold">Hora en Vivo</span>
             </div>
-            <div class="p-4 bg-base-100 rounded-xl border border-base-300">
-                <h3 class="font-semibold text-sm mb-2 text-primary">中欧时间（CET）</h3>
-                <p class="mb-1">UTC+1（冬令时）/ UTC+2（夏令时 CEST）</p>
-                <p class="opacity-70">国家：德国、法国、意大利、西班牙、波兰</p>
+            <input type="range" id="timeSlider" aria-label="Deslizador del tiempo" min="-24" max="24" value="0" step="0.5" class="range range-primary range-sm">
+            <div class="flex justify-between text-xs px-2 mt-1 opacity-80 text-base-content font-mono">
+                 <span>-24h</span><span>-12h</span><span>Ahora</span><span>+12h</span><span>+24h</span>
             </div>
-            <div class="p-4 bg-base-100 rounded-xl border border-base-300">
-                <h3 class="font-semibold text-sm mb-2 text-primary">东欧时间（EET）</h3>
-                <p class="mb-1">UTC+2（冬令时）/ UTC+3（夏令时 EEST）</p>
-                <p class="opacity-70">国家：希腊、罗马尼亚、芬兰、乌克兰</p>
+            <div class="text-center mt-4">
+                <button id="resetSliderBtn" class="btn btn-xs btn-outline btn-secondary px-4 rounded-full hidden">Sincronizar a Hora Actual</button>
             </div>
-        </div>
-    </section>
-    <!-- ============================================================
-    欧洲各国时间 vs 北京时间
-    ============================================================ -->
-    <section class="content-section">
-        <h2>欧洲各国时间 vs 北京时间</h2>
-        <p>欧洲主要时区与北京时间的时差对照。冬令时和夏令时相差 1 小时，切换月份请留意。</p>
-        <div class="overflow-x-auto">
-            <table>
-                <thead>
-                    <tr>
-                        <th>欧洲时区</th>
-                        <th>代表国家</th>
-                        <th>冬令时 vs 北京</th>
-                        <th>夏令时 vs 北京</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>WET (UTC+0)</td>
-                        <td>英国、葡萄牙、爱尔兰</td>
-                        <td>慢 8 小时</td>
-                        <td>慢 7 小时</td>
-                    </tr>
-                    <tr>
-                        <td>CET (UTC+1)</td>
-                        <td>法国、德国、意大利、西班牙</td>
-                        <td>慢 7 小时</td>
-                        <td>慢 6 小时</td>
-                    </tr>
-                    <tr>
-                        <td>EET (UTC+2)</td>
-                        <td>希腊、罗马尼亚、芬兰</td>
-                        <td>慢 6 小时</td>
-                        <td>慢 5 小时</td>
-                    </tr>
-                    <tr>
-                        <td>MSK (UTC+3)</td>
-                        <td>莫斯科</td>
-                        <td>慢 5 小时</td>
-                        <td>不变</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="note">注：以上为标准时差。夏令时期间，欧洲大部分国家与北京时间的时差减少 1 小时。</p>
-    </section>
-    <!-- ============================================================
-    从中国联系欧洲客户的最佳时间
-    ============================================================ -->
-    <section class="content-section">
-        <h2>从中国联系欧洲客户的最佳时间</h2>
-        <p>欧洲大部分办公室在当地时间 09:00–17:00 上班。换算成北京时间后，冬令时与夏令时分别如下。</p>
-        <div class="overflow-x-auto">
-            <table>
-                <thead>
-                    <tr>
-                        <th>目标地区</th>
-                        <th>当地时间（上班时段）</th>
-                        <th>冬令时 · 北京</th>
-                        <th>夏令时 · 北京</th>
-                        <th>是否方便联系</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>英国 / 葡萄牙 / 爱尔兰</td>
-                        <td>09:00–17:00</td>
-                        <td>17:00–次日 01:00</td>
-                        <td>16:00–24:00</td>
-                        <td>⚠️ 偏晚</td>
-                    </tr>
-                    <tr>
-                        <td>法国 / 德国 / 意大利 / 西班牙</td>
-                        <td>09:00–17:00</td>
-                        <td>16:00–24:00</td>
-                        <td>15:00–23:00</td>
-                        <td>✅ 下班前能赶上</td>
-                    </tr>
-                    <tr>
-                        <td>希腊 / 罗马尼亚 / 芬兰</td>
-                        <td>09:00–17:00</td>
-                        <td>15:00–23:00</td>
-                        <td>14:00–22:00</td>
-                        <td>✅ 最佳窗口</td>
-                    </tr>
-                    <tr>
-                        <td>莫斯科</td>
-                        <td>09:00–17:00</td>
-                        <td>14:00–22:00</td>
-                        <td>14:00–22:00（不实行夏令时）</td>
-                        <td>✅ 最佳窗口</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="note">冬令时约 11 月–次年 3 月，夏令时约 3 月–10 月。夏令时期间与北京时间的时差减少 1 小时。上方时钟卡片会实时高亮处于上班时段的国家。</p>
-    </section>
-    <!-- ============================================================
-    关于欧洲时区
-    ============================================================ -->
-    <section class="content-section">
-        <h2>关于欧洲时区</h2>
-        <p>本站实时显示欧洲四大时区的当地时间，覆盖英国、法国、德国、意大利、西班牙、荷兰、波兰等37国。无论你是要与欧洲客户同步会议，还是确认德国、法国、英国的上班时间，页面每分钟自动更新，自动识别冬夏令时切换。</p>
-        <p>欧洲主要使用四个时区：<strong>西欧时间（WET/GMT，UTC+0）</strong>，适用于英国、爱尔兰、葡萄牙；<strong>中欧时间（CET，UTC+1）</strong>，覆盖法国、德国、西班牙、意大利、荷兰、波兰；<strong>东欧时间（EET，UTC+2）</strong>，用于罗马尼亚、希腊、芬兰、保加利亚；以及<strong>莫斯科时间（MSK，UTC+3）</strong>。</p>
-    </section>
-    <!-- ============================================================
-    📖 夏令时对欧洲时间与跨境业务的影响
-    ============================================================ -->
-    <section class="content-section">
-        <h2>📖 夏令时对欧洲时间与跨境业务的影响</h2>
-        <p>对于从事跨境电商、远程协作和国际物流的人来说，欧洲每年两次的时钟切换容易造成会议时间混乱。</p>
-        <p>建议在切换周主动与欧洲合作伙伴确认会议时间。使用本站的「时间旅行」模拟功能，可以预览不同时区的当地时间，避免协作出错。</p>
-        <p>了解当地上班时间能显著提升沟通效率。本站自动处理夏令时，让你的时钟始终与欧洲同步。</p>
-    </section>
-    <!-- ============================================================
-    底部 FAQ 区域（爬虫可见的静态文字，与 JSON-LD 一一对应）
-    ============================================================ -->
-    <section class="faq-section">
-        <h2>欧洲时间与时区常见问题 FAQ</h2>
-        <p>跨境办公、留学、出境出行时，大家经常需要了解欧洲各国时区信息，下面整理了与时差、冬夏令时相关的高频问题。</p>
-        <p><strong>Q1：欧洲现在时间和北京时间相差几个小时？</strong><br>欧洲大部分国家（如法国、德国、意大利）在冬令时比北京时间慢7小时，夏令时慢6小时。英国、葡萄牙在冬令时慢8小时，夏令时慢7小时。</p>
-        <p><strong>Q2：欧洲夏令时什么时候开始和结束？</strong><br>欧洲（除冰岛、俄罗斯、白俄罗斯外）统一在每年3月的最后一个星期日凌晨1点将时钟拨快1小时，进入夏令时；10月的最后一个星期日凌晨拨回1小时，恢复冬令时。</p>
-        <p><strong>Q3：法国、德国现在是什么时区？</strong><br>法国、德国、意大利、西班牙等中欧国家使用中欧时间（CET，UTC+1），夏令时期间使用中欧夏令时（CEST，UTC+2）。</p>
-        <p><strong>Q4：英国现在是什么时区？</strong><br>英国使用格林威治标准时间（GMT / WET，UTC+0），夏令时期间使用英国夏令时（BST，UTC+1）。</p>
-        <p><strong>Q5：欧洲时间查询工具是免费的吗？</strong><br>是的，本站查询工具完全免费，无需注册，打开网页即可实时查看欧洲37国的当前时间和日期，并自动识别冬夏令时切换。</p>
-        <p><strong>Q6：如何换算欧洲当地时间和北京时间？</strong><br>可以直接使用本工具对比两地时钟。中欧冬令时比北京晚7小时，夏令时晚6小时；西欧英国冬令时晚8小时，夏令时晚7小时。注意每年夏令时切换月份会改变时差。</p>
-        <p><strong>Q7：不开启 JavaScript 可以查看欧洲各国时区参考吗？</strong><br>浏览器关闭 JavaScript 后，页面会展示静态时区参考信息，可手动换算欧洲当地时间。</p>
-        <p><strong>Q8：卡片颜色代表什么意思？</strong><br>卡片在对应国家当地时间 8:00–18:00 之间会显示浅色高亮，代表该国大概率处于上班时段。其他时间显示为普通背景，表示大概率下班或休息。一眼就能看出哪个国家现在方便联系。</p>
-        <p><strong>Q9：时间旅行滑块怎么用？</strong><br>拖动时钟卡片下方的时间旅行滑块，即可预览未来最多 24 小时或过去最多 24 小时的欧洲各国时间。所有卡片会同步更新。常用于规划跨时区电话会议，比如"明天上午 9 点给德国客户打电话，他们几点？"</p>
-        <p><strong>Q10：哪些欧洲国家和英国同一时区？</strong><br>英国、爱尔兰、葡萄牙都使用西欧时间（WET，UTC+0）冬令时；夏令时期间英国和爱尔兰切换为 BST（UTC+1），葡萄牙切换为 WEST（UTC+1）。冰岛全年使用 UTC+0，但不实行夏令时。</p>
-        <p><strong>Q11：从中国给欧洲客户打电话，什么时候最合适？</strong><br>欧洲办公室通常在当地时间 09:00–17:00 上班，换算成北京时间：中欧国家（法国、德国、意大利等）冬令时对应 16:00–24:00，夏令时对应 15:00–23:00；东欧国家（希腊、罗马尼亚、芬兰等）冬令时对应 15:00–23:00，夏令时对应 14:00–22:00；英国、葡萄牙冬令时对应 17:00–次日 01:00，夏令时对应 16:00–24:00。综合来看，北京时间 15:00–23:00 是联系欧洲客户比较合适的窗口。</p>
-        <p><strong>Q12：哪些欧洲国家不实行夏令时？</strong><br>冰岛、俄罗斯、白俄罗斯、土耳其全年使用同一时间，不实行夏令时。其余欧洲国家通常在每年 3 月最后一个周日切换夏令时，10 月最后一个周日恢复冬令时。</p>
-        <p class="footer-note">📌 本站时钟实时全自动更新 | 动态无感识别欧洲夏令时转换 | 支持明暗主题一键切换 | 全球 240+ 国家协同办公工具</p>
-    </section>
-    <!-- noscript：关闭JS时，给爬虫/浏览器静态时区参考 -->
+        </section>
+
+        <!-- Europe time Introduction -->
+        <section class="w-full max-w-4xl my-6 text-sm leading-relaxed text-base-content/80 text-center">
+            <h2 class="text-base font-bold mb-2 text-base-content">Hora en Europa — Hora Local Actual en Más de 37 Países</h2>
+            <p>¿Buscas la <strong>hora en Europa</strong> ahora mismo? Esta herramienta minimalista y gratuita muestra la hora local actual en más de 37 países europeos, incluidos el Reino Unido, Francia, Alemania, Italia, España, los Países Bajos, Polonia y Suecia. Gestiona automáticamente el horario de verano (DST), lo que facilita seguir la hora en Europa para la planificación de negocios, estudios o viajes desde América Latina y EE. UU.</p>
+        </section>
+
+        <section class="w-full max-w-4xl my-6 text-sm leading-relaxed text-base-content/80 text-center">
+            <h2 class="text-base font-bold mb-2 text-base-content">Por qué creamos esta herramienta minimalista de la hora en Europa</h2>
+            <p>Esta ligera herramienta de la hora en Europa no se creó como un proyecto vanidoso. Se diseñó porque queríamos hacer algo genuinamente útil para cualquier persona que necesite consultar la hora en Europa desde el continente americano: nada más y nada menos.</p>
+            <p>Nuestro equipo, junto con amigos y colegas, trabajamos en el comercio internacional y la colaboración transatlántica. Comprobar la hora local europea antes de contactar a socios o clientes es parte de nuestra rutina diaria. Un reloj simple y fiable no es un lujo para nosotros; es una necesidad real.</p>
+            <p>Buscamos en Google, Bing, Baidu y Yandex una herramienta que simplemente nos mostrara la hora. Lo que encontramos fueron sitios web que intentaban abarcar de todo: mapas, listas interminables de ciudades, artículos de relleno. Lo único que realmente necesitábamos —la hora actual— estaba perdido en medio, enterrado bajo todo lo demás. La mayoría de las personas que buscan "hora en Europa" desde América no conocen bien las ciudades secundarias de Europa; conocen los nombres de los países. No necesitan segundos ni ubicaciones oscuras. Solo quieren abrir una página y ver qué hora es en Francia, Alemania, el Reino Unido, Italia o España. Eso es todo.</p>
+            <p>Así que construimos la página que estábamos buscando. Los países en la misma zona horaria comparten una tarjeta, por lo que todo el continente queda visible de un vistazo. Las tarjetas se resaltan en color cuando coincide con el horario laboral local, para que sepas al instante quién es probable que responda el teléfono. Y un deslizador de simulación del tiempo te permite previsualizar cualquier hora hasta con 24 horas de anticipación, muy útil cuando planeas una llamada para mañana temprano. ¿Necesitas más? Añádelos tú mismo: tus selecciones se guardarán para tu próxima visita. Ábrelo, mira la hora, listo. Sin búsquedas, sin desplazamiento infinito, sin distracciones.</p>
+            <p>Esto no es una startup ni un producto con una hoja de ruta corporativa masiva. Es simplemente una herramienta limpia que queríamos usar, y esperamos que ayude a cualquier otra persona que haya estado buscando exactamente lo mismo.</p>
+        </section>
+
+        <section class="w-full max-w-4xl my-6 text-sm leading-relaxed text-base-content/80 text-center">
+            <h2 class="text-base font-bold mb-2 text-base-content">Consulta la hora en Europa para llamadas de negocios e internacionales</h2>
+            <p>Utiliza esta utilidad gratuita para acceder a la hora precisa de Europa en tiempo real. Ya sea que necesites la hora actual de Europa para programar llamadas con equipos remotos, coordinar con socios de ultramar o planificar viajes de negocios, este conversor toma en cuenta automáticamente los cambios por horario de verano. Compara la hora en Europa con tu reloj local para evitar errores de programación en el trabajo transfronterizo.</p>
+        </section>
+
+        <!-- 独家新增：拉美跨国远程办公与外贸协作痛点专业拓展模块 -->
+        <section class="w-full max-w-4xl my-8 p-6 bg-base-200 rounded-2xl border border-base-300 text-sm leading-relaxed">
+            <h2 class="text-base font-bold mb-3 text-base-content text-center">🌐 Guía Estratégica: Colaboración Transatlántica y Zonas de Solapamiento Laboral</h2>
+            <p class="text-xs text-base-content/80 mb-3 text-center">Para desarrolladores de software, agencias de externalización (outsourcing), equipos de comercio exterior y nómadas digitales que trabajan entre América Latina y Europa, gestionar la diferencia horaria de 5 a 9 horas requiere precisión milimétrica para evitar cuellos de botella operativos.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mt-4">
+                <div class="p-4 bg-base-100 rounded-xl border border-base-300">
+                    <h3 class="font-semibold text-primary mb-1">Ventana Óptima de Sincronización (Mañana en América / Tarde en Europa)</h3>
+                    <p class="text-base-content/70">La franja más productiva para reuniones en tiempo real abarca desde las <strong>07:00 – 10:00 AM (Hora de México/Colombia)</strong>, lo cual equivale a las <strong>14:00 – 17:00 PM (Hora Central Europea - CET)</strong>. Esto permite que los equipos europeos cierren su jornada atendiendo solicitudes urgentes de América.</p>
+                </div>
+                <div class="p-4 bg-base-100 rounded-xl border border-base-300">
+                    <h3 class="font-semibold text-primary mb-1">El Desafío del Cambio de Horario Estacional (DST Shift)</h3>
+                    <p class="text-base-content/70">Europa adelanta sus relojes en marzo y los atrasa en octubre, usualmente <strong>dos o tres semanas antes</strong> que la mayoría de los países latinoamericanos (o en fechas distintas a los estados de EE. UU.). Durante estas semanas de transición, la brecha horaria se reduce o se amplía temporalmente en 1 hora, un factor crítico a vigilar.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full max-w-4xl mt-8 text-xs opacity-90">
+            <h2 class="text-base font-bold text-base-content mb-3 text-center">Principales Zonas Horarias de Europa de un Vistazo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+                <div class="p-4 bg-base-200 rounded-xl border border-base-300">
+                    <h3 class="font-semibold text-sm mb-2 text-primary">Hora de Europa Occidental (WET)</h3>
+                    <p class="mb-1">UTC+0 (Estándar) / UTC+1 (WEST en Verano)</p>
+                    <p class="opacity-70">Países: Reino Unido, Irlanda, Portugal</p>
+                </div>
+                <div class="p-4 bg-base-200 rounded-xl border border-base-300">
+                    <h3 class="font-semibold text-sm mb-2 text-primary">Hora Central Europea (CET)</h3>
+                    <p class="mb-1">UTC+1 (Estándar) / UTC+2 (CEST en Verano)</p>
+                    <p class="opacity-70">Países: Alemania, Francia, Italia, España, Polonia</p>
+                </div>
+                <div class="p-4 bg-base-200 rounded-xl border border-base-300">
+                    <h3 class="font-semibold text-sm mb-2 text-primary">Hora de Europa Oriental (EET)</h3>
+                    <p class="mb-1">UTC+2 (Estándar) / UTC+3 (EEST en Verano)</p>
+                    <p class="opacity-70">Países: Grecia, Rumanía, Finlandia, Ucrania</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Europe Time vs Major World Time Zones -->
+        <section class="w-full max-w-4xl mt-8 text-sm leading-relaxed">
+            <h2 class="text-base font-bold mb-3 text-base-content text-center">Hora en Europa vs. Principales Zonas Horarias del Mundo</h2>
+            <p class="mb-3 text-base-content/80 text-center text-xs">Cómo se comparan las tres zonas principales de Europa con regiones clave a nivel global. Los valores indican cuántas horas está cada región por detrás (–) o por delante (+) de la zona europea.</p>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-base-200">
+                            <th class="border border-base-300 p-2 text-left">Zona Europea</th>
+                            <th class="border border-base-300 p-2 text-left">Nueva York</th>
+                            <th class="border border-base-300 p-2 text-left">Los Ángeles</th>
+                            <th class="border border-base-300 p-2 text-left">São Paulo</th>
+                            <th class="border border-base-300 p-2 text-left">Dubái</th>
+                            <th class="border border-base-300 p-2 text-left">Singapur</th>
+                            <th class="border border-base-300 p-2 text-left">Tokio</th>
+                            <th class="border border-base-300 p-2 text-left">Sídney</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="border border-base-300 p-2">WET (Reino Unido, Portugal)</td><td class="border border-base-300 p-2">–5h</td><td class="border border-base-300 p-2">–8h</td><td class="border border-base-300 p-2">–3h</td><td class="border border-base-300 p-2">+4h</td><td class="border border-base-300 p-2">+8h</td><td class="border border-base-300 p-2">+9h</td><td class="border border-base-300 p-2">+10h</td></tr>
+                        <tr><td class="border border-base-300 p-2">CET (Francia, Alemania)</td><td class="border border-base-300 p-2">–6h</td><td class="border border-base-300 p-2">–9h</td><td class="border border-base-300 p-2">–4h</td><td class="border border-base-300 p-2">+3h</td><td class="border border-base-300 p-2">+7h</td><td class="border border-base-300 p-2">+8h</td><td class="border border-base-300 p-2">+9h</td></tr>
+                        <tr><td class="border border-base-300 p-2">EET (Grecia, Finlandia)</td><td class="border border-base-300 p-2">–7h</td><td class="border border-base-300 p-2">–10h</td><td class="border border-base-300 p-2">–5h</td><td class="border border-base-300 p-2">+2h</td><td class="border border-base-300 p-2">+6h</td><td class="border border-base-300 p-2">+7h</td><td class="border border-base-300 p-2">+8h</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-3 text-base-content/60 text-center text-xs">Nota: Los valores corresponden a desfasajes en horario estándar. Los desfasajes reales pueden variar 1 hora durante las transiciones de horario de verano debido a que Europa, América y Australia cambian en fechas distintas. Algunas regiones (como Dubái, Singapur o Tokio) no observan el horario de verano.</p>
+        </section>
+
+        <!-- Best Time to Reach European Business Contacts -->
+        <section class="w-full max-w-4xl mt-8 text-sm leading-relaxed">
+            <h2 class="text-base font-bold mb-3 text-base-content text-center">El Mejor Horario para Contactar a Contactos Comerciales en Europa</h2>
+            <p class="mb-3 text-base-content/80 text-center text-xs">La mayoría de las oficinas europeas operan de 09:00 a 17:00 hora local, de lunes a viernes. Así es como esas horas se solapan con regiones clave de negocios en todo el mundo.</p>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-base-200">
+                            <th class="border border-base-300 p-2 text-left">Zona Europea</th>
+                            <th class="border border-base-300 p-2 text-left">Horario Laboral (Local)</th>
+                            <th class="border border-base-300 p-2 text-left">Solapamiento con Nueva York</th>
+                            <th class="border border-base-300 p-2 text-left">Solapamiento con Los Ángeles</th>
+                            <th class="border border-base-300 p-2 text-left">Solapamiento con India</th>
+                            <th class="border border-base-300 p-2 text-left">Solapamiento con Singapur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="border border-base-300 p-2">WET</td><td class="border border-base-300 p-2">09:00–17:00</td><td class="border border-base-300 p-2">14:00–17:00</td><td class="border border-base-300 p-2">Sin solapamiento</td><td class="border border-base-300 p-2">13:30–17:00</td><td class="border border-base-300 p-2">Sin solapamiento</td></tr>
+                        <tr><td class="border border-base-300 p-2">CET</td><td class="border border-base-300 p-2">09:00–17:00</td><td class="border border-base-300 p-2">15:00–17:00</td><td class="border border-base-300 p-2">Sin solapamiento</td><td class="border border-base-300 p-2">12:30–17:00</td><td class="border border-base-300 p-2">16:00–17:00</td></tr>
+                        <tr><td class="border border-base-300 p-2">EET</td><td class="border border-base-300 p-2">09:00–17:00</td><td class="border border-base-300 p-2">16:00–17:00</td><td class="border border-base-300 p-2">Sin solapamiento</td><td class="border border-base-300 p-2">11:30–17:00</td><td class="border border-base-300 p-2">15:00–17:00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-3 text-base-content/70 text-center text-xs">Consejo: Las tarjetas de colores de arriba se iluminan en tiempo real cuando cada zona europea se encuentra dentro de su horario comercial, para que sepas de un vistazo quién es probable que responda el teléfono ahora mismo, sin necesidad de hacer cálculos mentales de husos horarios.</p>
+        </section>
+
+        <!-- Frequently Asked Questions (13条，完美对应上文的 JSON-LD FAQPage) -->
+        <section class="w-full max-w-4xl my-8 text-sm leading-relaxed">
+            <h2 class="text-base font-bold mb-4 text-base-content text-center">Preguntas Frecuentes</h2>
+
+            <div class="space-y-3">
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Qué hora es ahora en Europa?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>La hora en Europa ahora se refiere a la hora local actual en los diferentes países europeos. Esta página muestra la hora en vivo para más de 37 países, ajustada automáticamente para el horario de verano, de modo que puedas consultar de un vistazo la hora actual en el Reino Unido, Francia, Alemania, Italia, España y más.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Cómo afecta el horario de verano a las reuniones de negocios en Europa?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Los cambios de hora semestrales de Europa pueden provocar conflictos de programación al trabajar con la hora europea. Esta herramienta minimalista gestiona automáticamente el DST, permitiéndote utilizar la función de simulación (Time Travel) para verificar las horas locales en distintas zonas europeas y lograr una colaboración fluida.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Cuáles son las principales zonas horarias en Europa?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Europa abarca cuatro zonas horarias estándar principales: Hora de Europa Occidental (WET/GMT, UTC+0), Hora Central Europea (CET, UTC+1), Hora de Europa Oriental (EET, UTC+2) y Hora de Moscú (MSK, UTC+3). Utiliza esta herramienta para ver la hora en Europa en cada zona.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Cuándo cambia Europa al horario de verano?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>La mayoría de los países europeos cambian al horario de verano (Summer Time) el último domingo de marzo y regresan al horario estándar el último domingo de octubre de cada año, lo cual desplaza los desfasajes horarios en Europa.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Qué países utilizan la Hora Central Europea (CET)?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>La Hora Central Europea (CET, UTC+1) cubre Francia, Alemania, Italia, España, Países Bajos, Polonia, Austria, Suecia, Hungría, Chequia, Bélgica, Suiza y varios países más. Durante el verano, se convierte en CEST (UTC+2) y actualiza la hora en consecuencia.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Es gratuita esta herramienta especializada en la hora de Europa?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Sí, este reloj y conversor de husos horarios es completamente gratuito. Es limpio y no requiere registro. Simplemente abre la página para ver la hora en vivo en más de 37 países europeos con gestión automática del horario de verano.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Cómo puedo comprobar la hora actual en Europa?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Puedes consultar la hora actualizada de Europa directamente en esta página. Los relojes en vivo muestran la hora local en tiempo real para decenas de naciones europeas, ajustada automáticamente para las transiciones del horario de verano.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Cómo convierto la hora de Europa a mi hora local?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Compara la hora en Europa con tu reloj local utilizando nuestro conversor. Añade zonas horarias adicionales o utiliza el deslizador de simulación del tiempo para previsualizar horas adelantadas o atrasadas, ideal para planificar reuniones transfronterizas.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Qué es el deslizador de simulación del tiempo (Time Travel)?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Arrastra el deslizador ubicado debajo de la cuadrícula de relojes para previsualizar la hora en Europa hasta 24 horas antes o después del momento actual. Todas las tarjetas de países se actualizan en vivo mientras arrastras. Está diseñado para responder a una pregunta de planificación común: "Si llamo a Alemania a las 9 a. m. hora de mi país mañana, ¿qué hora será allá?"</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Qué significan las tarjetas de colores?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Las tarjetas resaltadas en color marcan los países que actualmente se encuentran dentro de las horas de oficina locales típicas en días laborables (lunes a viernes), de 08:00 a 18:00. Las tarjetas con fondo plano están fuera del horario de oficina. De un vistazo puedes saber quién es probable que responda el teléfono en este momento, sin necesidad de hacer cálculos mentales de husos horarios.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Qué países europeos comparten la misma zona horaria que el Reino Unido?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>El Reino Unido, Irlanda y Portugal utilizan la Hora de Europa Occidental (WET, UTC+0) en invierno. Islandia también permanece en UTC+0 todo el año pero no observa el horario de verano. Durante el verano, el Reino Unido e Irlanda cambian a BST (UTC+1) mientras que Portugal cambia a WEST (UTC+1).</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Cuál es la diferencia horaria entre Europa y EE. UU. / América?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>Dependiendo de la zona, Europa está de 5 a 7 horas por delante de Nueva York y de 8 a 10 horas por delante de Los Ángeles. La brecha se reduce 1 hora durante las semanas en que Europa ya ha cambiado al horario de verano pero Estados Unidos o América Latina aún no lo han hecho (o viceversa), por lo general a mediados de marzo y finales de octubre.</p>
+                    </div>
+                </details>
+
+                <details class="collapse collapse-plus bg-base-200 border border-base-300 rounded-xl">
+                    <summary class="collapse-title text-sm font-medium">¿Todos los países europeos observan el horario de verano?</summary>
+                    <div class="collapse-content text-xs leading-relaxed text-base-content/80">
+                        <p>No. Islandia, Rusia, Bielorrusia y Turquía mantienen el mismo reloj todo el año. El resto de Europa cambia el último domingo de marzo y regresa el último domingo de octubre. Incluso dentro de la UE, la política está bajo revisión: el Parlamento Europeo votó en 2019 para poner fin a los cambios de hora estacionales, pero su implementación se ha pospuesto indefinidamente.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+
     <noscript>
     <div class="w-full max-w-4xl mx-auto p-5 my-8 bg-base-200 rounded-xl text-sm">
-        <h3 class="font-bold mb-3">欧洲时区参考（无JavaScript模式）</h3>
+        <h3 class="font-bold mb-3">Referencia rápida de zonas horarias en Europa</h3>
         <ul class="space-y-2">
-            <li>西欧时间WET（UTC+0）：英国、爱尔兰、葡萄牙；夏令时切换为WEST UTC+1</li>
-            <li>中欧时间CET（UTC+1）：德国、法国、意大利、西班牙、波兰、奥地利；夏令时CEST UTC+2</li>
-            <li>东欧时间EET（UTC+2）：希腊、罗马尼亚、保加利亚、芬兰；夏令时EEST UTC+3</li>
-            <li>莫斯科时间MSK（UTC+3）：莫斯科及周边区域</li>
+            <li>Hora de Europa Occidental (WET / GMT UTC+0): Reino Unido, Irlanda, Portugal; en verano cambia a UTC+1 WEST</li>
+            <li>Hora Central Europea (CET UTC+1): Alemania, Francia, Italia, España, Polonia, Austria; en verano cambia a UTC+2 CEST</li>
+            <li>Hora de Europa Oriental (EET UTC+2): Grecia, Rumanía, Bulgaria, Finlandia; en verano cambia a UTC+3 EEST</li>
+            <li>Hora de Moscú (MSK UTC+3): Moscú y regiones circundantes</li>
         </ul>
-        <p class="mt-3">可依据以上UTC偏移，手动换算欧洲当地时间。</p>
     </div>
     </noscript>
-    <div class="w-full max-w-4xl text-center mt-8 pt-4 border-t border-base-200 text-xs opacity-70">
+
+    <footer class="w-full max-w-4xl text-xs opacity-80 leading-relaxed border-t border-base-200 pt-4 mt-auto">
+        <h2 class="font-semibold text-sm mb-3 text-base-content text-center">Acerca de las Zonas Horarias de Europa</h2>
+        <p class="mb-2">
+            Este conversor en tiempo real te ayuda a rastrear las horas locales exactas en todas las zonas horarias europeas. Ya sea que necesites sincronizar reuniones de negocios con clientes internacionales o verificar las horas de trabajo locales en Alemania, Francia y el Reino Unido, nuestra interfaz en vivo se actualiza cada minuto para garantizar la precisión de tu programación.
+        </p>
         <p>
-            💬 改进建议？
-            <a href="mailto:su@euclock.com?subject=欧洲时间工具反馈" class="link link-primary font-medium hover:text-primary-focus transition-colors">
-                电邮告诉我
+            Los países europeos operan en cuatro zonas horarias principales: <strong>Hora de Europa Occidental (WET/GMT, UTC+0)</strong> utilizada por el Reino Unido, Irlanda y Portugal; <strong>Hora Central Europea (CET, UTC+1)</strong> que cubre Francia, Alemania, España, Italia, Países Bajos y Polonia; <strong>Hora de Europa Oriental (EET, UTC+2)</strong> utilizada en Rumanía, Grecia, Finlandia y Bulgaria; y la <strong>Hora de Moscú (MSK, UTC+3)</strong>.
+        </p>
+    </footer>
+
+    <div class="mt-8 w-full max-w-4xl p-6 bg-base-200 rounded-2xl border border-base-300">
+        <h3 class="text-sm font-bold text-base-content mb-3">📖 El Impacto del Horario de Verano en la <span class="text-primary">Hora en Europa</span> y los Negocios Transfronterizos</h3>
+        <div class="text-xs text-base-content/70 leading-relaxed space-y-2">
+            <p>Para los profesionales que trabajan en comercio electrónico, trabajo remoto y logística internacional, los cambios de hora semestrales de Europa pueden crear confusión al hacer referencia a la hora europea.</p>
+            <p>Recomendamos confirmar de manera proactiva las horas de las reuniones con tus socios europeos durante las semanas de transición. Utiliza nuestra función de simulación "Time Travel" para verificar las horas locales en diferentes zonas y garantizar una colaboración fluida.</p>
+            <p>Comprender las horas de oficina locales mejora significativamente la eficiencia operativa. Esta ligera herramienta de la hora maneja automáticamente el DST, manteniendo tu reloj alineado con tus contrapartes europeas.</p>
+        </div>
+    </div>
+
+    <div class="w-full max-w-4xl text-center mt-8 pt-4 border-t border-base-200 text-xs opacity-80">
+        <p>
+            ¿Sugerencias para mejorar la experiencia?
+            <a href="mailto:su@europetime.net?subject=Feedback%20for%20Europe%20Time" class="link link-primary font-medium hover:underline">Envíanos un correo</a>
+            <span class="mx-2">|</span>
+            &copy; 2026 Hora en Europa
+            <span class="mx-2">|</span>
+            <a href="https://www.linkedin.com/company/europetime" target="_blank" rel="noopener noreferrer">
+                Síguenos en LinkedIn
             </a>
-            | &copy; 2026 欧洲时间
         </p>
     </div>
-    <!-- ============================================================
-    JavaScript
-    ============================================================ -->
+
+    <div id="toastContainer" class="toast toast-top toast-center z-[100] hidden">
+        <div class="alert alert-info py-2 px-4 shadow-lg rounded-xl">
+            <span id="toastText" class="text-xs font-medium"></span>
+        </div>
+    </div>
+
     <script>
         (function() {
             'use strict';
-            /* ─── 主题管理 ─── */
-            const themeToggle = document.getElementById('themeToggle');
-            const htmlEl = document.documentElement;
-            function applyTheme(theme) {
-                htmlEl.setAttribute('data-theme', theme);
-                themeToggle.checked = (theme === 'night');
-            }
-            themeToggle.addEventListener('change', function() {
-                const newTheme = this.checked ? 'night' : 'cupcake';
-                applyTheme(newTheme);
-                localStorage.setItem('euroTimeTheme', newTheme);
-            });
-            const savedTheme = localStorage.getItem('euroTimeTheme') || 'cupcake';
-            applyTheme(savedTheme);
-            /* ─── DOM 引用 ─── */
-            const container = document.getElementById('clocksContainer');
-            const slider = document.getElementById('timeSlider');
-            const sliderVal = document.getElementById('sliderValue');
-            const resetBtn = document.getElementById('resetSliderBtn');
-            const searchInput = document.getElementById('searchInput');
-            const tzSelect = document.getElementById('tzSelect');
-            const addBtn = document.getElementById('addBtn');
-            const toastEl = document.getElementById('toastContainer');
-            const toastMsg = document.getElementById('toastMessage');
-            /* ─── 状态 ─── */
-            let offsetHours = 0;
-            let toastTimer = null;
-            const WORK_START = 8;
-            const WORK_END = 18;
-            /* ─── 国家/时区数据库（含全球主要贸易与旅游国） ─── */
+            const CONFIG = { themes: { light: 'cupcake', dark: 'night' }, workHour: { start: 8, end: 18 } };
             const countryDB = [
-                /* ─── 欧洲 ─── */
-                { n: "🇫🇷 法国", t: "Europe/Paris" },
-                { n: "🇩🇪 德国", t: "Europe/Berlin" },
-                { n: "🇮🇹 意大利", t: "Europe/Rome" },
-                { n: "🇪🇸 西班牙", t: "Europe/Madrid" },
-                { n: "🇬🇧 英国", t: "Europe/London" },
-                { n: "🇵🇹 葡萄牙", t: "Europe/Lisbon" },
-                { n: "🇳🇱 荷兰", t: "Europe/Amsterdam" },
-                { n: "🇧🇪 比利时", t: "Europe/Brussels" },
-                { n: "🇵🇱 波兰", t: "Europe/Warsaw" },
-                { n: "🇸🇪 瑞典", t: "Europe/Stockholm" },
-                { n: "🇳🇴 挪威", t: "Europe/Oslo" },
-                { n: "🇩🇰 丹麦", t: "Europe/Copenhagen" },
-                { n: "🇫🇮 芬兰", t: "Europe/Helsinki" },
-                { n: "🇮🇪 爱尔兰", t: "Europe/Dublin" },
-                { n: "🇨🇭 瑞士", t: "Europe/Zurich" },
-                { n: "🇦🇹 奥地利", t: "Europe/Vienna" },
-                { n: "🇨🇿 捷克", t: "Europe/Prague" },
-                { n: "🇭🇺 匈牙利", t: "Europe/Budapest" },
-                { n: "🇷🇴 罗马尼亚", t: "Europe/Bucharest" },
-                { n: "🇧🇬 保加利亚", t: "Europe/Sofia" },
-                { n: "🇬🇷 希腊", t: "Europe/Athens" },
-                { n: "🇭🇷 克罗地亚", t: "Europe/Zagreb" },
-                { n: "🇷🇸 塞尔维亚", t: "Europe/Belgrade" },
-                { n: "🇸🇮 斯洛文尼亚", t: "Europe/Ljubljana" },
-                { n: "🇸🇰 斯洛伐克", t: "Europe/Bratislava" },
-                { n: "🇱🇹 立陶宛", t: "Europe/Vilnius" },
-                { n: "🇱🇻 拉脱维亚", t: "Europe/Riga" },
-                { n: "🇪🇪 爱沙尼亚", t: "Europe/Tallinn" },
-                { n: "🇮🇸 冰岛", t: "Atlantic/Reykjavik" },
-                { n: "🇲🇹 马耳他", t: "Europe/Malta" },
-                { n: "🇱🇺 卢森堡", t: "Europe/Luxembourg" },
-                { n: "🇲🇨 摩纳哥", t: "Europe/Monaco" },
-                { n: "🇦🇩 安道尔", t: "Europe/Andorra" },
-                { n: "🇱🇮 列支敦士登", t: "Europe/Vaduz" },
-                { n: "🇸🇲 圣马力诺", t: "Europe/San_Marino" },
-                { n: "🇻🇦 梵蒂冈", t: "Europe/Vatican" },
-                { n: "🇺🇦 乌克兰", t: "Europe/Kyiv" },
-                { n: "🇧🇾 白俄罗斯", t: "Europe/Minsk" },
-                { n: "🇲🇩 摩尔多瓦", t: "Europe/Chisinau" },
-                { n: "🇹🇷 土耳其 (伊斯坦布尔)", t: "Europe/Istanbul" },
-                { n: "🇷🇺 俄罗斯 (莫斯科)", t: "Europe/Moscow" },
-                { n: "🇦🇱 阿尔巴尼亚", t: "Europe/Tirane" },
-                { n: "🇲🇰 北马其顿", t: "Europe/Skopje" },
-                { n: "🇧🇦 波黑", t: "Europe/Sarajevo" },
-                { n: "🇲🇪 黑山", t: "Europe/Podgorica" },
-                { n: "🇨🇾 塞浦路斯", t: "Asia/Nicosia" },
-                /* ─── 亚洲 ─── */
-                { n: "🇨🇳 中国 (北京)", t: "Asia/Shanghai" },
-                { n: "🇨🇳 中国香港", t: "Asia/Hong_Kong" },
-                { n: "🇨🇳 中国台北", t: "Asia/Taipei" },
-                { n: "🇨🇳 中国澳门", t: "Asia/Macau" },
-                { n: "🇯🇵 日本 (东京)", t: "Asia/Tokyo" },
-                { n: "🇰🇷 韩国 (首尔)", t: "Asia/Seoul" },
-                { n: "🇮🇳 印度 (孟买/德里)", t: "Asia/Kolkata" },
-                { n: "🇸🇬 新加坡", t: "Asia/Singapore" },
-                { n: "🇲🇾 马来西亚 (吉隆坡)", t: "Asia/Kuala_Lumpur" },
-                { n: "🇹🇭 泰国 (曼谷)", t: "Asia/Bangkok" },
-                { n: "🇻🇳 越南 (河内)", t: "Asia/Ho_Chi_Minh" },
-                { n: "🇮🇩 印度尼西亚 (雅加达)", t: "Asia/Jakarta" },
-                { n: "🇵🇭 菲律宾 (马尼拉)", t: "Asia/Manila" },
-                { n: "🇸🇦 沙特阿拉伯 (利雅得)", t: "Asia/Riyadh" },
-                { n: "🇦🇪 阿联酋 (迪拜)", t: "Asia/Dubai" },
-                { n: "🇶🇦 卡塔尔 (多哈)", t: "Asia/Qatar" },
-                { n: "🇰🇼 科威特", t: "Asia/Kuwait" },
-                { n: "🇮🇱 以色列 (耶路撒冷)", t: "Asia/Jerusalem" },
-                { n: "🇵🇰 巴基斯坦 (卡拉奇)", t: "Asia/Karachi" },
-                { n: "🇧🇩 孟加拉 (达卡)", t: "Asia/Dhaka" },
-                { n: "🇱🇰 斯里兰卡 (科伦坡)", t: "Asia/Colombo" },
-                { n: "🇳🇵 尼泊尔 (加德满都)", t: "Asia/Kathmandu" },
-                { n: "🇰🇿 哈萨克斯坦 (阿拉木图)", t: "Asia/Almaty" },
-                { n: "🇺🇿 乌兹别克斯坦 (塔什干)", t: "Asia/Tashkent" },
-                { n: "🇲🇳 蒙古 (乌兰巴托)", t: "Asia/Ulaanbaatar" },
-                { n: "🇲🇲 缅甸 (仰光)", t: "Asia/Yangon" },
-                { n: "🇰🇭 柬埔寨 (金边)", t: "Asia/Phnom_Penh" },
-                { n: "🇱🇦 老挝 (万象)", t: "Asia/Vientiane" },
-                /* ─── 美洲 ─── */
-                { n: "🇺🇸 美国 (纽约)", t: "America/New_York" },
-                { n: "🇺🇸 美国 (芝加哥)", t: "America/Chicago" },
-                { n: "🇺🇸 美国 (丹佛)", t: "America/Denver" },
-                { n: "🇺🇸 美国 (洛杉矶)", t: "America/Los_Angeles" },
-                { n: "🇺🇸 美国 (西雅图)", t: "America/Los_Angeles" },
-                { n: "🇺🇸 美国 (檀香山)", t: "Pacific/Honolulu" },
-                { n: "🇨🇦 加拿大 (多伦多)", t: "America/Toronto" },
-                { n: "🇨🇦 加拿大 (温哥华)", t: "America/Vancouver" },
-                { n: "🇨🇦 加拿大 (卡尔加里)", t: "America/Edmonton" },
-                { n: "🇲🇽 墨西哥 (墨西哥城)", t: "America/Mexico_City" },
-                { n: "🇧🇷 巴西 (圣保罗)", t: "America/Sao_Paulo" },
-                { n: "🇧🇷 巴西 (里约热内卢)", t: "America/Sao_Paulo" },
-                { n: "🇧🇷 巴西 (马瑙斯)", t: "America/Manaus" },
-                { n: "🇦🇷 阿根廷 (布宜诺斯艾利斯)", t: "America/Argentina/Buenos_Aires" },
-                { n: "🇨🇱 智利 (圣地亚哥)", t: "America/Santiago" },
-                { n: "🇨🇴 哥伦比亚 (波哥大)", t: "America/Bogota" },
-                { n: "🇵🇪 秘鲁 (利马)", t: "America/Lima" },
-                { n: "🇺🇾 乌拉圭 (蒙得维的亚)", t: "America/Montevideo" },
-                { n: "🇻🇪 委内瑞拉 (加拉加斯)", t: "America/Caracas" },
-                { n: "🇪🇨 厄瓜多尔 (基多)", t: "America/Guayaquil" },
-                { n: "🇧🇴 玻利维亚 (拉巴斯)", t: "America/La_Paz" },
-                { n: "🇵🇾 巴拉圭 (亚松森)", t: "America/Asuncion" },
-                { n: "🇨🇺 古巴 (哈瓦那)", t: "America/Havana" },
-                /* ─── 大洋洲 ─── */
-                { n: "🇦🇺 澳大利亚 (悉尼)", t: "Australia/Sydney" },
-                { n: "🇦🇺 澳大利亚 (墨尔本)", t: "Australia/Melbourne" },
-                { n: "🇦🇺 澳大利亚 (珀斯)", t: "Australia/Perth" },
-                { n: "🇦🇺 澳大利亚 (布里斯班)", t: "Australia/Brisbane" },
-                { n: "🇳🇿 新西兰 (奥克兰)", t: "Pacific/Auckland" },
-                /* ─── 非洲 ─── */
-                { n: "🇪🇬 埃及 (开罗)", t: "Africa/Cairo" },
-                { n: "🇿🇦 南非 (约翰内斯堡)", t: "Africa/Johannesburg" },
-                { n: "🇳🇬 尼日利亚 (拉各斯)", t: "Africa/Lagos" },
-                { n: "🇰🇪 肯尼亚 (内罗毕)", t: "Africa/Nairobi" },
-                { n: "🇲🇦 摩洛哥 (卡萨布兰卡)", t: "Africa/Casablanca" },
-                { n: "🇪🇹 埃塞俄比亚 (亚的斯亚贝巴)", t: "Africa/Addis_Ababa" },
-                { n: "🇹🇿 坦桑尼亚 (达累斯萨拉姆)", t: "Africa/Dar_es_Salaam" },
-                { n: "🇬🇭 加纳 (阿克拉)", t: "Africa/Accra" },
-                { n: "🇩🇿 阿尔及利亚 (阿尔及尔)", t: "Africa/Algiers" },
-                { n: "🇹🇳 突尼斯", t: "Africa/Tunis" }
+                { n: "🇲🇽 México (Ciudad de México)", t: "America/Mexico_City" },
+                { n: "🇨🇴 Colombia (Bogotá)", t: "America/Bogota" },
+                { n: "🇦🇷 Argentina (Buenos Aires)", t: "America/Argentina/Buenos_Aires" },
+                { n: "🇨🇱 Chile (Santiago)", t: "America/Santiago" },
+                { n: "🇵🇪 Perú (Lima)", t: "America/Lima" },
+                { n: "🇪🇨 Ecuador (Guayaquil)", t: "America/Guayaquil" },
+                { n: "🇻🇪 Venezuela (Caracas)", t: "America/Caracas" },
+                { n: "🇧🇴 Bolivia (La Paz)", t: "America/La_Paz" },
+                { n: "🇺🇾 Uruguay (Montevideo)", t: "America/Montevideo" },
+                { n: "🇩🇴 Rep. Dominicana (Santo Domingo)", t: "America/Santo_Domingo" },
+                { n: "🇺🇸 EE. UU. (Nueva York)", t: "America/New_York" },
+                { n: "🇺🇸 EE. UU. (Los Ángeles)", t: "America/Los_Angeles" },
+                { n: "🇦🇱 Albania", t: "Europe/Tirane" },
+                { n: "🇦🇩 Andorra", t: "Europe/Andorra" },
+                { n: "🇦🇹 Austria", t: "Europe/Vienna" },
+                { n: "🇧🇾 Bielorrusia", t: "Europe/Minsk" },
+                { n: "🇧🇪 Bélgica", t: "Europe/Brussels" },
+                { n: "🇧🇦 Bosnia y Herzegovina", t: "Europe/Sarajevo" },
+                { n: "🇧🇬 Bulgaria", t: "Europe/Sofia" },
+                { n: "🇭🇷 Croacia", t: "Europe/Zagreb" },
+                { n: "🇨🇾 Chipre", t: "Asia/Nicosia" },
+                { n: "🇨🇿 Chequia", t: "Europe/Prague" },
+                { n: "🇩🇰 Dinamarca", t: "Europe/Copenhagen" },
+                { n: "🇪🇪 Estonia", t: "Europe/Tallinn" },
+                { n: "🇫🇮 Finlandia", t: "Europe/Helsinki" },
+                { n: "🇫🇷 Francia", t: "Europe/Paris" },
+                { n: "🇩🇪 Alemania", t: "Europe/Berlin" },
+                { n: "🇬🇷 Grecia", t: "Europe/Athens" },
+                { n: "🇭🇺 Hungría", t: "Europe/Budapest" },
+                { n: "🇮🇸 Islandia", t: "Atlantic/Reykjavik" },
+                { n: "🇮🇪 Irlanda", t: "Europe/Dublin" },
+                { n: "🇮🇹 Italia", t: "Europe/Rome" },
+                { n: "🇽🇰 Kosovo", t: "Europe/Belgrade" },
+                { n: "🇱🇻 Letonia", t: "Europe/Riga" },
+                { n: "🇱🇮 Liechtenstein", t: "Europe/Vaduz" },
+                { n: "🇱🇹 Lituania", t: "Europe/Vilnius" },
+                { n: "🇱🇺 Luxemburgo", t: "Europe/Luxembourg" },
+                { n: "🇲🇹 Malta", t: "Europe/Malta" },
+                { n: "🇲🇩 Moldavia", t: "Europe/Chisinau" },
+                { n: "🇲🇨 Mónaco", t: "Europe/Monaco" },
+                { n: "🇲🇪 Montenegro", t: "Europe/Podgorica" },
+                { n: "🇳🇱 Países Bajos", t: "Europe/Amsterdam" },
+                { n: "🇲🇰 Macedonia del Norte", t: "Europe/Skopje" },
+                { n: "🇳🇴 Noruega", t: "Europe/Oslo" },
+                { n: "🇵🇱 Polonia", t: "Europe/Warsaw" },
+                { n: "🇵🇹 Portugal", t: "Europe/Lisbon" },
+                { n: "🇷🇴 Rumanía", t: "Europe/Bucharest" },
+                { n: "🇷🇺 Rusia (Moscú)", t: "Europe/Moscow" },
+                { n: "🇸🇲 San Marino", t: "Europe/San_Marino" },
+                { n: "🇷🇸 Serbia", t: "Europe/Belgrade" },
+                { n: "🇸🇰 Eslovaquia", t: "Europe/Bratislava" },
+                { n: "🇸🇮 Eslovenia", t: "Europe/Ljubljana" },
+                { n: "🇪🇸 España", t: "Europe/Madrid" },
+                { n: "🇸🇪 Suecia", t: "Europe/Stockholm" },
+                { n: "🇨🇭 Suiza", t: "Europe/Zurich" },
+                { n: "🇹🇷 Turquía (Estambul)", t: "Europe/Istanbul" },
+                { n: "🇺🇦 Ucrania", t: "Europe/Kyiv" },
+                { n: "🇬🇧 Reino Unido", t: "Europe/London" },
+                { n: "🇻🇦 Ciudad del Vaticano", t: "Europe/Vatican" },
+                { n: "🇦🇷 Argentina (Buenos Aires)", t: "America/Argentina/Buenos_Aires" },
+                { n: "🇧🇷 Brasil (São Paulo)", t: "America/Sao_Paulo" },
+                { n: "🇧🇷 Brasil (Manaus)", t: "America/Manaus" },
+                { n: "🇨🇦 Canadá (Toronto)", t: "America/Toronto" },
+                { n: "🇨🇦 Canadá (Vancouver)", t: "America/Vancouver" },
+                { n: "🇨🇦 Canadá (Calgary)", t: "America/Edmonton" },
+                { n: "🇨🇱 Chile (Santiago)", t: "America/Santiago" },
+                { n: "🇨🇴 Colombia (Bogotá)", t: "America/Bogota" },
+                { n: "🇲🇽 México (Ciudad de México)", t: "America/Mexico_City" },
+                { n: "🇵🇪 Perú (Lima)", t: "America/Lima" },
+                { n: "🇺🇸 Estados Unidos (Chicago)", t: "America/Chicago" },
+                { n: "🇺🇸 Estados Unidos (Denver)", t: "America/Denver" },
+                { n: "🇺🇸 Estados Unidos (Honolulu)", t: "Pacific/Honolulu" },
+                { n: "🇺🇾 Uruguay (Montevideo)", t: "America/Montevideo" },
+                { n: "🇻🇪 Venezuela (Caracas)", t: "America/Caracas" },
+                { n: "🇧🇩 Bangladés (Daca)", t: "Asia/Dhaka" },
+                { n: "🇨🇳 China (Pekín)", t: "Asia/Shanghai" },
+                { n: "🇨🇳 China (Hong Kong)", t: "Asia/Hong_Kong" },
+                { n: "🇨🇳 China (Taipéi)", t: "Asia/Taipei" },
+                { n: "🇮🇳 India (Mumbai / Delhi)", t: "Asia/Kolkata" },
+                { n: "🇮🇩 Indonesia (Yakarta)", t: "Asia/Jakarta" },
+                { n: "🇮🇱 Israel (Jerusalén)", t: "Asia/Jerusalem" },
+                { n: "🇯🇵 Japón (Tokio)", t: "Asia/Tokyo" },
+                { n: "🇰🇿 Kazajistán (Almaty)", t: "Asia/Almaty" },
+                { n: "🇲🇾 Malasia (Kuala Lumpur)", t: "Asia/Kuala_Lumpur" },
+                { n: "🇵🇰 Pakistán (Karachi)", t: "Asia/Karachi" },
+                { n: "🇵🇭 Filipinas (Manila)", t: "Asia/Manila" },
+                { n: "🇸🇦 Arabia Saudita (Riad)", t: "Asia/Riyadh" },
+                { n: "🇸🇬 Singapur", t: "Asia/Singapore" },
+                { n: "🇰🇷 Corea del Sur (Seúl)", t: "Asia/Seoul" },
+                { n: "🇱🇰 Sri Lanka (Colombo)", t: "Asia/Colombo" },
+                { n: "🇹🇭 Tailandia (Bangkok)", t: "Asia/Bangkok" },
+                { n: "🇦🇪 EAU (Dubái)", t: "Asia/Dubai" },
+                { n: "🇻🇳 Vietnam (Hanói)", t: "Asia/Ho_Chi_Minh" },
+                { n: "🇦🇺 Australia (Sídney)", t: "Australia/Sydney" },
+                { n: "🇦🇺 Australia (Melbourne)", t: "Australia/Melbourne" },
+                { n: "🇦🇺 Australia (Perth)", t: "Australia/Perth" },
+                { n: "🇳🇿 Nueva Zelanda (Auckland)", t: "Pacific/Auckland" },
+                { n: "🇪🇬 Egipto (El Cairo)", t: "Africa/Cairo" },
+                { n: "🇰🇪 Kenia (Nairobi)", t: "Africa/Nairobi" },
+                { n: "🇲🇦 Marruecos (Casablanca)", t: "Africa/Casablanca" },
+                { n: "🇳🇬 Nigeria (Lagos)", t: "Africa/Lagos" },
+                { n: "🇿🇦 Sudáfrica (Johannesburgo)", t: "Africa/Johannesburg" }
             ];
-            /* ─── 默认时钟列表 ─── */
             const DEFAULT_CLOCKS = [
-                { id: 'local', city: '我的本地时间', tz: 'LOCAL', isLocal: true },
-                { id: 'uk', city: '🇬🇧 英国 · 🇵🇹 葡萄牙 · 🇮🇪 爱尔兰', tz: 'Europe/London' },
-                { id: 'paris', city: '🇫🇷 法国 · 🇩🇪 德国 · 🇳🇱 荷兰 · 🇵🇱 波兰 · 🇪🇸 西班牙 · 🇮🇹 意大利 · 🇸🇪 瑞典 · 🇨🇿 捷克 · 🇧🇪 比利时 · 🇭🇺 匈牙利 · 🇷🇸 塞尔维亚', tz: 'Europe/Paris' },
-                { id: 'bucharest', city: '🇷🇴 罗马尼亚 · 🇧🇬 保加利亚 · 🇬🇷 希腊 · 🇫🇮 芬兰 · 🇨🇾 塞浦路斯 · 🇱🇻 拉脱维亚 · 🇪🇪 爱沙尼亚', tz: 'Europe/Bucharest' }
+                { id: "local", city: "Mi Hora Local", timezone: "LOCAL", isLocal: true },
+                { id: "uk", city: "🇬🇧 Reino Unido · 🇵🇹 Portugal · 🇮🇪 Irlanda", timezone: "Europe/London" },
+                { id: "france", city: "🇩🇪 Alemania · 🇫🇷 Francia · 🇮🇹 Italia · 🇳🇱 Países Bajos · 🇪🇸 España · 🇵🇱 Polonia · 🇦🇹 Austria · 🇸🇪 Suecia", timezone: "Europe/Paris" },
+                { id: "eet", city: "🇷🇴 Rumanía · 🇧🇬 Bulgaria · 🇬🇷 Grecia · 🇫🇮 Finlandia · 🇨🇾 Chipre · 🇱🇻 Letonia · 🇪🇪 Estonia", timezone: "Europe/Bucharest" }
             ];
-            let clocks = [];
-            /* ─── 辅助函数 ─── */
-            function getLocalTz() {
-                return Intl.DateTimeFormat().resolvedOptions().timeZone;
+            let state = { offset: 0, clocks: JSON.parse(JSON.stringify(DEFAULT_CLOCKS)), hasCustom: false };
+            const nodes = {
+                grid: document.getElementById('clocksContainer'),
+                slider: document.getElementById('timeSlider'),
+                sliderVal: document.getElementById('sliderValue'),
+                resetBtn: document.getElementById('resetSliderBtn'),
+                themeBox: document.getElementById('themeToggle'),
+                searchInp: document.getElementById('searchTzInput'),
+                selectTz: document.getElementById('tzSelect'),
+                addBtn: document.getElementById('addTzBtn'),
+                toast: document.getElementById('toastContainer'),
+                toastMsg: document.getElementById('toastText')
+            };
+            function initTheme() {
+                const saved = localStorage.getItem('__pref_theme') || CONFIG.themes.light;
+                document.documentElement.setAttribute('data-theme', saved);
+                nodes.themeBox.checked = (saved === CONFIG.themes.dark);
+                nodes.themeBox.addEventListener('change', () => {
+                    const target = nodes.themeBox.checked ? CONFIG.themes.dark : CONFIG.themes.light;
+                    document.documentElement.setAttribute('data-theme', target);
+                    localStorage.setItem('__pref_theme', target);
+                });
             }
-            function getOffsetStr(date, tz) {
-                try {
-                    const parts = new Intl.DateTimeFormat('zh-CN', {
-                        timeZone: tz,
-                        timeZoneName: 'shortOffset'
-                    }).formatToParts(date);
-                    const found = parts.find(p => p.type === 'timeZoneName');
-                    if (found && found.value) {
-                        return found.value.replace('GMT', 'UTC');
-                    }
-                } catch (_) {}
-                return 'UTC';
-            }
-            /* 强制使用 00-23 小时制，避免 24:00 bug */
-            function formatTime(date, tz) {
-                try {
-                    const parts = new Intl.DateTimeFormat('zh-CN', {
-                        timeZone: tz,
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hourCycle: 'h23'
-                    }).formatToParts(date);
-                    const hour = parts.find(p => p.type === 'hour').value;
-                    const minute = parts.find(p => p.type === 'minute').value;
-                    return `${hour}:${minute}`;
-                } catch (_) { return '--:--'; }
-            }
-            function formatDate(date, tz) {
-                try {
-                    const parts = new Intl.DateTimeFormat('zh-CN', {
-                        timeZone: tz,
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                        weekday: 'short'
-                    }).formatToParts(date);
-                    const year = parts.find(p => p.type === 'year').value;
-                    const month = parts.find(p => p.type === 'month').value;
-                    const day = parts.find(p => p.type === 'day').value;
-                    const weekday = parts.find(p => p.type === 'weekday').value;
-                    return `${year}/${month}/${day} ${weekday}`;
-                } catch (_) { return '----/--/-- 周-'; }
-            }
-            function getHour(date, tz) {
-                try {
-                    const parts = new Intl.DateTimeFormat('zh-CN', {
-                        timeZone: tz,
-                        hour: '2-digit',
-                        hourCycle: 'h23'
-                    }).formatToParts(date);
-                    const hour = parts.find(p => p.type === 'hour').value;
-                    return parseInt(hour, 10);
-                } catch (_) { return -1; }
-            }
-            function getDisplayTz(tz) {
-                if (tz === 'LOCAL') return 'Local Time';
-                return tz;
+            let toastLock;
+            function notify(msg) {
+                nodes.toastMsg.textContent = msg;
+                nodes.toast.classList.remove('hidden');
+                clearTimeout(toastLock);
+                toastLock = setTimeout(() => nodes.toast.classList.add('hidden'), 2200);
             }
             function getCardId(clock) {
                 if (clock.id) return 'card_' + clock.id;
                 return 'card_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6);
             }
-            /* ─── Toast 消息 ─── */
-            function showToast(msg, type) {
-                if (toastTimer) clearTimeout(toastTimer);
-                const alert = document.getElementById('toastAlert');
-                alert.className = 'alert shadow-lg py-2 px-4 text-sm';
-                if (type === 'success') alert.classList.add('alert-success');
-                else if (type === 'error') alert.classList.add('alert-error');
-                else alert.classList.add('alert-info');
-                toastMsg.textContent = msg;
-                toastEl.classList.add('show');
-                toastTimer = setTimeout(() => {
-                    toastEl.classList.remove('show');
-                }, 2500);
-            }
-            /* ─── 渲染与 Hydration 逻辑 ─── */
             function renderClocks() {
-                const now = new Date(Date.now() + offsetHours * 3600000);
-                const localTz = getLocalTz();
-                container.innerHTML = '';
-                clocks.forEach((clock, index) => {
-                    const tz = clock.isLocal ? localTz : clock.tz;
-                    const cardId = getCardId(clock);
-                    const card = document.createElement('div');
-                    card.id = cardId;
-                    card.className = 'card clock-card shadow-md border border-base-300 bg-base-100';
-                    card.dataset.index = index;
-                    const hour = getHour(now, tz);
-                    if (hour >= WORK_START && hour < WORK_END && !clock.isLocal) {
-                        card.classList.add('is-working');
-                    }
-                    const timeStr = formatTime(now, tz);
-                    const dateStr = formatDate(now, tz);
-                    const offsetStr = clock.isLocal ? '' : ' (' + getOffsetStr(now, tz) + ')';
-                    const displayTz = getDisplayTz(tz);
-                    card.innerHTML = `
+                nodes.grid.innerHTML = state.clocks.map(c => `
+                    <div id="${getCardId(c)}" class="card clock-card shadow-md border border-base-300 ${c.isLocal ? 'bg-base-200' : 'bg-base-100'}" role="article" aria-label="Reloj para ${c.city}">
                         <div class="card-body p-4 flex flex-col">
                             <div>
-                                <h3 class="city-name">${clock.city}</h3>
-                                <p class="timezone-label">${displayTz}</p>
+                                <h3 class="city-name">${c.city}</h3>
+                                <p class="timezone-label">${c.timezone === 'LOCAL' ? 'Hora Local' : c.timezone}</p>
                             </div>
                             <div class="mt-auto pt-2 flex items-end justify-between gap-2">
-                                ${!clock.isLocal
-                                    ? `<button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-index="${index}" aria-label="删除">✕</button>`
+                                ${!c.isLocal
+                                    ? `<button class="btn btn-xs btn-ghost btn-circle text-error/70 hover:text-error shrink-0 remove-btn" data-id="${c.id}" aria-label="Eliminar ${c.city}">✕</button>`
                                     : `<div class="w-6 shrink-0"></div>`}
                                 <div class="text-right">
-                                    <div class="time-display" data-time="${cardId}">${timeStr}</div>
-                                    <div class="date-display" data-date="${cardId}">${dateStr}${offsetStr}</div>
+                                    <div class="time-display" data-time="${getCardId(c)}">12:00</div>
+                                    <div class="date-display" data-date="${getCardId(c)}">lun, 01 ene</div>
                                 </div>
                             </div>
                         </div>
-                    `;
-                    container.appendChild(card);
-                });
-                bindRemoveButtons();
-                updateSliderDisplay();
-            }
-            function bindRemoveButtons() {
-                container.querySelectorAll('.remove-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const idx = parseInt(this.dataset.index, 10);
-                        if (!isNaN(idx)) removeClock(idx);
+                    </div>
+                `).join('');
+                nodes.grid.querySelectorAll('.remove-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = e.currentTarget.getAttribute('data-id');
+                        state.clocks = state.clocks.filter(c => c.id !== id);
+                        try { localStorage.setItem('__user_clocks', JSON.stringify(state.clocks)); } catch(_) {}
+                        renderClocks();
+                        tick();
+                        notify("Eliminado.");
                     });
                 });
             }
-            /* ─── 更新卡片内容 ─── */
-            function updateClocks() {
-                const now = new Date(Date.now() + offsetHours * 3600000);
-                const localTz = getLocalTz();
-                clocks.forEach((clock) => {
-                    const tz = clock.isLocal ? localTz : clock.tz;
-                    const cardId = getCardId(clock);
-                    const card = document.getElementById(cardId);
+            function tick() {
+                const baseMs = Date.now() + (state.offset * 3600000);
+                const baseDate = new Date(baseMs);
+                const localTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                state.clocks.forEach(c => {
+                    const card = document.getElementById(getCardId(c));
                     if (!card) return;
-                    const timeEl = card.querySelector('[data-time]');
-                    const dateEl = card.querySelector('[data-date]');
-                    if (timeEl) {
-                        timeEl.textContent = formatTime(now, tz);
-                    }
-                    if (dateEl) {
-                        const offsetStr = clock.isLocal ? '' : ' (' + getOffsetStr(now, tz) + ')';
-                        dateEl.textContent = formatDate(now, tz) + offsetStr;
-                    }
-                    const hour = getHour(now, tz);
-                    if (!clock.isLocal) {
-                        if (hour >= WORK_START && hour < WORK_END) {
+                    const tz = c.isLocal ? localTz : c.timezone;
+                    try {
+                        const timeParts = new Intl.DateTimeFormat('es-419', {
+                            timeZone: tz,
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hourCycle: 'h23'
+                        }).formatToParts(baseDate);
+                        const hh = (timeParts.find(p => p.type === 'hour') || {}).value || '--';
+                        const mm = (timeParts.find(p => p.type === 'minute') || {}).value || '--';
+                        const timeStr = `${hh}:${mm}`;
+
+                        const dateStr = baseDate.toLocaleDateString('es-419', { timeZone: tz, weekday: 'short', day: '2-digit', month: 'short' });
+                        const offsetParts = new Intl.DateTimeFormat('es-419', { timeZone: tz, timeZoneName: 'shortOffset' }).formatToParts(baseDate);
+                        const offsetStr = (offsetParts.find(p => p.type === 'timeZoneName') || {}).value || '';
+                        const timeEl = card.querySelector('[data-time]');
+                        const dateEl = card.querySelector('[data-date]');
+                        if (timeEl) timeEl.textContent = timeStr;
+                        if (dateEl) dateEl.textContent = `${dateStr} (${offsetStr})`;
+                        const currentHour = parseInt(hh, 10);
+                        const weekday = baseDate.toLocaleDateString('en-US', { timeZone: tz, weekday: 'short' });
+                        const isWeekend = (weekday === 'Sat' || weekday === 'Sun');
+                        const isWorkHour = (currentHour >= CONFIG.workHour.start && currentHour < CONFIG.workHour.end) && !isWeekend;
+                        if (!c.isLocal && isWorkHour) {
                             card.classList.add('is-working');
                         } else {
                             card.classList.remove('is-working');
                         }
-                    }
+                    } catch(e) {}
                 });
             }
-            /* ─── 滑块显示 ─── */
-            function updateSliderDisplay() {
-                if (offsetHours === 0) {
-                    sliderVal.textContent = '实时时间';
-                    resetBtn.classList.add('hidden');
-                } else {
-                    sliderVal.textContent = (offsetHours > 0 ? '+' : '') + offsetHours + ' 小时';
-                    resetBtn.classList.remove('hidden');
-                }
-            }
-            /* ─── 添加/删除时钟 ─── */
-            function addClock(city, tz) {
-                if (clocks.some(c => c.tz === tz && !c.isLocal)) {
-                    showToast('该时区已存在', 'error');
-                    return false;
-                }
-                clocks.push({
-                    id: 'custom_' + Date.now(),
-                    city: city,
-                    tz: tz,
-                    isLocal: false
-                });
-                saveClocks();
-                renderClocks();
-                updateClocks();
-                showToast('已添加: ' + city, 'success');
-                return true;
-            }
-            function removeClock(index) {
-                const removed = clocks[index];
-                if (!removed || removed.isLocal) return;
-                clocks.splice(index, 1);
-                saveClocks();
-                renderClocks();
-                updateClocks();
-                showToast('已删除: ' + removed.city, 'info');
+            function populateSelect(filter = '') {
+                const query = filter.toLowerCase();
+                const matched = countryDB.filter(item => item.n.toLowerCase().includes(query));
+                nodes.selectTz.innerHTML = matched.map(i => `<option value="${i.t}">${i.n}</option>`).join('');
+                if (!matched.length) nodes.selectTz.innerHTML = '<option disabled>No se encontraron resultados</option>';
             }
             function saveClocks() {
-                try {
-                    localStorage.setItem('euroClocks', JSON.stringify(clocks));
-                } catch (_) {}
+                try { localStorage.setItem('__user_clocks', JSON.stringify(state.clocks)); } catch(_) {}
             }
-            /* ─── 填充下拉菜单 ─── */
-            function populateSelect(filter) {
-                const q = (filter || '').toLowerCase().trim();
-                const filtered = countryDB.filter(item => item.n.toLowerCase().includes(q) || item.t.toLowerCase().includes(q));
-                tzSelect.innerHTML = '';
-                if (filtered.length === 0) {
-                    const opt = document.createElement('option');
-                    opt.disabled = true;
-                    opt.textContent = '未找到匹配国家';
-                    tzSelect.appendChild(opt);
-                    return;
-                }
-                filtered.forEach(item => {
-                    const opt = document.createElement('option');
-                    opt.value = item.t;
-                    opt.textContent = item.n;
-                    tzSelect.appendChild(opt);
-                });
-            }
-            /* ─── 防抖 ─── */
-            function debounce(fn, delay) {
-                let timer;
-                return function(...args) {
-                    clearTimeout(timer);
-                    timer = setTimeout(() => fn.apply(this, args), delay);
-                };
-            }
-            /* ─── 定时器 ─── */
-            let updateTimer = null;
-            function startTimer() {
-                if (updateTimer) clearInterval(updateTimer);
-                updateTimer = setInterval(updateClocks, 60000);
-            }
-            /* ─── 初始化 ─── */
-            function init() {
-                let hasCustomClocks = false;
-                try {
-                    const saved = localStorage.getItem('euroClocks');
-                    if (saved) {
-                        const parsed = JSON.parse(saved);
-                        if (Array.isArray(parsed) && parsed.length > 0) {
-                            clocks = parsed;
-                            hasCustomClocks = true;
+            function bootstrap() {
+                initTheme();
+                const cached = localStorage.getItem('__user_clocks');
+                if (cached) {
+                    try {
+                        const parsed = JSON.parse(cached);
+                        if (parsed && parsed.length) {
+                            state.clocks = parsed.map(c => ({
+                                id: c.id, city: c.city, timezone: c.timezone || c.zone, isLocal: c.isLocal
+                            }));
+                            state.hasCustom = true;
                         }
-                    }
-                } catch (_) {}
-                if (!hasCustomClocks) {
-                    clocks = JSON.parse(JSON.stringify(DEFAULT_CLOCKS));
-                    bindRemoveButtons();
-                } else {
-                    renderClocks();
+                    } catch(e){}
                 }
-                populateSelect('');
-                updateClocks();
-                startTimer();
-                slider.addEventListener('input', function() {
-                    offsetHours = parseFloat(this.value);
-                    updateSliderDisplay();
-                    updateClocks();
+                renderClocks();
+                populateSelect();
+                tick();
+                setInterval(tick, 60000);
+                document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+                nodes.slider.addEventListener('input', (e) => {
+                    state.offset = parseFloat(e.target.value);
+                    nodes.sliderVal.textContent = state.offset === 0 ? 'Hora en Vivo' : `${state.offset > 0 ? '+' : ''}${state.offset} horas`;
+                    state.offset === 0 ? nodes.resetBtn.classList.add('hidden') : nodes.resetBtn.classList.remove('hidden');
+                    tick();
                 });
-                resetBtn.addEventListener('click', function() {
-                    slider.value = 0;
-                    offsetHours = 0;
-                    updateSliderDisplay();
-                    updateClocks();
-                    showToast('已同步到当前时间', 'info');
+                nodes.resetBtn.addEventListener('click', () => {
+                    nodes.slider.value = 0; state.offset = 0;
+                    nodes.sliderVal.textContent = 'Hora en Vivo';
+                    nodes.resetBtn.classList.add('hidden');
+                    tick();
                 });
-                searchInput.addEventListener('input', debounce(function(e) {
-                    populateSelect(e.target.value);
-                }, 200));
-                addBtn.addEventListener('click', function() {
-                    const tz = tzSelect.value;
-                    if (!tz) {
-                        showToast('请选择一个国家', 'error');
-                        return;
-                    }
-                    const opt = tzSelect.options[tzSelect.selectedIndex];
-                    const name = opt ? opt.textContent : tz;
-                    addClock(name, tz);
-                    const dropdown = document.querySelector('.dropdown');
-                    if (dropdown) {
-                        const btn = dropdown.querySelector('[tabindex]');
-                        if (btn) btn.blur();
-                    }
-                    searchInput.value = '';
-                    populateSelect('');
-                });
-                document.addEventListener('visibilitychange', function() {
-                    if (!document.hidden) {
-                        updateClocks();
-                    }
+                nodes.searchInp.addEventListener('input', (e) => populateSelect(e.target.value));
+                nodes.addBtn.addEventListener('click', () => {
+                    const zone = nodes.selectTz.value;
+                    if (!zone) return;
+                    if (state.clocks.some(c => c.timezone === zone)) return notify("Ya existe.");
+                    const selectedOption = nodes.selectTz.options[nodes.selectTz.selectedIndex];
+                    if (!selectedOption || selectedOption.disabled) return;
+                    const optionText = selectedOption.text;
+                    state.clocks.push({ id: 'custom_' + Date.now(), city: optionText, timezone: zone, isLocal: false });
+                    saveClocks();
+                    renderClocks();
+                    tick();
+                    notify("Añadido.");
+                    if (document.activeElement) document.activeElement.blur();
+                    nodes.searchInp.value = '';
+                    populateSelect();
                 });
             }
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
+                document.addEventListener('DOMContentLoaded', bootstrap);
             } else {
-                init();
+                bootstrap();
             }
         })();
     </script>
